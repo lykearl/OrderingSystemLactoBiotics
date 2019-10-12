@@ -141,7 +141,6 @@ namespace LactoBioticsSystem.Products_Management
             {
                 txtpro_code.Text = "FS-" + catFoodSuppliments.ToString();
             }
-
             if (cmbProCategory.Text == "Cosmetics")
             {
                 txtpro_code.Text = "HM-" + catCosmetics.ToString();

@@ -121,12 +121,6 @@
     <Compile Include="Reports\SalesReportsForm.xaml.cs">
       <DependentUpon>SalesReportsForm.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Reports\ViewSalesReport.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Reports\ViewSalesReport.Designer.cs">
-      <DependentUpon>ViewSalesReport.cs</DependentUpon>
-    </Compile>
     <Compile Include="Users Management\UsersRegistrationForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -188,9 +182,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Reports\ViewSalesReport.resx">
-      <DependentUpon>ViewSalesReport.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Users Management\UsersRegistrationForm.resx">
       <DependentUpon>UsersRegistrationForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -239,6 +230,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Header.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="rsz_1lacto_biotics_logo_.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -38,6 +38,8 @@
             this.lblFirstname = new System.Windows.Forms.Label();
             this.lblUsertype = new System.Windows.Forms.Label();
             this.pnlCustOrder = new System.Windows.Forms.Panel();
+            this.lblRemain = new System.Windows.Forms.Label();
+            this.lblStockOut = new System.Windows.Forms.Label();
             this.lblStockIn = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.btnSelectPro = new System.Windows.Forms.Button();
@@ -86,9 +88,9 @@
             this.txtAmount = new System.Windows.Forms.TextBox();
             this.lblBox2 = new System.Windows.Forms.Label();
             this.lblTin = new System.Windows.Forms.Label();
-            this.dgvDelivery = new System.Windows.Forms.DataGridView();
             this.dgvReservation = new System.Windows.Forms.DataGridView();
             this.dgvAddToCart = new System.Windows.Forms.DataGridView();
+            this.dgvDelivery = new System.Windows.Forms.DataGridView();
             this.gbDelivery = new System.Windows.Forms.GroupBox();
             this.btnDel = new System.Windows.Forms.Button();
             this.btnCancelDel = new System.Windows.Forms.Button();
@@ -340,17 +342,15 @@
             this.btnManageCustomer = new System.Windows.Forms.Button();
             this.btnStaffTransact = new System.Windows.Forms.Button();
             this.btnStaffHome = new System.Windows.Forms.Button();
-            this.lblStockOut = new System.Windows.Forms.Label();
-            this.lblRemain = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.pnlCustOrder.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox18.SuspendLayout();
             this.groupBox10.SuspendLayout();
             this.gbOrderPayment.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDelivery)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReservation)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAddToCart)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDelivery)).BeginInit();
             this.gbDelivery.SuspendLayout();
             this.gbWalkin.SuspendLayout();
             this.gbReservation.SuspendLayout();
@@ -417,7 +417,7 @@
             this.lblTime.ForeColor = System.Drawing.Color.LightGray;
             this.lblTime.Location = new System.Drawing.Point(1296, 22);
             this.lblTime.Name = "lblTime";
-            this.lblTime.Size = new System.Drawing.Size(30, 13);
+            this.lblTime.Size = new System.Drawing.Size(31, 13);
             this.lblTime.TabIndex = 63;
             this.lblTime.Text = "Time";
             // 
@@ -518,6 +518,26 @@
             this.pnlCustOrder.TabIndex = 52;
             this.pnlCustOrder.Visible = false;
             this.pnlCustOrder.Paint += new System.Windows.Forms.PaintEventHandler(this.PnlCustOrder_Paint);
+            // 
+            // lblRemain
+            // 
+            this.lblRemain.AutoSize = true;
+            this.lblRemain.ForeColor = System.Drawing.Color.LightGray;
+            this.lblRemain.Location = new System.Drawing.Point(51, 474);
+            this.lblRemain.Name = "lblRemain";
+            this.lblRemain.Size = new System.Drawing.Size(19, 13);
+            this.lblRemain.TabIndex = 46;
+            this.lblRemain.Text = "    ";
+            // 
+            // lblStockOut
+            // 
+            this.lblStockOut.AutoSize = true;
+            this.lblStockOut.ForeColor = System.Drawing.Color.LightGray;
+            this.lblStockOut.Location = new System.Drawing.Point(113, 395);
+            this.lblStockOut.Name = "lblStockOut";
+            this.lblStockOut.Size = new System.Drawing.Size(28, 13);
+            this.lblStockOut.TabIndex = 45;
+            this.lblStockOut.Text = "       ";
             // 
             // lblStockIn
             // 
@@ -1072,20 +1092,6 @@
             this.lblTin.TabIndex = 43;
             this.lblTin.Text = "     ";
             // 
-            // dgvDelivery
-            // 
-            this.dgvDelivery.AllowUserToAddRows = false;
-            this.dgvDelivery.AllowUserToDeleteRows = false;
-            this.dgvDelivery.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDelivery.Location = new System.Drawing.Point(166, 68);
-            this.dgvDelivery.Name = "dgvDelivery";
-            this.dgvDelivery.ReadOnly = true;
-            this.dgvDelivery.RowHeadersWidth = 51;
-            this.dgvDelivery.Size = new System.Drawing.Size(1041, 183);
-            this.dgvDelivery.TabIndex = 34;
-            this.dgvDelivery.Visible = false;
-            this.dgvDelivery.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvDelivery_CellContentClick);
-            // 
             // dgvReservation
             // 
             this.dgvReservation.AllowUserToAddRows = false;
@@ -1112,6 +1118,20 @@
             this.dgvAddToCart.Size = new System.Drawing.Size(1041, 183);
             this.dgvAddToCart.TabIndex = 36;
             this.dgvAddToCart.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvAddToCart_CellContentClick);
+            // 
+            // dgvDelivery
+            // 
+            this.dgvDelivery.AllowUserToAddRows = false;
+            this.dgvDelivery.AllowUserToDeleteRows = false;
+            this.dgvDelivery.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDelivery.Location = new System.Drawing.Point(166, 68);
+            this.dgvDelivery.Name = "dgvDelivery";
+            this.dgvDelivery.ReadOnly = true;
+            this.dgvDelivery.RowHeadersWidth = 51;
+            this.dgvDelivery.Size = new System.Drawing.Size(1041, 183);
+            this.dgvDelivery.TabIndex = 34;
+            this.dgvDelivery.Visible = false;
+            this.dgvDelivery.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvDelivery_CellContentClick);
             // 
             // gbDelivery
             // 
@@ -3480,7 +3500,7 @@
             this.label40.ForeColor = System.Drawing.Color.LightGray;
             this.label40.Location = new System.Drawing.Point(135, 90);
             this.label40.Name = "label40";
-            this.label40.Size = new System.Drawing.Size(65, 13);
+            this.label40.Size = new System.Drawing.Size(66, 13);
             this.label40.TabIndex = 16;
             this.label40.Text = "Transaction";
             // 
@@ -4184,7 +4204,7 @@
             this.label114.ForeColor = System.Drawing.Color.LightGray;
             this.label114.Location = new System.Drawing.Point(141, 89);
             this.label114.Name = "label114";
-            this.label114.Size = new System.Drawing.Size(65, 13);
+            this.label114.Size = new System.Drawing.Size(66, 13);
             this.label114.TabIndex = 16;
             this.label114.Text = "Transaction";
             // 
@@ -4269,26 +4289,6 @@
             this.btnStaffHome.UseVisualStyleBackColor = false;
             this.btnStaffHome.Click += new System.EventHandler(this.BtnStaffHome_Click);
             // 
-            // lblStockOut
-            // 
-            this.lblStockOut.AutoSize = true;
-            this.lblStockOut.ForeColor = System.Drawing.Color.LightGray;
-            this.lblStockOut.Location = new System.Drawing.Point(113, 395);
-            this.lblStockOut.Name = "lblStockOut";
-            this.lblStockOut.Size = new System.Drawing.Size(28, 13);
-            this.lblStockOut.TabIndex = 45;
-            this.lblStockOut.Text = "       ";
-            // 
-            // lblRemain
-            // 
-            this.lblRemain.AutoSize = true;
-            this.lblRemain.ForeColor = System.Drawing.Color.LightGray;
-            this.lblRemain.Location = new System.Drawing.Point(51, 474);
-            this.lblRemain.Name = "lblRemain";
-            this.lblRemain.Size = new System.Drawing.Size(19, 13);
-            this.lblRemain.TabIndex = 46;
-            this.lblRemain.Text = "    ";
-            // 
             // AdminMainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -4296,7 +4296,6 @@
             this.BackColor = System.Drawing.Color.LightGray;
             this.ClientSize = new System.Drawing.Size(1381, 777);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.pnlHeader);
             this.Controls.Add(this.pnlSystemTitle);
             this.Controls.Add(this.pnlStaffHeader);
             this.Controls.Add(this.pnlCustOrder);
@@ -4308,6 +4307,7 @@
             this.Controls.Add(this.pnlReports);
             this.Controls.Add(this.pnlDelivery);
             this.Controls.Add(this.pnlReservation);
+            this.Controls.Add(this.pnlHeader);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AdminMainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -4324,9 +4324,9 @@
             this.groupBox10.PerformLayout();
             this.gbOrderPayment.ResumeLayout(false);
             this.gbOrderPayment.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDelivery)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReservation)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAddToCart)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDelivery)).EndInit();
             this.gbDelivery.ResumeLayout(false);
             this.gbWalkin.ResumeLayout(false);
             this.gbReservation.ResumeLayout(false);

@@ -1107,7 +1107,6 @@ namespace LactoBioticsSystem
                                     QuantityPerBox = int.Parse(dgvAddToCart.Rows[p].Cells[12].Value.ToString()),
                                     OrderID = int.Parse(dgvAddToCart.Rows[p].Cells[13].Value.ToString()),
                                 };
-                                db.AddToCarts.DeleteOnSubmit(AddCart);
                                 dgvAddToCart.DataSource = db.spViewCart();
                         }
                         db.SubmitChanges();
@@ -1717,7 +1716,7 @@ namespace LactoBioticsSystem
                         lblDeliveryID.Text = "";
                         MessageBox.Show("Delivery Successfully Updated!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         ViewSalesReportsForm vsr = new ViewSalesReportsForm();
-                        vsr.dgvSalesInventory.DataSource = db.spViewSalesReports();
+                        //vsr.dgvSalesInventory.DataSource = db.spViewSalesReports();
                         dgvCustDelivery.DataSource = db.spSelectDelivery();
                     }
                     else

@@ -5,8 +5,11 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:LactoBioticsSystem.Reports"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Width="{Binding Path=ActualWidth, RelativeSource={RelativeSource AncestorType={x:Type ContentPresenter}}}"
+    Height="{Binding Path=ActualHeight, RelativeSource={RelativeSource AncestorType={x:Type ContentPresenter}}}"
     d:DesignHeight="816"
     d:DesignWidth="1248"
+    DataContext="{Binding RelativeSource={RelativeSource Self}}"
     mc:Ignorable="d">
     <Grid Background="White">
         <FlowDocumentScrollViewer>
@@ -16,23 +19,19 @@
                 PageHeight="13in">
                 <BlockUIContainer>
                     <StackPanel Orientation="Vertical">
-                        <Grid>
-                            <TextBlock HorizontalAlignment="Center" FontSize="40">
-                                <Run Text="LactoBiotics Worldwide Corporation"/>
-                            </TextBlock>
-                        </Grid>
+                        <Image Width="500" Source="C:\Users\Neil\Documents\GitHub\OrderingSystemLactoBiotics\LactoBioticsSystem\rsz_1lacto_biotics_logo_.png" />
                         <Grid>
                             <TextBlock HorizontalAlignment="Center">
-                                <Run Text="G.D. Uyfang Bldg., Sanciangko St., Pahina Central Cebu City "/>
-                                <LineBreak></LineBreak>
+                                <Run Text="G.D. Uyfang Bldg., Sanciangko St., Pahina Central Cebu City " />
+                                <LineBreak />
                             </TextBlock>
                         </Grid>
                         <Grid>
                             <TextBlock HorizontalAlignment="Left">
                                 <Run Text="Printed By: " />
-                                <Run Text="{Binding User.user_Fname}" />
+                                <Run Text="{Binding User.UserFname}" />
                                 <Run Text=" " />
-                                <Run Text="{Binding User.user_Lname}" />
+                                <Run Text="{Binding User.UserLname}" />
                             </TextBlock>
                             <TextBlock HorizontalAlignment="Right">
                                 <Run Text="Date Printed: " />
@@ -40,30 +39,66 @@
                             </TextBlock>
                         </Grid>
                         <TextBlock HorizontalAlignment="Center" FontSize="30">Inventory Report</TextBlock>
-                        <DataGrid
-                            AutoGenerateColumns="False"
-                            ColumnWidth="1*"
-                            IsReadOnly="True"
-                            ItemsSource="{Binding Inventories}">
-                            <DataGrid.Columns>
-                                <DataGridTextColumn Binding="{Binding product.product_name}" Header="Product Name" />
-                                <DataGridTextColumn Binding="{Binding product.product_quantity}" Header="Balance" />
-                                <DataGridTextColumn Binding="{Binding stock_in}" Header="Stocks Added" />
-                                <DataGridTextColumn Binding="{Binding product.product_name}" Header="Stock Out" />
-                                <DataGridTextColumn Binding="{Binding stock_in_date}" Header="Date Processed" />
-                                <DataGridTemplateColumn Header="Processed By">
-                                    <DataGridTemplateColumn.CellTemplate>
-                                        <DataTemplate>
-                                            <TextBlock>
-                                                <Run Text="{Binding User_acc.user_Fname}" />
-                                                <Run Text=" " />
-                                                <Run Text="{Binding User_acc.user_Lname}" />
-                                            </TextBlock>
-                                        </DataTemplate>
-                                    </DataGridTemplateColumn.CellTemplate>
-                                </DataGridTemplateColumn>
-                            </DataGrid.Columns>
-                        </DataGrid>
+                        <GroupBox Margin="0,0,0,25" Header="Food Supplement">
+                            <DataGrid
+                                AutoGenerateColumns="False"
+                                ColumnWidth="1*"
+                                IsReadOnly="True"
+                                ItemsSource="{Binding FoodSupplement}">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Binding="{Binding Product.ProductName}" Header="Product Name" />
+                                    <DataGridTextColumn Binding="{Binding Product.Quantity}" Header="Balance" />
+                                    <DataGridTextColumn Binding="{Binding StocksIn}" Header="Stocks Added" />
+                                    <DataGridTextColumn Binding="{Binding Product.ProductName}" Header="Stock Out" />
+                                    <DataGridTextColumn Binding="{Binding Date}" Header="Date Processed" />
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </GroupBox>
+                        <GroupBox Margin="0,0,0,25" Header="Agricultural Products">
+                            <DataGrid
+                                AutoGenerateColumns="False"
+                                ColumnWidth="1*"
+                                IsReadOnly="True"
+                                ItemsSource="{Binding AgriProducts}">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Binding="{Binding Product.ProductName}" Header="Product Name" />
+                                    <DataGridTextColumn Binding="{Binding Product.Quantity}" Header="Balance" />
+                                    <DataGridTextColumn Binding="{Binding StocksIn}" Header="Stocks Added" />
+                                    <DataGridTextColumn Binding="{Binding Product.ProductName}" Header="Stock Out" />
+                                    <DataGridTextColumn Binding="{Binding Date}" Header="Date Processed" />
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </GroupBox>
+                        <GroupBox Margin="0,0,0,25" Header="Cosmetics">
+                            <DataGrid
+                                AutoGenerateColumns="False"
+                                ColumnWidth="1*"
+                                IsReadOnly="True"
+                                ItemsSource="{Binding Cosmetics}">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Binding="{Binding Product.ProductName}" Header="Product Name" />
+                                    <DataGridTextColumn Binding="{Binding Product.Quantity}" Header="Balance" />
+                                    <DataGridTextColumn Binding="{Binding StocksIn}" Header="Stocks Added" />
+                                    <DataGridTextColumn Binding="{Binding Product.ProductName}" Header="Stock Out" />
+                                    <DataGridTextColumn Binding="{Binding Date}" Header="Date Processed" />
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </GroupBox>
+                        <GroupBox Margin="0,0,0,25" Header="CAPE">
+                            <DataGrid
+                                AutoGenerateColumns="False"
+                                ColumnWidth="1*"
+                                IsReadOnly="True"
+                                ItemsSource="{Binding CAPE}">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Binding="{Binding Product.ProductName}" Header="Product Name" />
+                                    <DataGridTextColumn Binding="{Binding Product.Quantity}" Header="Balance" />
+                                    <DataGridTextColumn Binding="{Binding StocksIn}" Header="Stocks Added" />
+                                    <DataGridTextColumn Binding="{Binding Product.ProductName}" Header="Stock Out" />
+                                    <DataGridTextColumn Binding="{Binding Date}" Header="Date Processed" />
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </GroupBox>
                     </StackPanel>
                 </BlockUIContainer>
             </FlowDocument>

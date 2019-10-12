@@ -14,6 +14,22 @@ namespace LactoBioticsSystem
     {
         DatabaseDataContext db = new DatabaseDataContext();
         IQueryable<SalesReport> filteredSalesReport;
+        class SalesReportViewModel
+        {
+            public List<SalesReport> SalesReports { get; set; }
+            public UserAccount User { get; set; } = ClsLogin.User;
+
+            public DateTime Now {
+                get { return DateTime.Now; }
+                set { Now = value; }
+            }
+
+        }
+        public class SalesReports
+        {
+            List<SalesReport> SalesReportsList { get; set; }
+
+        }
         public ViewSalesReportsForm()
         {
             InitializeComponent();
@@ -29,11 +45,6 @@ namespace LactoBioticsSystem
             cmbbox_filter.SelectedIndex = 0;
         }
 
-        private void BtnPrintSalesReports_Click(object sender, EventArgs e)
-        {
-            new Reports.ViewSalesReport(filteredSalesReport).ShowDialog();
-        }
-
         private void Datepicker_startDate_ValueChanged(object sender, EventArgs e)
         {
             updateSalesReportTable();
@@ -45,8 +56,7 @@ namespace LactoBioticsSystem
         private void updateSalesReportTable()
         {
             filteredSalesReport = (from sales in db.SalesReports where sales.Date.Value.Date >= datepicker_startDate.Value.Date && sales.Date.Value.Date <= datepicker_enddate.Value.Date.Date select sales);
-            dgvSalesInventory.DataSource = filteredSalesReport;
-            dgvSalesInventory.Refresh();
+            salesreportForm.DataContext = new SalesReportViewModel() { SalesReports = filteredSalesReport.ToList() };
         }
 
         private void ComboBox1_SelectedValueChanged(object sender, EventArgs e)
@@ -59,8 +69,7 @@ namespace LactoBioticsSystem
                 case "Monthly": filteredSalesReport = (from sales in db.SalesReports where sales.Date.Value.Date >= DateTime.Now.AddMonths(-1).Date && sales.Date.Value.Date <= DateTime.Now.Date select sales); break;
                 case "Custom": toggleDatePickerVisibility(true);break;
             }
-            dgvSalesInventory.DataSource = filteredSalesReport;
-            dgvSalesInventory.Refresh();
+            salesreportForm.DataContext = new SalesReportViewModel() { SalesReports = filteredSalesReport.ToList() };
         }
         private void toggleDatePickerVisibility(bool boolean)
         {

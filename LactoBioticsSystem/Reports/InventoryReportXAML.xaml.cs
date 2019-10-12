@@ -20,6 +20,17 @@ namespace LactoBioticsSystem.Reports
     /// </summary>
     public partial class InventoryReportXAML : UserControl
     {
+        DatabaseDataContext db = new DatabaseDataContext();
+        public class InventoryReport
+        {
+            public List<ProductsInventory> Inventories { get; set; }
+            public DateTime Now {
+                get { return DateTime.Now; }
+            }
+            public UserAccount User {
+                get { return ClsLogin.User; }
+            }
+        }
         public InventoryReportXAML()
         {
             InitializeComponent();

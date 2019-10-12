@@ -17,7 +17,10 @@ namespace LactoBioticsSystem
         DatabaseDataContext db = new DatabaseDataContext();
         public class InventoryReport
         {
-            public List<ProductsInventory> Inventories { get; set; }
+            public List<ProductsInventory> FoodSupplement { get; set; }
+            public List<ProductsInventory> AgriProducts { get; set; }
+            public List<ProductsInventory> Cosmetics { get; set; }
+            public List<ProductsInventory> CAPE { get; set; }
             public DateTime Now {
                 get { return DateTime.Now; }
             }
@@ -31,9 +34,13 @@ namespace LactoBioticsSystem
         }
         private void ViewInventoryForm_Load(object sender, EventArgs e)
         {
+
             toggleDatePickerVisibility(false);
-            filteredInventories = (from inv in db.ProductsInventories select inv);
-            inventoryReportXAML1.DataContext = new InventoryReport { Inventories = filteredInventories.ToList() };
+            var foodsupplements = (from fs in db.ProductsInventories where fs.Product.ProductCategory == "Food Suppliments" select fs).ToList();
+            var agriproducts = (from fs in db.ProductsInventories where fs.Product.ProductCategory == "Agricultural Products" select fs).ToList();
+            var cosmetics = (from fs in db.ProductsInventories where fs.Product.ProductCategory == "Cosmetics" select fs).ToList();
+            var cape = (from fs in db.ProductsInventories where fs.Product.ProductCategory == "Cape" select fs).ToList();
+            inventoryReportXAML1.DataContext = new InventoryReport { AgriProducts = agriproducts, FoodSupplement = foodsupplements, Cosmetics = cosmetics, CAPE = cape };
         }
 
         private void PicboxPUclose_Click(object sender, EventArgs e)
@@ -79,7 +86,12 @@ namespace LactoBioticsSystem
                 case "Monthly": filteredInventories = (from inv in db.ProductsInventories where inv.Date.Value.Date >= DateTime.Now.AddMonths(-1).Date && inv.Date.Value.Date <= DateTime.Now.Date select inv); break;
                 case "Custom": toggleDatePickerVisibility(true); break;
             }
-            inventoryReportXAML1.DataContext = new InventoryReport { Inventories = filteredInventories.ToList() };
+
+            var foodsupplements = (from fs in filteredInventories where fs.Product.ProductCategory == "Food Suppliments" select fs).ToList();
+            var agriproducts = (from fs in filteredInventories where fs.Product.ProductCategory == "Agricultural Products" select fs).ToList();
+            var cosmetics = (from fs in filteredInventories where fs.Product.ProductCategory == "Cosmetics" select fs).ToList();
+            var cape = (from fs in filteredInventories where fs.Product.ProductCategory == "Cape" select fs).ToList();
+            inventoryReportXAML1.DataContext = new InventoryReport { AgriProducts = agriproducts, FoodSupplement = foodsupplements, Cosmetics = cosmetics, CAPE = cape };
         }
     }
 }

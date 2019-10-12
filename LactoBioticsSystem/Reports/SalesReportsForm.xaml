@@ -17,15 +17,11 @@
                 PageWidth="13in">
                 <BlockUIContainer>
                     <StackPanel>
-                        <Grid>
-                            <TextBlock HorizontalAlignment="Center" FontSize="40">
-                                <Run Text="LactoBiotics Worldwide Corporation"/>
-                            </TextBlock>
-                        </Grid>
+                        <Image Width="500" Source="C:\Users\Neil\Documents\GitHub\OrderingSystemLactoBiotics\LactoBioticsSystem\rsz_1lacto_biotics_logo_.png" />
                         <Grid>
                             <TextBlock HorizontalAlignment="Center">
-                                <Run Text="G.D. Uyfang Bldg., Sanciangko St., Pahina Central Cebu City "/>
-                                <LineBreak></LineBreak>
+                                <Run Text="G.D. Uyfang Bldg., Sanciangko St., Pahina Central Cebu City " />
+                                <LineBreak />
                             </TextBlock>
                         </Grid>
                         <Grid>
@@ -42,18 +38,18 @@
                         </Grid>
                         <TextBlock HorizontalAlignment="Center" FontSize="30">Sales Report</TextBlock>
                         <DataGrid
-                            ColumnWidth="1*"
                             AutoGenerateColumns="False"
+                            ColumnWidth="1*"
                             IsReadOnly="False"
                             ItemsSource="{Binding SalesReports}">
                             <DataGrid.Columns>
                                 <DataGridTextColumn Binding="{Binding ProductCode}" Header="Product Code" />
-                                <DataGridTextColumn Binding="{Binding ProductName}" Header="Name" />
-                                <DataGridTextColumn Binding="{Binding ProductCategory}" Header="Category" />
-                                <DataGridTextColumn Binding="{Binding ProductPrice}" Header="Price" />
+                                <DataGridTextColumn Binding="{Binding Product.ProductName}" Header="Name" />
+                                <DataGridTextColumn Binding="{Binding Product.ProductCategory}" Header="Category" />
+                                <DataGridTextColumn Binding="{Binding Product.ProductPrice}" Header="Price" />
                                 <DataGridTextColumn Binding="{Binding OrderQuantity}" Header="Quantity" />
                                 <DataGridTextColumn Binding="{Binding TotalPrice}" Header="Total" />
-                                <DataGridTextColumn Binding="{Binding ProductDescription}" Header="Description" />
+                                <DataGridTextColumn Binding="{Binding Product.ProductDescription}" Header="Description" />
                                 <DataGridTextColumn Binding="{Binding CustomerID}" Header="CustomerID" />
                                 <DataGridTextColumn Binding="{Binding UserID}" Header="UserID" />
                                 <DataGridTextColumn Binding="{Binding Date}" Header="Date" />

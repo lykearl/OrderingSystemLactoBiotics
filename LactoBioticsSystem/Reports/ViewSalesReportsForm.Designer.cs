@@ -31,7 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ViewSalesReportsForm));
             this.picboxPUclose = new System.Windows.Forms.PictureBox();
             this.btnPrintSalesReports = new System.Windows.Forms.Button();
-            this.dgvSalesInventory = new System.Windows.Forms.DataGridView();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.datepicker_startDate = new System.Windows.Forms.DateTimePicker();
@@ -40,9 +39,8 @@
             this.lblStartDate = new System.Windows.Forms.Label();
             this.lblEndDate = new System.Windows.Forms.Label();
             this.elementHost1 = new System.Windows.Forms.Integration.ElementHost();
-            this.salesReportsForm1 = new LactoBioticsSystem.Reports.SalesReportsForm();
+            this.salesreportForm = new LactoBioticsSystem.Reports.SalesReportsForm();
             ((System.ComponentModel.ISupportInitialize)(this.picboxPUclose)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvSalesInventory)).BeginInit();
             this.SuspendLayout();
             // 
             // picboxPUclose
@@ -69,20 +67,6 @@
             this.btnPrintSalesReports.TabIndex = 47;
             this.btnPrintSalesReports.Text = "Print";
             this.btnPrintSalesReports.UseVisualStyleBackColor = false;
-            this.btnPrintSalesReports.Click += new System.EventHandler(this.BtnPrintSalesReports_Click);
-            // 
-            // dgvSalesInventory
-            // 
-            this.dgvSalesInventory.AllowUserToAddRows = false;
-            this.dgvSalesInventory.AllowUserToDeleteRows = false;
-            this.dgvSalesInventory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvSalesInventory.Location = new System.Drawing.Point(111, 209);
-            this.dgvSalesInventory.Name = "dgvSalesInventory";
-            this.dgvSalesInventory.ReadOnly = true;
-            this.dgvSalesInventory.RowHeadersWidth = 51;
-            this.dgvSalesInventory.Size = new System.Drawing.Size(827, 336);
-            this.dgvSalesInventory.TabIndex = 44;
-            this.dgvSalesInventory.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvSalesInventory_CellContentClick);
             // 
             // label8
             // 
@@ -174,7 +158,7 @@
             this.elementHost1.Size = new System.Drawing.Size(1036, 336);
             this.elementHost1.TabIndex = 56;
             this.elementHost1.Text = "elementHost1";
-            this.elementHost1.Child = this.salesReportsForm1;
+            this.elementHost1.Child = this.salesreportForm;
             // 
             // ViewSalesReportsForm
             // 
@@ -182,7 +166,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(44)))), ((int)(((byte)(46)))));
             this.ClientSize = new System.Drawing.Size(1040, 622);
-            this.Controls.Add(this.elementHost1);
             this.Controls.Add(this.lblEndDate);
             this.Controls.Add(this.lblStartDate);
             this.Controls.Add(this.cmbbox_filter);
@@ -192,14 +175,13 @@
             this.Controls.Add(this.label7);
             this.Controls.Add(this.picboxPUclose);
             this.Controls.Add(this.btnPrintSalesReports);
-            this.Controls.Add(this.dgvSalesInventory);
+            this.Controls.Add(this.elementHost1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ViewSalesReportsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ViewSalesReportsForm";
             this.Load += new System.EventHandler(this.ViewSalesReportsForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picboxPUclose)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvSalesInventory)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -214,10 +196,9 @@
         private System.Windows.Forms.DateTimePicker datepicker_startDate;
         private System.Windows.Forms.DateTimePicker datepicker_enddate;
         private System.Windows.Forms.ComboBox cmbbox_filter;
-        public System.Windows.Forms.DataGridView dgvSalesInventory;
         private System.Windows.Forms.Label lblStartDate;
         private System.Windows.Forms.Label lblEndDate;
         private System.Windows.Forms.Integration.ElementHost elementHost1;
-        private Reports.SalesReportsForm salesReportsForm1;
+        private Reports.SalesReportsForm salesreportForm;
     }
 }
