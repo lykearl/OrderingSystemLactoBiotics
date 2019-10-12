@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Documents;
 using System.Windows.Forms;
 
 namespace LactoBioticsSystem
@@ -17,6 +18,7 @@ namespace LactoBioticsSystem
         class SalesReportViewModel
         {
             public List<SalesReport> SalesReports { get; set; }
+            public double Total { get; set; }
             public UserAccount User { get; set; } = ClsLogin.User;
 
             public DateTime Now {
@@ -56,7 +58,7 @@ namespace LactoBioticsSystem
         private void updateSalesReportTable()
         {
             filteredSalesReport = (from sales in db.SalesReports where sales.Date.Value.Date >= datepicker_startDate.Value.Date && sales.Date.Value.Date <= datepicker_enddate.Value.Date.Date select sales);
-            salesreportForm.DataContext = new SalesReportViewModel() { SalesReports = filteredSalesReport.ToList() };
+            salesreportForm.DataContext = new SalesReportViewModel() { SalesReports = filteredSalesReport.ToList(), Total = (double)filteredSalesReport.Sum(f => f.TotalPrice) };
         }
 
         private void ComboBox1_SelectedValueChanged(object sender, EventArgs e)
@@ -67,9 +69,9 @@ namespace LactoBioticsSystem
                 case "Daily": filteredSalesReport = (from sales in db.SalesReports where sales.Date.Value.Date == DateTime.Now.Date select sales); break;
                 case "Weekly": filteredSalesReport = (from sales in db.SalesReports where sales.Date.Value.Date >= DateTime.Now.AddDays(-7) && sales.Date.Value.Date <= DateTime.Now.Date select sales); break;
                 case "Monthly": filteredSalesReport = (from sales in db.SalesReports where sales.Date.Value.Date >= DateTime.Now.AddMonths(-1).Date && sales.Date.Value.Date <= DateTime.Now.Date select sales); break;
-                case "Custom": toggleDatePickerVisibility(true);break;
+                case "Custom": toggleDatePickerVisibility(true); break;
             }
-            salesreportForm.DataContext = new SalesReportViewModel() { SalesReports = filteredSalesReport.ToList() };
+            salesreportForm.DataContext = new SalesReportViewModel() { SalesReports = filteredSalesReport.ToList(), Total = (double)filteredSalesReport.Sum(f => f.TotalPrice) };
         }
         private void toggleDatePickerVisibility(bool boolean)
         {
@@ -78,7 +80,22 @@ namespace LactoBioticsSystem
             lblStartDate.Visible = boolean;
             lblEndDate.Visible = boolean;
         }
-
+        public void Print(FlowDocument fd)
+        {
+            var pd = new System.Windows.Controls.PrintDialog();
+            if (pd.ShowDialog().Value)
+            {
+                IDocumentPaginatorSource document = fd as IDocumentPaginatorSource;
+                try
+                {
+                    pd.PrintDocument(document.DocumentPaginator, "Printing FlowDocument.");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+        }
         private void DgvSalesInventory_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
@@ -87,6 +104,11 @@ namespace LactoBioticsSystem
         private void Cmbbox_filter_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnPrintSalesReports_Click(object sender, EventArgs e)
+        {
+            Print(salesreportForm.fd_document);
         }
     }
 }

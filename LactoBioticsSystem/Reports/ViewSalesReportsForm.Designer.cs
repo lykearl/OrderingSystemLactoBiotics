@@ -67,6 +67,7 @@
             this.btnPrintSalesReports.TabIndex = 47;
             this.btnPrintSalesReports.Text = "Print";
             this.btnPrintSalesReports.UseVisualStyleBackColor = false;
+            this.btnPrintSalesReports.Click += new System.EventHandler(this.btnPrintSalesReports_Click);
             // 
             // label8
             // 

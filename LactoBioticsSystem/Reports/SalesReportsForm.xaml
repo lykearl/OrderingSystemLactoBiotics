@@ -55,6 +55,10 @@
                                 <DataGridTextColumn Binding="{Binding Date}" Header="Date" />
                             </DataGrid.Columns>
                         </DataGrid>
+                        <TextBlock Margin="0,25,0,0" HorizontalAlignment="Right">
+                            <Run Text="Grand Total: " />
+                            <Run Text="{Binding Total}" />
+                        </TextBlock>
                     </StackPanel>
                 </BlockUIContainer>
             </FlowDocument>
