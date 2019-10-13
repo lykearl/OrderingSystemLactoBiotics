@@ -508,9 +508,9 @@
             this.pnlCustOrder.Controls.Add(this.dgvReservation);
             this.pnlCustOrder.Controls.Add(this.dgvAddToCart);
             this.pnlCustOrder.Controls.Add(this.dgvDelivery);
+            this.pnlCustOrder.Controls.Add(this.gbReservation);
             this.pnlCustOrder.Controls.Add(this.gbDelivery);
             this.pnlCustOrder.Controls.Add(this.gbWalkin);
-            this.pnlCustOrder.Controls.Add(this.gbReservation);
             this.pnlCustOrder.ForeColor = System.Drawing.Color.Black;
             this.pnlCustOrder.Location = new System.Drawing.Point(0, 114);
             this.pnlCustOrder.Name = "pnlCustOrder";

@@ -107,6 +107,9 @@
     <Compile Include="Products Management\ProductUpdateForm.Designer.cs">
       <DependentUpon>ProductUpdateForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Products Management\PurchaseOrderReceieptXAML.xaml.cs">
+      <DependentUpon>PurchaseOrderReceieptXAML.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Products Management\ViewProductsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -117,6 +120,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reports\InventoryReportXAML.xaml.cs">
       <DependentUpon>InventoryReportXAML.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\PurchaseOrderReceipt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\PurchaseOrderReceipt.Designer.cs">
+      <DependentUpon>PurchaseOrderReceipt.cs</DependentUpon>
     </Compile>
     <Compile Include="Reports\SalesReportsForm.xaml.cs">
       <DependentUpon>SalesReportsForm.xaml</DependentUpon>
@@ -219,6 +228,10 @@
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Products Management\PurchaseOrderReceieptXAML.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Reports\InventoryReportXAML.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
