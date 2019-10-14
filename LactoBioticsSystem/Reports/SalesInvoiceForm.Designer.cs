@@ -30,6 +30,7 @@
         {
             this.elementHost1 = new System.Windows.Forms.Integration.ElementHost();
             this.salesInvoiceFormXAML1 = new LactoBioticsSystem.Reports.SalesInvoiceFormXAML();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // elementHost1
@@ -42,11 +43,22 @@
             this.elementHost1.Text = "elementHost1";
             this.elementHost1.Child = this.salesInvoiceFormXAML1;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(507, 435);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(125, 39);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "Print";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // SalesInvoiceForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1139, 486);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.elementHost1);
             this.Name = "SalesInvoiceForm";
             this.Text = "SalesInvoiceForm";
@@ -58,5 +70,6 @@
 
         private System.Windows.Forms.Integration.ElementHost elementHost1;
         private SalesInvoiceFormXAML salesInvoiceFormXAML1;
+        private System.Windows.Forms.Button button1;
     }
 }

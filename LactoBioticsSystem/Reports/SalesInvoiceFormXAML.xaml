@@ -10,7 +10,11 @@
     mc:Ignorable="d">
     <Grid>
         <FlowDocumentScrollViewer HorizontalAlignment="Center">
-            <FlowDocument PageHeight="13in" PageWidth="8.5in">
+            <FlowDocument
+                x:Name="fd_documents"
+                ColumnWidth="8.5in"
+                PageHeight="13in"
+                PageWidth="8.5in">
                 <BlockUIContainer>
                     <Grid>
                         <StackPanel HorizontalAlignment="Center">

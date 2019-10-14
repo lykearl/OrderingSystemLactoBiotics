@@ -1092,7 +1092,7 @@ namespace LactoBioticsSystem
                                 ProductCode = dgvAddToCart.Rows[i].Cells[0].Value.ToString(),
                                 OrderQuantity = int.Parse(dgvAddToCart.Rows[i].Cells[3].Value.ToString()),
                                 TotalAmount = decimal.Parse(dgvAddToCart.Rows[i].Cells[4].Value.ToString()),
-                                Date = DateTime.Parse(dgvAddToCart.Rows[i].Cells[8].Value.ToString()),                           
+                                Date = DateTime.Parse(dgvAddToCart.Rows[i].Cells[8].Value.ToString()),
                                 CustomerID = int.Parse(dgvAddToCart.Rows[i].Cells[9].Value.ToString()),
                                 UserID = int.Parse(dgvAddToCart.Rows[i].Cells[10].Value.ToString())
                             };
@@ -1120,9 +1120,9 @@ namespace LactoBioticsSystem
                                 AvailableBox = decimal.Parse(dgvAddToCart.Rows[p].Cells[13].Value.ToString()),
                                 OrderID = int.Parse(dgvAddToCart.Rows[p].Cells[14].Value.ToString()),
                             };
-                            new Reports.SalesInvoiceForm().ShowDialog();
                             dgvAddToCart.DataSource = db.spViewCart();
                         }
+                        new Reports.SalesInvoiceForm().ShowDialog();
                         db.AddToCarts.DeleteAllOnSubmit(db.AddToCarts);
                         db.SubmitChanges();
                         dgvAddToCart.DataSource = db.spViewCart();
@@ -1189,14 +1189,14 @@ namespace LactoBioticsSystem
                     Total += Convert.ToDecimal(dgvAddToCart.Rows[i].Cells[4].Value);
                 }
                 txtAmount.Text = Total.ToString();
-                if (txtAmount.Text == "0") 
+                if (txtAmount.Text == "0")
                 {
                     txtcash.Enabled = false;
                 }
                 else
                 {
                     txtcash.Enabled = true;
-                } 
+                }
             }
             else if (cmbTranType.Text == "Reservation")
             {
@@ -1223,7 +1223,7 @@ namespace LactoBioticsSystem
                     Total += Convert.ToDecimal(dgvDelivery.Rows[i].Cells[4].Value);
                 }
                 txtAmount.Text = Total.ToString();
-                if (txtAmount.Text == "0") 
+                if (txtAmount.Text == "0")
                 {
                     txtcash.Enabled = false;
                 }
@@ -1390,8 +1390,8 @@ namespace LactoBioticsSystem
                                 decimal PerBox = decimal.Parse(txtQuantityPerBox.Text);
                                 decimal Balance = StockonHand - Pquantity;
                                 decimal BoxBalance = Balance / PerBox;
-                  
-                              
+
+
                                 if
                                (Pquantity > StockonHand)
                                 {
