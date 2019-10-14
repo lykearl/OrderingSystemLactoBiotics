@@ -127,6 +127,15 @@
     <Compile Include="Reports\PurchaseOrderReceipt.Designer.cs">
       <DependentUpon>PurchaseOrderReceipt.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reports\SalesInvoiceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\SalesInvoiceForm.Designer.cs">
+      <DependentUpon>SalesInvoiceForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\SalesInvoiceFormXAML.xaml.cs">
+      <DependentUpon>SalesInvoiceFormXAML.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Reports\SalesReportsForm.xaml.cs">
       <DependentUpon>SalesReportsForm.xaml</DependentUpon>
     </Compile>
@@ -191,6 +200,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Reports\SalesInvoiceForm.resx">
+      <DependentUpon>SalesInvoiceForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Users Management\UsersRegistrationForm.resx">
       <DependentUpon>UsersRegistrationForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -233,6 +245,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Reports\InventoryReportXAML.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reports\SalesInvoiceFormXAML.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -17,7 +17,7 @@
                 PageWidth="13in">
                 <BlockUIContainer>
                     <StackPanel>
-                        <Image Width="500" Source="C:\Users\Neil\Documents\GitHub\OrderingSystemLactoBiotics\LactoBioticsSystem\rsz_1lacto_biotics_logo_.png" />
+                        <Image Width="500" Source="/rsz_1lacto_biotics_logo_.png" />
                         <Grid>
                             <TextBlock HorizontalAlignment="Center">
                                 <Run Text="G.D. Uyfang Bldg., Sanciangko St., Pahina Central Cebu City " />

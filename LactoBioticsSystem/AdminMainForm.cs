@@ -1120,6 +1120,7 @@ namespace LactoBioticsSystem
                                 AvailableBox = decimal.Parse(dgvAddToCart.Rows[p].Cells[13].Value.ToString()),
                                 OrderID = int.Parse(dgvAddToCart.Rows[p].Cells[14].Value.ToString()),
                             };
+                            new Reports.SalesInvoiceForm().ShowDialog();
                             dgvAddToCart.DataSource = db.spViewCart();
                         }
                         db.AddToCarts.DeleteAllOnSubmit(db.AddToCarts);
