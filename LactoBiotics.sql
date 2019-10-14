@@ -374,7 +374,6 @@ ReservationID int primary key identity (1,1),
 ProductCode varchar (50) foreign key references products(ProductCode),
 OrderQuantity int,
 TotalPrice decimal,
-TransactionType varchar(50),
 ClaimDate datetime,
 ReservationStatus varchar (50),
 CustomerID int foreign key references customers(CustomerID),
@@ -390,7 +389,6 @@ create procedure spAddReservation
 @ProductCOde varchar (50),
 @OrderQuantity int,
 @TotalPrice decimal,
-@TransactionType varchar(50),
 @ClaimDate datetime,
 @ReservationStatus varchar (50),
 @CustomerID int,
@@ -398,7 +396,7 @@ create procedure spAddReservation
 @Date datetime
 as
 insert into ProductsReservation
-values (@ProductCode, @OrderQuantity, @TotalPrice, @TransactionType, @ClaimDate, @ReservationStatus, @CustomerID, @UserID, @Date)
+values (@ProductCode, @OrderQuantity, @TotalPrice, @ClaimDate, @ReservationStatus, @CustomerID, @UserID, @Date)
 
 ---------------------------------------------------------------------------------------------------------------------
 
@@ -418,7 +416,7 @@ drop procedure spSelectReservation
 
 create procedure spSelectReservation
 as
-select ReservationId, products.ProductCode, products.ProductName, ProductsReservation.OrderQuantity, ProductsReservation.totalPrice, ProductsReservation.TransactionType, ProductsReservation.ClaimDate, ProductsReservation.ReservationStatus, 
+select ReservationId, products.ProductCode, products.ProductName, ProductsReservation.OrderQuantity, ProductsReservation.totalPrice, ProductsReservation.ClaimDate, ProductsReservation.ReservationStatus, 
 customers.CustomerName, customers.CustomerAddress, customers.CustomerID, UserAccounts.Username, UserAccounts.UserID, ProductsReservation.Date
 from ProductsReservation inner join products on ProductsReservation.ProductCode = products.ProductCode inner join customers on ProductsReservation.CustomerID = customers.CustomerID inner join UserAccounts on ProductsReservation.UserID = UserAccounts.UserID
 
@@ -435,7 +433,6 @@ where ReservationID like '%' +@key+ '%' or
 	  ProductName like '%' +@key+ '%' or
 	  OrderQuantity like '%' +@key+ '%' or
 	  TotalPrice like '%' +@key+ '%' or
-      TransactionType like '%' +@key+ '%' or
 	  ClaimDate like '%' +@key+ '%' or
 	  ReservationStatus like '%' +@key+ '%' or
 	  Customers.CustomerName like '%' +@key+ '%' or
@@ -462,7 +459,6 @@ DeliveryId int primary key identity (1,1),
 ProductCode varchar (50) foreign key references products(ProductCode),
 OrderQuantity int,
 TotalPrice decimal,
-TransactionType varchar(50),
 DeliveryDate datetime,
 DeliveryStatus varchar (50),
 CustomerID int foreign key references customers(CustomerID),
@@ -478,7 +474,6 @@ create procedure spAddDelivery
 @ProductCode varchar (50),
 @OrderQuantity int,
 @TotalPrice decimal,
-@TransactionType varchar(50),
 @DeliveryDate datetime,
 @DeliveryStatus varchar (50),
 @CustomerID int,
@@ -486,7 +481,7 @@ create procedure spAddDelivery
 @Date datetime
 as
 insert into ProductsDelivery
-values (@ProductCode, @OrderQuantity, @TotalPrice, @TransactionType, @DeliveryDate, @DeliveryStatus, @CustomerID, @UserID, @Date)
+values (@ProductCode, @OrderQuantity, @TotalPrice, @DeliveryDate, @DeliveryStatus, @CustomerID, @UserID, @Date)
 
 ---------------------------------------------------------------------------------------------------------------------
 
@@ -506,7 +501,7 @@ drop procedure spSelectDelivery
 
 create procedure spSelectDelivery
 as
-select DeliveryId, products.ProductCode, products.ProductName, ProductsDelivery.OrderQuantity, ProductsDelivery.TotalPrice,  ProductsDelivery.TransactionType, ProductsDelivery.DeliveryDate, ProductsDelivery.DeliveryStatus, 
+select DeliveryId, products.ProductCode, products.ProductName, ProductsDelivery.OrderQuantity, ProductsDelivery.TotalPrice, ProductsDelivery.DeliveryDate, ProductsDelivery.DeliveryStatus, 
 customers.CustomerName, Customers.CustomerAddress, customers.CustomerID, UserAccounts.Username, UserAccounts.UserId, ProductsDelivery.Date
 from ProductsDelivery inner join products on ProductsDelivery.ProductCode = products.productCode inner join customers on ProductsDelivery.CustomerID = customers.CustomerID inner join UserAccounts on ProductsDelivery.UserID = UserAccounts.UserID
 
@@ -523,7 +518,6 @@ where DeliveryID like '%' +@key+ '%' or
 	  Products.ProductName like '%' +@key+ '%' or
 	  OrderQuantity like '%' +@key+ '%' or
 	  TotalPrice like '%' +@key+ '%' or
-	  TransactionType like '%' +@key+ '%' or
 	  DeliveryDate like '%' +@key+ '%' or
 	  DeliveryStatus like '%' +@key+ '%' or
 	  customers.CustomerName like '%' +@key+ '%' or
@@ -618,6 +612,16 @@ from ProductsInventory inner join products on ProductsInventory.ProductCode = pr
  
 ------------------------------------------------------------------------------------------------------------------
 
+drop procedure spDeleteProInventory
+
+create procedure spDeleteProInventory
+@ProductCode varchar (50)
+as
+delete from ProductsInventory 
+where ProductCode = @ProductCode
+
+------------------------------------------------------------------------------------------------------------------
+
 
 
 
@@ -631,8 +635,7 @@ create table SalesReports
 SalesReportID int primary key identity (1,1),
 ProductCode varchar (50) foreign key references products(ProductCode),
 OrderQuantity int,
-TotalPrice decimal,
-TransactionType varchar (50),
+TotalAmount decimal (10,2),
 CustomerID int foreign key references customers(CustomerID),
 UserID int foreign key references UserAccounts(UserID),
 Date datetime
@@ -646,14 +649,13 @@ drop procedure spAddSalesReports
 create procedure spAddSalesReports
 @ProductCode varchar(50),
 @OrderQuantity int,
-@TotalAmount decimal,
-@TransactionType varchar (50),
+@TotalAmount decimal (10,2),
 @CustomerID int,
 @UserID int,
 @Date datetime
 as
 insert into SalesReports
-values(@ProductCode, @OrderQuantity ,@TotalAmount ,@TransactionType, @CustomerID, @UserID, @Date)
+values(@ProductCode, @OrderQuantity, @TotalAmount, @CustomerID, @UserID, @Date)
 
 ---------------------------------------------------------------------------------------------------------------------
 
@@ -661,7 +663,7 @@ drop procedure spViewSalesReports
 
 create procedure spViewSalesReports
 as
-select SalesReportID, products.productCode, products.ProductName, products.ProductCategory, products.ProductPrice, OrderQuantity, SalesReports.TotalPrice, SalesReports.TransactionType, products.ProductDescription, Customers.CustomerName, Customers.CustomerAddress, customers.CustomerID, UserAccounts.Username, UserAccounts.UserID, SalesReports.Date
+select SalesReportID, products.productCode, products.ProductName, products.ProductCategory, products.ProductPrice, OrderQuantity, SalesReports.TotalAmount, products.ProductDescription, Customers.CustomerName, Customers.CustomerAddress, customers.CustomerID, UserAccounts.Username, UserAccounts.UserID, SalesReports.Date
 from SalesReports inner join products on SalesReports.productCode = products.productCode inner join UserAccounts on SalesReports.UserID = UserAccounts.UserID
 inner join customers on SalesReports.CustomerID = customers.CustomerID 
  
@@ -678,8 +680,7 @@ where SalesReportID like '%' +@key+ '%' or
 	  Products.ProductName  like '%' +@key+ '%' or
 	  Products.ProductPrice  like '%' +@key+ '%' or
 	  OrderQuantity  like '%' +@key+ '%' or
-	  TotalPrice  like '%' +@key+ '%' or
-	  TransactionType  like '%' +@key+ '%' or
+	  TotalAmount  like '%' +@key+ '%' or
 	  Products.ProductDescription  like '%' +@key+ '%' or
 	  Customers.CustomerName  like '%' +@key+ '%' or
 	  Customers.CustomerAddress  like '%' +@key+ '%' or
@@ -702,7 +703,6 @@ CustomerName varchar (50),
 CustomerAddress Varchar (50),
 CustomerTin varchar (50),
 Date datetime,
-TransactionType varchar (50),
 CustomerID int ,
 UserID int,
 StockOnHand int,
@@ -725,7 +725,6 @@ create procedure spAddCart
 @CustomerAddress Varchar (50),
 @CustomerTin varchar (50),
 @Date Datetime,
-@TransactionType varchar (50),
 @CustomerID int ,
 @UserID int,
 @StockOnHand int,
@@ -733,7 +732,7 @@ create procedure spAddCart
 @AvailableBox decimal (7,2)
 as
 insert into AddToCart
-values (@ProductCode, @ProductName, @ProductPrice, @OrderQuantity, @TotalAmount, @CustomerName, @CustomerAddress, @CustomerTin, @Date, @TransactionType, @CustomerID, @UserID, @StockOnHand, @QuantityPerBox, @AvailableBox)
+values (@ProductCode, @ProductName, @ProductPrice, @OrderQuantity, @TotalAmount, @CustomerName, @CustomerAddress, @CustomerTin, @Date, @CustomerID, @UserID, @StockOnHand, @QuantityPerBox, @AvailableBox)
 
 ---------------------------------------------------------------------------------------------------------------------
 
@@ -768,7 +767,6 @@ CustomerName varchar (50),
 CustomerAddress Varchar (50),
 CustomerTin varchar (50),
 DeliveryDate datetime,
-TransactionType varchar (50),
 date datetime,
 CustomerID int ,
 UserID int,
@@ -793,7 +791,6 @@ create procedure spAddDelCart
 @CustomerAddress Varchar (50),
 @CustomerTin varchar (50),
 @DeliveryDate Datetime,
-@TransactionType varchar (50),
 @Date datetime,
 @CustomerID int ,
 @UserID int,
@@ -803,7 +800,7 @@ create procedure spAddDelCart
 @AvailableBox decimal (7,2)
 as
 insert into DeliveryCart
-values (@ProductCode, @ProductName, @ProductPrice, @OrderQuantity, @TotalAmount, @CustomerName, @CustomerAddress, @CustomerTin, @DeliveryDate, @TransactionType, @Date, @CustomerID, @UserID, @DeliveryStatus, @StockOnHand, @QuantityPerBox, @AvailableBox)
+values (@ProductCode, @ProductName, @ProductPrice, @OrderQuantity, @TotalAmount, @CustomerName, @CustomerAddress, @CustomerTin, @DeliveryDate, @Date, @CustomerID, @UserID, @DeliveryStatus, @StockOnHand, @QuantityPerBox, @AvailableBox)
 
 ---------------------------------------------------------------------------------------------------------------------
 
@@ -838,7 +835,6 @@ CustomerName varchar (50),
 CustomerAddress Varchar (50),
 CustomerTin varchar (50),
 ClaimDate datetime,
-TransactionType varchar (50),
 date datetime,
 CustomerID int ,
 UserID int,
@@ -863,7 +859,6 @@ create procedure spAddResCart
 @CustomerAddress Varchar (50),
 @CustomerTin varchar (50),
 @ClaimDate datetime,
-@TransactionType varchar (50),
 @Date datetime,
 @CustomerID int ,
 @UserID int,
@@ -873,7 +868,7 @@ create procedure spAddResCart
 @AvailableBox Decimal (7,2)
 as
 insert into ReservationCart
-values (@ProductCode, @ProductName, @ProductPrice, @OrderQuantity, @TotalAmount, @CustomerName, @CustomerAddress, @CustomerTin, @ClaimDate, @TransactionType, @Date, @CustomerID, @UserID, @ReservationStatus, @StockOnHand, @QuantityPerBox, @AvailableBox)
+values (@ProductCode, @ProductName, @ProductPrice, @OrderQuantity, @TotalAmount, @CustomerName, @CustomerAddress, @CustomerTin, @ClaimDate, @Date, @CustomerID, @UserID, @ReservationStatus, @StockOnHand, @QuantityPerBox, @AvailableBox)
 
 ---------------------------------------------------------------------------------------------------------------------
 

@@ -1,12 +1,8 @@
 ﻿using LactoBioticsSystem.Properties;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace LactoBioticsSystem
@@ -32,6 +28,7 @@ namespace LactoBioticsSystem
             txtpro_quantity.Enabled = false;
             btnSelectCust.Enabled = false;
             btnSelectPro.Enabled = false;
+            txtcash.Enabled = false;
         }
 
         private void BtnCostOrder_Click(object sender, EventArgs e)
@@ -49,6 +46,8 @@ namespace LactoBioticsSystem
             lblUsertype1.Text = lblUsertype.Text;
             lblFirstname1.Text = lblFirstname.Text;
             cmbTranType.Focus();
+            gbWalkin.Show();
+            dgvAddToCart.Show();
         }
 
         private void BtnUserReg_Click(object sender, EventArgs e)
@@ -145,6 +144,8 @@ namespace LactoBioticsSystem
             pnlReports.Hide();
             lblUsertype1.Text = lblUsertype.Text;
             lblFirstname1.Text = lblFirstname.Text;
+            gbWalkin.Show();
+            dgvAddToCart.Show();
         }
 
         private void BtnUsersReg_Click(object sender, EventArgs e)
@@ -498,6 +499,7 @@ namespace LactoBioticsSystem
                     DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete this?", "Verify", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                     if (dialogResult == DialogResult.Yes)
                     {
+                        db.spDeleteProInventory(txtProCode.Text);
                         db.spRemoveProducts(txtProCode.Text);
                         labelProductID.Text = "";
                         txtProCode.Text = "";
@@ -659,10 +661,10 @@ namespace LactoBioticsSystem
             {
                 lblCustID.Text = cview.dgvCustomer.CurrentRow.Cells[1].Value.ToString();
                 txtcust_name.Text = cview.dgvCustomer.CurrentRow.Cells[2].Value.ToString();
-                lblTin.Text = cview.dgvCustomer.CurrentRow.Cells[3].Value.ToString();
+                txtTin.Text = cview.dgvCustomer.CurrentRow.Cells[3].Value.ToString();
                 txtcust_address.Text = cview.dgvCustomer.CurrentRow.Cells[4].Value.ToString();
                 lblTotal.Text = cview.dgvCustomer.CurrentRow.Cells[6].Value.ToString();
-                lblCustType.Text = cview.dgvCustomer.CurrentRow.Cells[8].Value.ToString();
+                lblCustType.Text = cview.dgvCustomer.CurrentRow.Cells[7].Value.ToString();
                 txtpro_quantity.Focus();
             }
         }
@@ -674,6 +676,7 @@ namespace LactoBioticsSystem
                 txtpro_quantity.Enabled = false;
                 btnSelectCust.Enabled = false;
                 btnSelectPro.Enabled = false;
+                txtcash.Enabled = false;
             }
             else
             {
@@ -697,9 +700,11 @@ namespace LactoBioticsSystem
                     txtAvailBox.Clear();
                     gbOrderPayment.Show();
                     txtpro_quantity.Clear();
+                    txtTin.Clear();
                     txtpro_quantity.Enabled = true;
                     btnSelectCust.Enabled = true;
                     btnSelectPro.Enabled = true;
+                    txtcash.Enabled = false;
 
                 }
                 else
@@ -719,6 +724,7 @@ namespace LactoBioticsSystem
                     txtchange.Clear();
                     txtpro_quantity.Clear();
                     txtQuantityPerBox.Clear();
+                    txtTin.Clear();
                     txtAvailBox.Clear();
                     gbOrderPayment.Visible = false;
                 }
@@ -740,12 +746,14 @@ namespace LactoBioticsSystem
                     txtAmount.Clear();
                     txtchange.Clear();
                     txtQuantityPerBox.Clear();
+                    txtTin.Clear();
                     txtAvailBox.Clear();
                     txtpro_quantity.Clear();
                     gbOrderPayment.Show();
                     txtpro_quantity.Enabled = true;
                     btnSelectCust.Enabled = true;
                     btnSelectPro.Enabled = true;
+                    txtcash.Enabled = false;
                 }
                 else
                 {
@@ -761,6 +769,7 @@ namespace LactoBioticsSystem
                     txtcust_name.Clear();
                     txtcust_address.Clear();
                     txtpro_quantity.Clear();
+                    txtTin.Clear();
                     lblTin.Text = "";
                     txtcash.Clear();
                     txtAmount.Clear();
@@ -781,6 +790,7 @@ namespace LactoBioticsSystem
                     txtcust_name.Clear();
                     txtcust_address.Clear();
                     txtcash.Clear();
+                    txtTin.Clear();
                     txtAmount.Clear();
                     txtchange.Clear();
                     txtQuantityPerBox.Clear();
@@ -790,6 +800,7 @@ namespace LactoBioticsSystem
                     txtpro_quantity.Enabled = true;
                     btnSelectCust.Enabled = true;
                     btnSelectPro.Enabled = true;
+                    txtcash.Enabled = false;
                 }
                 else
                 {
@@ -808,6 +819,7 @@ namespace LactoBioticsSystem
                     txtpro_quantity.Clear();
                     txtStockOnHand.Clear();
                     lblCustID.Text = "";
+                    txtTin.Clear();
                     txtcust_name.Clear();
                     txtcust_address.Clear();
                     txtcash.Clear();
@@ -828,8 +840,8 @@ namespace LactoBioticsSystem
                 if (txtcash.Text == "")
                 {
                     btnPrintOrder.Enabled = false;
-                    btnDel.Enabled = false;
-                    btnRes.Enabled = false;
+                    btnPrintDelivery.Enabled = false;
+                    btnPrintReseservation.Enabled = false;
                     txtchange.Text = "";
 
                     if (cmbTranType.Text == "Purchase Order")
@@ -865,8 +877,8 @@ namespace LactoBioticsSystem
                     if (txtAmount.Text == "0")
                     {
                         btnPrintOrder.Enabled = false;
-                        btnDel.Enabled = false;
-                        btnRes.Enabled = false;
+                        btnPrintDelivery.Enabled = false;
+                        btnPrintReseservation.Enabled = false;
                         txtchange.Text = "";
                     }
                     else
@@ -879,14 +891,14 @@ namespace LactoBioticsSystem
                         if (Cash < TotalAmount)
                         {
                             btnPrintOrder.Enabled = false;
-                            btnDel.Enabled = false;
-                            btnRes.Enabled = false;
+                            btnPrintDelivery.Enabled = false;
+                            btnPrintReseservation.Enabled = false;
                         }
                         else
                         {
                             btnPrintOrder.Enabled = true;
-                            btnDel.Enabled = true;
-                            btnRes.Enabled = true;
+                            btnPrintDelivery.Enabled = true;
+                            btnPrintReseservation.Enabled = true;
                         }
                     }
                 }
@@ -926,9 +938,9 @@ namespace LactoBioticsSystem
                             int StockonHand = int.Parse(txtStockOnHand.Text);
                             int StRemain = 0;
                             decimal TotalAmount = 0;
-                            decimal Box = decimal.Parse(txtAvailBox.Text);
+                            decimal PerBox = decimal.Parse(txtQuantityPerBox.Text);
                             decimal Balance = StockonHand - Pquantity;
-                            decimal BoxBalance = Balance / Box;
+                            decimal BoxBalance = Balance / PerBox;
                             if
                            (Pquantity > StockonHand)
                             {
@@ -955,8 +967,8 @@ namespace LactoBioticsSystem
                                         TotalAmount = Proprice * Pquantity;
                                         StRemain = StockonHand - Pquantity;
                                         lblStockIn.Text = "0";
-                                        db.spAddCart(lblProCode.Text, txtpro_name.Text, Proprice, Pquantity, TotalAmount, txtcust_name.Text, txtcust_address.Text, lblTin.Text, DateTime.Now, cmbTranType.Text, int.Parse(lblCustID.Text), ClsLogin.User.UserId, StRemain, int.Parse(txtQuantityPerBox.Text), BoxBalance);
-                                        db.spAddInventory(txtProCode.Text, StRemain, int.Parse(lblStockIn.Text), Pquantity, BoxBalance, DateTime.Now);
+                                        db.spAddCart(lblProCode.Text, txtpro_name.Text, Proprice, Pquantity, TotalAmount, txtcust_name.Text, txtcust_address.Text, txtTin.Text, DateTime.Now, int.Parse(lblCustID.Text), ClsLogin.User.UserId, StRemain, int.Parse(txtQuantityPerBox.Text), BoxBalance);
+                                        //db.spAddInventory(txtProCode.Text, StRemain, int.Parse(lblStockIn.Text), Pquantity, BoxBalance, DateTime.Now);
                                         DataGridViewRow newDataRow = dgvProducts.Rows[IndexRow];
                                         newDataRow.Cells[7].Value = StRemain.ToString();
                                         db.spUpdateProduct(lblProCode.Text, int.Parse(txtpro_quantity.Text), decimal.Parse(lblBox2.Text));
@@ -969,6 +981,7 @@ namespace LactoBioticsSystem
                                         }
                                         txtAmount.Text = Total.ToString();
 
+                                        txtcash.Enabled = true;
                                         txtQuantityPerBox.Text = "";
                                         txtAvailBox.Text = "";
                                         lblBox2.Text = "";
@@ -1014,7 +1027,7 @@ namespace LactoBioticsSystem
                         int StRemain = Stock + ProQuantity;
                         Box = StRemain / PerBox;
                         db.spCancelOrder(int.Parse(lblQuantity.Text), lblProCode.Text, decimal.Parse(lblBox2.Text));
-                        db.spAddInventory(txtProCode.Text, StRemain, int.Parse(lblStockIn.Text), int.Parse(lblStockOut.Text), Box, DateTime.Now);
+                        //db.spAddInventory(txtProCode.Text, StRemain, int.Parse(lblStockIn.Text), int.Parse(lblStockOut.Text), Box, DateTime.Now);
                         db.spDeleteCart(int.Parse(lblOrderID.Text));
                         dgvProducts.DataSource = db.spViewProducts();
                         dgvAddToCart.DataSource = db.spViewCart();
@@ -1038,7 +1051,7 @@ namespace LactoBioticsSystem
                         txtpro_quantity.Text = "";
                         txtQuantityPerBox.Text = "";
                         txtAvailBox.Text = "";
-                        lblTin.Text = "";
+                        txtTin.Text = "";
                         txtcash.Focus();
                     }
                     else if (dialogResult == DialogResult.No)
@@ -1078,11 +1091,10 @@ namespace LactoBioticsSystem
                             {
                                 ProductCode = dgvAddToCart.Rows[i].Cells[0].Value.ToString(),
                                 OrderQuantity = int.Parse(dgvAddToCart.Rows[i].Cells[3].Value.ToString()),
-                                TotalPrice = decimal.Parse(dgvAddToCart.Rows[i].Cells[4].Value.ToString()),
-                                Date = DateTime.Parse(dgvAddToCart.Rows[i].Cells[8].Value.ToString()),
-                                TransactionType = dgvAddToCart.Rows[i].Cells[9].Value.ToString(),
-                                CustomerID = int.Parse(dgvAddToCart.Rows[i].Cells[10].Value.ToString()),
-                                UserID = int.Parse(dgvAddToCart.Rows[i].Cells[11].Value.ToString())
+                                TotalAmount = decimal.Parse(dgvAddToCart.Rows[i].Cells[4].Value.ToString()),
+                                Date = DateTime.Parse(dgvAddToCart.Rows[i].Cells[8].Value.ToString()),                           
+                                CustomerID = int.Parse(dgvAddToCart.Rows[i].Cells[9].Value.ToString()),
+                                UserID = int.Parse(dgvAddToCart.Rows[i].Cells[10].Value.ToString())
                             };
                             db.SalesReports.InsertOnSubmit(salesReport);
                         }
@@ -1101,11 +1113,12 @@ namespace LactoBioticsSystem
                                 CustomerAddress = dgvAddToCart.Rows[p].Cells[6].Value.ToString(),
                                 CustomerTin = dgvAddToCart.Rows[p].Cells[7].Value.ToString(),
                                 Date = DateTime.Parse(dgvAddToCart.Rows[p].Cells[8].Value.ToString()),
-                                TransactionType = dgvAddToCart.Rows[p].Cells[9].Value.ToString(),
-                                CustomerID = int.Parse(dgvAddToCart.Rows[p].Cells[10].Value.ToString()),
-                                UserID = int.Parse(dgvAddToCart.Rows[p].Cells[11].Value.ToString()),
+                                CustomerID = int.Parse(dgvAddToCart.Rows[p].Cells[9].Value.ToString()),
+                                UserID = int.Parse(dgvAddToCart.Rows[p].Cells[10].Value.ToString()),
+                                StockOnHand = int.Parse(dgvAddToCart.Rows[p].Cells[11].Value.ToString()),
                                 QuantityPerBox = int.Parse(dgvAddToCart.Rows[p].Cells[12].Value.ToString()),
-                                OrderID = int.Parse(dgvAddToCart.Rows[p].Cells[13].Value.ToString()),
+                                AvailableBox = decimal.Parse(dgvAddToCart.Rows[p].Cells[13].Value.ToString()),
+                                OrderID = int.Parse(dgvAddToCart.Rows[p].Cells[14].Value.ToString()),
                             };
                             dgvAddToCart.DataSource = db.spViewCart();
                         }
@@ -1123,6 +1136,7 @@ namespace LactoBioticsSystem
                         txtcash.Text = "";
                         txtAmount.Text = "";
                         txtchange.Text = "";
+                        txtTin.Text = "";
 
                     }
                 }
@@ -1144,13 +1158,12 @@ namespace LactoBioticsSystem
             txtAmount.Text = dgvAddToCart.CurrentRow.Cells[4].Value.ToString();
             txtcust_name.Text = dgvAddToCart.CurrentRow.Cells[5].Value.ToString();
             txtcust_address.Text = dgvAddToCart.CurrentRow.Cells[6].Value.ToString();
-            lblTin.Text = dgvAddToCart.CurrentRow.Cells[7].Value.ToString();
-            cmbTranType.Text = dgvAddToCart.CurrentRow.Cells[9].Value.ToString();
-            lblCustID.Text = dgvAddToCart.CurrentRow.Cells[10].Value.ToString();
-            txtStockOnHand.Text = dgvAddToCart.CurrentRow.Cells[12].Value.ToString();
-            txtQuantityPerBox.Text = dgvAddToCart.CurrentRow.Cells[13].Value.ToString();
-            txtAvailBox.Text = dgvAddToCart.CurrentRow.Cells[14].Value.ToString();
-            lblOrderID.Text = dgvAddToCart.CurrentRow.Cells[15].Value.ToString();
+            txtTin.Text = dgvAddToCart.CurrentRow.Cells[7].Value.ToString();
+            lblCustID.Text = dgvAddToCart.CurrentRow.Cells[9].Value.ToString();
+            txtStockOnHand.Text = dgvAddToCart.CurrentRow.Cells[11].Value.ToString();
+            txtQuantityPerBox.Text = dgvAddToCart.CurrentRow.Cells[12].Value.ToString();
+            txtAvailBox.Text = dgvAddToCart.CurrentRow.Cells[13].Value.ToString();
+            lblOrderID.Text = dgvAddToCart.CurrentRow.Cells[14].Value.ToString();
         }
 
         private void PnlCustOrder_Paint(object sender, PaintEventArgs e)
@@ -1160,8 +1173,8 @@ namespace LactoBioticsSystem
             dgvReservation.DataSource = db.spViewResCart();
             decimal Totals = 0;
             btnPrintOrder.Enabled = false;
-            btnDel.Enabled = false;
-            btnRes.Enabled = false;
+            btnPrintDelivery.Enabled = false;
+            btnPrintReseservation.Enabled = false;
             for (int i = 0; i < dgvAddToCart.Rows.Count; i++)
             {
                 Totals += Convert.ToDecimal(dgvAddToCart.Rows[i].Cells[4].Value);
@@ -1175,6 +1188,14 @@ namespace LactoBioticsSystem
                     Total += Convert.ToDecimal(dgvAddToCart.Rows[i].Cells[4].Value);
                 }
                 txtAmount.Text = Total.ToString();
+                if (txtAmount.Text == "0") 
+                {
+                    txtcash.Enabled = false;
+                }
+                else
+                {
+                    txtcash.Enabled = true;
+                } 
             }
             else if (cmbTranType.Text == "Reservation")
             {
@@ -1184,6 +1205,14 @@ namespace LactoBioticsSystem
                     Total += Convert.ToDecimal(dgvReservation.Rows[i].Cells[4].Value);
                 }
                 txtAmount.Text = Total.ToString();
+                if (txtAmount.Text == "0")
+                {
+                    txtcash.Enabled = false;
+                }
+                else
+                {
+                    txtcash.Enabled = true;
+                }
             }
             else if (cmbTranType.Text == "Delivery")
             {
@@ -1193,6 +1222,14 @@ namespace LactoBioticsSystem
                     Total += Convert.ToDecimal(dgvDelivery.Rows[i].Cells[4].Value);
                 }
                 txtAmount.Text = Total.ToString();
+                if (txtAmount.Text == "0") 
+                {
+                    txtcash.Enabled = false;
+                }
+                else
+                {
+                    txtcash.Enabled = true;
+                }
             }
         }
 
@@ -1233,9 +1270,9 @@ namespace LactoBioticsSystem
                                 int StockonHand = int.Parse(txtStockOnHand.Text);
                                 int StRemain = 0;
                                 decimal TotalAmount = 0;
-                                decimal Box = decimal.Parse(txtAvailBox.Text);
+                                decimal PerBox = decimal.Parse(txtQuantityPerBox.Text);
                                 decimal Balance = StockonHand - Pquantity;
-                                decimal BoxBalance = Balance / Box;
+                                decimal BoxBalance = Balance / PerBox;
                                 if
                                (Pquantity > StockonHand)
                                 {
@@ -1261,7 +1298,7 @@ namespace LactoBioticsSystem
                                         {
                                             if (int.Parse(txtpro_quantity.Text) <= 14)
                                             {
-                                                MessageBox.Show("Cannot transact Delivery, Order Quantity should be more than 14!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                                MessageBox.Show("Cannot transact Delivery. Order Quantity should 15 Above!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                             }
                                             else
                                             {
@@ -1275,8 +1312,8 @@ namespace LactoBioticsSystem
                                                     TotalAmount = Proprice * Pquantity;
                                                     StRemain = StockonHand - Pquantity;
                                                     lblStockIn.Text = "0";
-                                                    db.spAddDelCart(lblProCode.Text, txtpro_name.Text, Proprice, Pquantity, TotalAmount, txtcust_name.Text, txtcust_address.Text, lblTin.Text, dtpDateDel.Value, cmbTranType.Text, DateTime.Now, int.Parse(lblCustID.Text), int.Parse(lblUserID.Text), lblDelStatus.Text, StRemain, int.Parse(txtQuantityPerBox.Text), BoxBalance);
-                                                    db.spAddInventory(txtProCode.Text, StRemain, int.Parse(lblStockIn.Text), Pquantity, BoxBalance, DateTime.Now);
+                                                    db.spAddDelCart(lblProCode.Text, txtpro_name.Text, Proprice, Pquantity, TotalAmount, txtcust_name.Text, txtcust_address.Text, txtTin.Text, dtpDateDel.Value, DateTime.Now, int.Parse(lblCustID.Text), int.Parse(lblUserID.Text), lblDelStatus.Text, StRemain, int.Parse(txtQuantityPerBox.Text), BoxBalance);
+                                                    //db.spAddInventory(txtProCode.Text, StRemain, int.Parse(lblStockIn.Text), Pquantity, BoxBalance, DateTime.Now);
                                                     DataGridViewRow newDataRow = dgvProducts.Rows[IndexRow];
                                                     newDataRow.Cells[7].Value = StRemain.ToString();
                                                     db.spUpdateProduct(lblProCode.Text, int.Parse(txtpro_quantity.Text), decimal.Parse(lblBox2.Text));
@@ -1289,6 +1326,7 @@ namespace LactoBioticsSystem
                                                     }
                                                     txtAmount.Text = Total.ToString();
 
+                                                    txtcash.Enabled = true;
                                                     txtQuantityPerBox.Text = "";
                                                     txtAvailBox.Text = "";
                                                     lblProCode.Text = "";
@@ -1348,9 +1386,11 @@ namespace LactoBioticsSystem
                                 int StockonHand = int.Parse(txtStockOnHand.Text);
                                 int StRemain = 0;
                                 decimal TotalAmount = 0;
-                                decimal Box = decimal.Parse(txtAvailBox.Text);
+                                decimal PerBox = decimal.Parse(txtQuantityPerBox.Text);
                                 decimal Balance = StockonHand - Pquantity;
-                                decimal BoxBalance = Balance / Box;
+                                decimal BoxBalance = Balance / PerBox;
+                  
+                              
                                 if
                                (Pquantity > StockonHand)
                                 {
@@ -1376,7 +1416,7 @@ namespace LactoBioticsSystem
                                         {
                                             if (int.Parse(txtpro_quantity.Text) <= 14)
                                             {
-                                                MessageBox.Show("Cannot transact Delivery, Order Quantity should be more than 14!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                                MessageBox.Show("Cannot transact Reservation. Order Quantity should be 15 Above!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                             }
                                             else
                                             {
@@ -1390,8 +1430,8 @@ namespace LactoBioticsSystem
                                                     TotalAmount = Proprice * Pquantity;
                                                     StRemain = StockonHand - Pquantity;
                                                     lblStockIn.Text = "0";
-                                                    db.spAddResCart(lblProCode.Text, txtpro_name.Text, Proprice, Pquantity, TotalAmount, txtcust_name.Text, txtcust_address.Text, lblTin.Text, dtpClaimDate.Value, cmbTranType.Text, DateTime.Now, int.Parse(lblCustID.Text), int.Parse(lblUserID.Text), lblResStatus.Text, StRemain, int.Parse(txtQuantityPerBox.Text), BoxBalance);
-                                                    db.spAddInventory(txtProCode.Text, StRemain, int.Parse(lblStockIn.Text), Pquantity, BoxBalance, DateTime.Now);
+                                                    db.spAddResCart(lblProCode.Text, txtpro_name.Text, Proprice, Pquantity, TotalAmount, txtcust_name.Text, txtcust_address.Text, txtTin.Text, dtpClaimDate.Value, DateTime.Now, int.Parse(lblCustID.Text), int.Parse(lblUserID.Text), lblResStatus.Text, StRemain, int.Parse(txtQuantityPerBox.Text), BoxBalance);
+                                                    //db.spAddInventory(txtProCode.Text, StRemain, int.Parse(lblStockIn.Text), Pquantity, BoxBalance, DateTime.Now);
                                                     DataGridViewRow newDataRow = dgvProducts.Rows[IndexRow];
                                                     newDataRow.Cells[7].Value = StRemain.ToString();
                                                     db.spUpdateProduct(lblProCode.Text, int.Parse(txtpro_quantity.Text), decimal.Parse(lblBox2.Text));
@@ -1404,6 +1444,7 @@ namespace LactoBioticsSystem
                                                     }
                                                     txtAmount.Text = Total.ToString();
 
+                                                    txtcash.Enabled = true;
                                                     txtQuantityPerBox.Text = "";
                                                     txtAvailBox.Text = "";
                                                     lblProCode.Text = "";
@@ -1444,13 +1485,12 @@ namespace LactoBioticsSystem
             txtcust_address.Text = dgvDelivery.CurrentRow.Cells[6].Value.ToString();
             lblTin.Text = dgvDelivery.CurrentRow.Cells[7].Value.ToString();
             dtpDateDel.Value = DateTime.Parse(dgvDelivery.CurrentRow.Cells[8].Value.ToString());
-            cmbTranType.Text = dgvDelivery.CurrentRow.Cells[9].Value.ToString();
-            lblCustID.Text = dgvDelivery.CurrentRow.Cells[11].Value.ToString();
-            lblDelStatus.Text = dgvDelivery.CurrentRow.Cells[13].Value.ToString();
-            txtStockOnHand.Text = dgvDelivery.CurrentRow.Cells[14].Value.ToString();
-            txtQuantityPerBox.Text = dgvDelivery.CurrentRow.Cells[15].Value.ToString();
-            txtAvailBox.Text = dgvDelivery.CurrentRow.Cells[16].Value.ToString();
-            lblOrderID.Text = dgvDelivery.CurrentRow.Cells[17].Value.ToString();
+            lblCustID.Text = dgvDelivery.CurrentRow.Cells[10].Value.ToString();
+            lblDelStatus.Text = dgvDelivery.CurrentRow.Cells[12].Value.ToString();
+            txtStockOnHand.Text = dgvDelivery.CurrentRow.Cells[13].Value.ToString();
+            txtQuantityPerBox.Text = dgvDelivery.CurrentRow.Cells[14].Value.ToString();
+            txtAvailBox.Text = dgvDelivery.CurrentRow.Cells[15].Value.ToString();
+            lblOrderID.Text = dgvDelivery.CurrentRow.Cells[16].Value.ToString();
         }
 
         private void PictureBox2_Click(object sender, EventArgs e)
@@ -1474,11 +1514,10 @@ namespace LactoBioticsSystem
                         OrderQuantity = int.Parse(dgvDelivery.Rows[i].Cells[3].Value.ToString()),
                         TotalPrice = decimal.Parse(dgvDelivery.Rows[i].Cells[4].Value.ToString()),
                         DeliveryDate = DateTime.Parse(dgvDelivery.Rows[i].Cells[8].Value.ToString()),
-                        TransactionType = dgvDelivery.Rows[i].Cells[9].Value.ToString(),
-                        Date = DateTime.Parse(dgvDelivery.Rows[i].Cells[10].Value.ToString()),
-                        CustomerID = int.Parse(dgvDelivery.Rows[i].Cells[11].Value.ToString()),
-                        UserID = int.Parse(dgvDelivery.Rows[i].Cells[12].Value.ToString()),
-                        DeliveryStatus = dgvDelivery.Rows[i].Cells[13].Value.ToString()
+                        Date = DateTime.Parse(dgvDelivery.Rows[i].Cells[9].Value.ToString()),
+                        CustomerID = int.Parse(dgvDelivery.Rows[i].Cells[10].Value.ToString()),
+                        UserID = int.Parse(dgvDelivery.Rows[i].Cells[11].Value.ToString()),
+                        DeliveryStatus = dgvDelivery.Rows[i].Cells[12].Value.ToString()
                     };
                     db.ProductsDeliveries.InsertOnSubmit(delivery);
                     dgvCustDelivery.DataSource = db.spSelectDelivery();
@@ -1494,18 +1533,19 @@ namespace LactoBioticsSystem
                         CustomerAddress = dgvDelivery.Rows[i].Cells[6].Value.ToString(),
                         CustomerTin = dgvDelivery.Rows[i].Cells[7].Value.ToString(),
                         DeliveryDate = DateTime.Parse(dgvDelivery.Rows[i].Cells[8].Value.ToString()),
-                        TransactionType = dgvDelivery.Rows[i].Cells[9].Value.ToString(),
-                        date = DateTime.Parse(dgvDelivery.Rows[i].Cells[10].Value.ToString()),
-                        CustomerID = int.Parse(dgvDelivery.Rows[i].Cells[11].Value.ToString()),
-                        UserID = int.Parse(dgvDelivery.Rows[i].Cells[12].Value.ToString()),
-                        DeliveryStatus = dgvDelivery.Rows[i].Cells[13].Value.ToString(),
+                        date = DateTime.Parse(dgvDelivery.Rows[i].Cells[9].Value.ToString()),
+                        CustomerID = int.Parse(dgvDelivery.Rows[i].Cells[10].Value.ToString()),
+                        UserID = int.Parse(dgvDelivery.Rows[i].Cells[11].Value.ToString()),
+                        DeliveryStatus = dgvDelivery.Rows[i].Cells[12].Value.ToString(),
+                        StockOnHand = int.Parse(dgvDelivery.Rows[i].Cells[13].Value.ToString()),
                         QuantityPerBox = int.Parse(dgvDelivery.Rows[i].Cells[14].Value.ToString()),
-                        OrderID = int.Parse(dgvDelivery.Rows[i].Cells[15].Value.ToString()),
+                        AvailableBox = decimal.Parse(dgvDelivery.Rows[i].Cells[15].Value.ToString()),
+                        OrderID = int.Parse(dgvDelivery.Rows[i].Cells[16].Value.ToString())
                     };
                 }
                 db.DeliveryCarts.DeleteAllOnSubmit(db.DeliveryCarts);
                 db.SubmitChanges();
-                dgvDelivery.DataSource = db.spSelectDelivery();
+                dgvDelivery.DataSource = db.spViewCart();
                 lblProCode.Text = "";
                 txtpro_name.Text = "";
                 txtpro_price.Text = "";
@@ -1516,7 +1556,8 @@ namespace LactoBioticsSystem
                 txtcust_address.Text = "";
                 txtcash.Text = "";
                 txtAmount.Text = "";
-                txtchange.Text = ""; ;
+                txtchange.Text = "";
+                txtTin.Text = "";
 
             }
         }
@@ -1547,13 +1588,12 @@ namespace LactoBioticsSystem
                         {
                             var salesReport = new SalesReport
                             {
-                                ProductCode = dgvReservation.Rows[i].Cells[0].Value.ToString(),
-                                OrderQuantity = int.Parse(dgvReservation.Rows[i].Cells[3].Value.ToString()),
-                                TotalPrice = decimal.Parse(dgvReservation.Rows[i].Cells[4].Value.ToString()),
-                                TransactionType = dgvReservation.Rows[i].Cells[9].Value.ToString(),
-                                Date = DateTime.Parse(dgvReservation.Rows[i].Cells[10].Value.ToString()),
-                                CustomerID = int.Parse(dgvReservation.Rows[i].Cells[11].Value.ToString()),
-                                UserID = int.Parse(dgvReservation.Rows[i].Cells[12].Value.ToString())
+                                ProductCode = dgvAddToCart.Rows[i].Cells[0].Value.ToString(),
+                                OrderQuantity = int.Parse(dgvAddToCart.Rows[i].Cells[3].Value.ToString()),
+                                TotalAmount = decimal.Parse(dgvAddToCart.Rows[i].Cells[4].Value.ToString()),
+                                Date = DateTime.Parse(dgvAddToCart.Rows[i].Cells[9].Value.ToString()),
+                                CustomerID = int.Parse(dgvAddToCart.Rows[i].Cells[10].Value.ToString()),
+                                UserID = int.Parse(dgvAddToCart.Rows[i].Cells[11].Value.ToString())
                             };
                             db.SalesReports.InsertOnSubmit(salesReport);
 
@@ -1563,11 +1603,10 @@ namespace LactoBioticsSystem
                                 OrderQuantity = int.Parse(dgvReservation.Rows[i].Cells[3].Value.ToString()),
                                 TotalPrice = decimal.Parse(dgvReservation.Rows[i].Cells[4].Value.ToString()),
                                 ClaimDate = DateTime.Parse(dgvReservation.Rows[i].Cells[8].Value.ToString()),
-                                TransactionType = dgvReservation.Rows[i].Cells[9].Value.ToString(),
-                                Date = DateTime.Parse(dgvReservation.Rows[i].Cells[10].Value.ToString()),
-                                CustomerID = int.Parse(dgvReservation.Rows[i].Cells[11].Value.ToString()),
-                                UserID = int.Parse(dgvReservation.Rows[i].Cells[12].Value.ToString()),
-                                ReservationStatus = dgvReservation.Rows[i].Cells[13].Value.ToString()
+                                Date = DateTime.Parse(dgvReservation.Rows[i].Cells[9].Value.ToString()),
+                                CustomerID = int.Parse(dgvReservation.Rows[i].Cells[10].Value.ToString()),
+                                UserID = int.Parse(dgvReservation.Rows[i].Cells[11].Value.ToString()),
+                                ReservationStatus = dgvReservation.Rows[i].Cells[12].Value.ToString()
                             };
                             db.ProductsReservations.InsertOnSubmit(reservation);
                             dgvCustReservation.DataSource = db.spSelectReservation();
@@ -1583,13 +1622,14 @@ namespace LactoBioticsSystem
                                 CustomerAddress = dgvReservation.Rows[i].Cells[6].Value.ToString(),
                                 CustomerTin = dgvReservation.Rows[i].Cells[7].Value.ToString(),
                                 ClaimDate = DateTime.Parse(dgvReservation.Rows[i].Cells[8].Value.ToString()),
-                                TransactionType = dgvReservation.Rows[i].Cells[9].Value.ToString(),
-                                date = DateTime.Parse(dgvReservation.Rows[i].Cells[10].Value.ToString()),
-                                CustomerID = int.Parse(dgvReservation.Rows[i].Cells[11].Value.ToString()),
-                                UserID = int.Parse(dgvReservation.Rows[i].Cells[12].Value.ToString()),
-                                ReservationStatus = dgvReservation.Rows[i].Cells["ReservationStatus"].Value.ToString(),
-                                QuantityPerBox = int.Parse(dgvReservation.Rows[i].Cells["QuantityPerBox"].Value.ToString()),
-                                OrderID = int.Parse(dgvReservation.Rows[i].Cells["OrderID"].Value.ToString()),
+                                date = DateTime.Parse(dgvReservation.Rows[i].Cells[9].Value.ToString()),
+                                CustomerID = int.Parse(dgvReservation.Rows[i].Cells[10].Value.ToString()),
+                                UserID = int.Parse(dgvReservation.Rows[i].Cells[11].Value.ToString()),
+                                ReservationStatus = dgvReservation.Rows[i].Cells[12].Value.ToString(),
+                                StockOnHand = int.Parse(dgvReservation.Rows[i].Cells[13].Value.ToString()),
+                                QuantityPerBox = int.Parse(dgvReservation.Rows[i].Cells[14].Value.ToString()),
+                                AvailableBox = decimal.Parse(dgvReservation.Rows[i].Cells[15].Value.ToString()),
+                                OrderID = int.Parse(dgvReservation.Rows[i].Cells[16].Value.ToString()),
                             };
                         }
                         db.ReservationCarts.DeleteAllOnSubmit(db.ReservationCarts);
@@ -1606,6 +1646,7 @@ namespace LactoBioticsSystem
                         txtcash.Text = "";
                         txtAmount.Text = "";
                         txtchange.Text = "";
+                        txtTin.Text = "";
                     }
                 }
             }
@@ -1646,16 +1687,14 @@ namespace LactoBioticsSystem
         private void DgvCustDelivery_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             lblDeliveryID.Text = dgvCustDelivery.CurrentRow.Cells[0].Value.ToString();
+            txtProductCode.Text = dgvCustDelivery.CurrentRow.Cells[1].Value.ToString();
             txtProductName.Text = dgvCustDelivery.CurrentRow.Cells[2].Value.ToString();
             txtQuantity.Text = dgvCustDelivery.CurrentRow.Cells[3].Value.ToString();
-            txtDeliveryDate.Text = dgvCustDelivery.CurrentRow.Cells[6].Value.ToString();
-            txtCustomerName.Text = dgvCustDelivery.CurrentRow.Cells[8].Value.ToString();
-            txtCustomerAddress.Text = dgvCustDelivery.CurrentRow.Cells[9].Value.ToString();
-            cmbDelStatus.Text = dgvCustDelivery.CurrentRow.Cells[7].Value.ToString();
-            lblCustoID.Text = dgvCustDelivery.CurrentRow.Cells[10].Value.ToString();
-            lblTransactionType.Text = dgvCustDelivery.CurrentRow.Cells[5].Value.ToString();
-            lblProductCode.Text = dgvCustDelivery.CurrentRow.Cells[1].Value.ToString();
-            lblTotalPrice.Text = dgvCustDelivery.CurrentRow.Cells[4].Value.ToString();
+            txtTotalPrice.Text = dgvCustDelivery.CurrentRow.Cells[4].Value.ToString();
+            txtDeliveryDate.Text = dgvCustDelivery.CurrentRow.Cells[5].Value.ToString();
+            txtStatus.Text = dgvCustDelivery.CurrentRow.Cells[6].Value.ToString();
+            txtCustomerName.Text = dgvCustDelivery.CurrentRow.Cells[7].Value.ToString();
+            txtCustomerAddress.Text = dgvCustDelivery.CurrentRow.Cells[8].Value.ToString();
         }
 
         private void Button4_Click(object sender, EventArgs e)
@@ -1666,12 +1705,15 @@ namespace LactoBioticsSystem
         private void DgvCustReservation_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             lblResID.Text = dgvCustReservation.CurrentRow.Cells[0].Value.ToString();
+            txtPCode.Text = dgvCustReservation.CurrentRow.Cells[1].Value.ToString();
             txtPName.Text = dgvCustReservation.CurrentRow.Cells[2].Value.ToString();
-            txtResQuantity.Text = dgvCustReservation.CurrentRow.Cells[4].Value.ToString();
-            txtClaimDate.Text = dgvCustReservation.CurrentRow.Cells[6].Value.ToString();
-            txtCName.Text = dgvCustReservation.CurrentRow.Cells[8].Value.ToString();
-            txtCAddress.Text = dgvCustReservation.CurrentRow.Cells[9].Value.ToString();
-            cmbReservationStatus.Text = dgvCustReservation.CurrentRow.Cells[7].Value.ToString();
+            txtResQuantity.Text = dgvCustReservation.CurrentRow.Cells[3].Value.ToString();
+            txtPTotal.Text = dgvCustReservation.CurrentRow.Cells[4].Value.ToString();
+            txtClaimDate.Text = dgvCustReservation.CurrentRow.Cells[5].Value.ToString();
+            txtPStatus.Text = dgvCustReservation.CurrentRow.Cells[6].Value.ToString();
+            txtCName.Text = dgvCustReservation.CurrentRow.Cells[7].Value.ToString();
+            txtCAddress.Text = dgvCustReservation.CurrentRow.Cells[8].Value.ToString();
+
         }
 
         private void BtnUpdateResPro_Click(object sender, EventArgs e)
@@ -1684,17 +1726,19 @@ namespace LactoBioticsSystem
                 }
                 else
                 {
-                    if (cmbReservationStatus.Text == "Claimed")
-                    {
-                        db.spUpdateReservation(int.Parse(lblResID.Text), cmbReservationStatus.Text);
-                        lblResID.Text = "";
-                        MessageBox.Show("Delivery Successfully Updated!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        dgvReservation.DataSource = db.spSelectReservation();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Reservation Status Cannot be updated unless the products has been claimed", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
+                    txtPStatus.Text = "Claimed";
+                    db.spUpdateReservation(int.Parse(lblResID.Text), txtPStatus.Text);
+                    MessageBox.Show("Delivery Successfully Updated!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    dgvCustReservation.DataSource = db.spSelectReservation();
+                    lblResID.Text = "";
+                    txtPCode.Text = "";
+                    txtPName.Text = "";
+                    txtResQuantity.Text = "";
+                    txtPTotal.Text = "";
+                    txtClaimDate.Text = "";
+                    txtPStatus.Text = "";
+                    txtCName.Text = "";
+                    txtCAddress.Text = "";
                 }
             }
             catch (Exception ex)
@@ -1711,20 +1755,21 @@ namespace LactoBioticsSystem
                 }
                 else
                 {
-                    if (cmbDelStatus.Text == "Delivered")
-                    {
-                        db.spUpdateDelivery(int.Parse(lblDeliveryID.Text), cmbDelStatus.Text);
-                        db.spAddSalesReports(lblProductCode.Text, int.Parse(txtQuantity.Text), int.Parse(lblTotalPrice.Text), lblTransactionType.Text, int.Parse(lblCustoID.Text), ClsLogin.User.UserId, DateTime.Now);
-                        lblDeliveryID.Text = "";
-                        MessageBox.Show("Delivery Successfully Updated!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        ViewSalesReportsForm vsr = new ViewSalesReportsForm();
-                        //vsr.dgvSalesInventory.DataSource = db.spViewSalesReports();
-                        dgvCustDelivery.DataSource = db.spSelectDelivery();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Delivery Status Cannot be Updated unless the product has been delivered!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
+                    txtStatus.Text = "Delivered";
+                    db.spUpdateDelivery(int.Parse(lblDeliveryID.Text), txtStatus.Text);
+                    db.spAddSalesReports(txtProductCode.Text, int.Parse(txtQuantity.Text), int.Parse(lblTotalPrice.Text), int.Parse(lblCustoID.Text), ClsLogin.User.UserId, DateTime.Now);
+                    MessageBox.Show("Delivery Successfully Updated!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    dgvCustDelivery.DataSource = db.spSelectDelivery();
+                    lblDeliveryID.Text = "";
+                    lblDeliveryID.Text = "";
+                    txtProductCode.Text = "";
+                    txtProductName.Text = "";
+                    txtQuantity.Text = "";
+                    txtTotalPrice.Text = "";
+                    txtDeliveryDate.Text = "";
+                    txtCustomerName.Text = "";
+                    txtCustomerAddress.Text = "";
+                    txtStatus.Text = "";
                 }
             }
             catch (Exception ex)
@@ -1778,7 +1823,7 @@ namespace LactoBioticsSystem
                         txtpro_quantity.Text = "";
                         txtQuantityPerBox.Text = "";
                         txtAvailBox.Text = "";
-                        lblTin.Text = "";
+                        txtTin.Text = "";
                         txtcash.Focus();
 
                     }
@@ -1838,7 +1883,7 @@ namespace LactoBioticsSystem
                         txtpro_quantity.Text = "";
                         txtQuantityPerBox.Text = "";
                         txtAvailBox.Text = "";
-                        lblTin.Text = "";
+                        txtTin.Text = "";
                         txtcash.Focus();
                     }
                     else if (dialogResult == DialogResult.No)
@@ -1918,6 +1963,8 @@ namespace LactoBioticsSystem
             lblStaffUType.Text = lblUsertype.Text;
             lblStaffName.Text = lblFirstname.Text;
             cmbTranType.Focus();
+            gbWalkin.Show();
+            dgvAddToCart.Show();
         }
 
         private void BtnManageCustomer_Click(object sender, EventArgs e)
@@ -1981,6 +2028,8 @@ namespace LactoBioticsSystem
             lblStaffUType.Text = lblUsertype.Text;
             lblStaffName.Text = lblFirstname.Text;
             cmbTranType.Focus();
+            gbWalkin.Show();
+            dgvAddToCart.Show();
         }
 
         private void BtnStaffCustomerReg_Click(object sender, EventArgs e)
@@ -2131,12 +2180,13 @@ namespace LactoBioticsSystem
 
         private void Txtcash_KeyPress(object sender, KeyPressEventArgs e)
         {
-            char ch = e.KeyChar;
-
-            if (!Char.IsDigit(ch) && ch != 8 && ch != 46)
-            {
+            if (e.KeyChar == '.' && txtcash.Text.Contains('.'))
                 e.Handled = true;
+            if (char.IsNumber(e.KeyChar) || e.KeyChar == '.')
+            {
+                if (Regex.IsMatch(txtcash.Text, "^\\d*\\.\\d{2}$")) e.Handled = true;
             }
+            else e.Handled = e.KeyChar != (char)Keys.Back;
         }
 
         private void Txtpro_quantity_KeyPress(object sender, KeyPressEventArgs e)
@@ -2260,13 +2310,12 @@ namespace LactoBioticsSystem
             txtcust_address.Text = dgvReservation.CurrentRow.Cells[6].Value.ToString();
             lblTin.Text = dgvReservation.CurrentRow.Cells[7].Value.ToString();
             dtpDateDel.Value = DateTime.Parse(dgvReservation.CurrentRow.Cells[8].Value.ToString());
-            cmbTranType.Text = dgvReservation.CurrentRow.Cells[9].Value.ToString();
-            lblCustID.Text = dgvReservation.CurrentRow.Cells[11].Value.ToString();
-            lblResStatus.Text = dgvReservation.CurrentRow.Cells[13].Value.ToString();
-            txtStockOnHand.Text = dgvReservation.CurrentRow.Cells[14].Value.ToString();
-            txtQuantityPerBox.Text = dgvReservation.CurrentRow.Cells[15].Value.ToString();
-            txtAvailBox.Text = dgvReservation.CurrentRow.Cells[16].Value.ToString();
-            lblOrderID.Text = dgvReservation.CurrentRow.Cells[17].Value.ToString();
+            lblCustID.Text = dgvReservation.CurrentRow.Cells[10].Value.ToString();
+            lblResStatus.Text = dgvReservation.CurrentRow.Cells[12].Value.ToString();
+            txtStockOnHand.Text = dgvReservation.CurrentRow.Cells[13].Value.ToString();
+            txtQuantityPerBox.Text = dgvReservation.CurrentRow.Cells[14].Value.ToString();
+            txtAvailBox.Text = dgvReservation.CurrentRow.Cells[15].Value.ToString();
+            lblOrderID.Text = dgvReservation.CurrentRow.Cells[16].Value.ToString();
         }
 
         private void Txtchange_TextChanged(object sender, EventArgs e)
@@ -2288,7 +2337,7 @@ namespace LactoBioticsSystem
             for (int i = 0; i < dgvProducts.Rows.Count; i++)
             {
                 int val = Int32.Parse(dgvProducts.Rows[i].Cells[5].Value.ToString());
-                if (val <= 5)
+                if (val <= 20)
                 {
                     dgvProducts.Rows[i].DefaultCellStyle.BackColor = Color.Red;
                 }
@@ -2298,6 +2347,32 @@ namespace LactoBioticsSystem
         private void PnlStaffMainMenu_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void BtnCancelDelivery_Click(object sender, EventArgs e)
+        {
+            lblDeliveryID.Text = "";
+            txtProductCode.Text = "";
+            txtProductName.Text = "";
+            txtQuantity.Text = "";
+            txtTotalPrice.Text = "";
+            txtDeliveryDate.Text = "";
+            txtCustomerName.Text = "";
+            txtCustomerAddress.Text = "";
+            txtStatus.Text = "";
+        }
+
+        private void BtnClear_Click(object sender, EventArgs e)
+        {
+            lblResID.Text = "";
+            txtPCode.Text = "";
+            txtPName.Text = "";
+            txtResQuantity.Text = "";
+            txtPTotal.Text = "";
+            txtClaimDate.Text = "";
+            txtPStatus.Text = "";
+            txtCName.Text = "";
+            txtCAddress.Text = "";
         }
     }
 }

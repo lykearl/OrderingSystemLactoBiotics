@@ -159,7 +159,7 @@
             this.txtBox.Size = new System.Drawing.Size(52, 25);
             this.txtBox.TabIndex = 4;
             this.txtBox.TextChanged += new System.EventHandler(this.TxtBox_TextChanged);
-            this.txtBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtPro_Quantity_KeyPress);
+            this.txtBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtBox_KeyPress);
             // 
             // label7
             // 

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
 
 namespace LactoBioticsSystem.Products_Management
 {
@@ -90,6 +91,17 @@ namespace LactoBioticsSystem.Products_Management
         private void TxtQuanPerBox_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void TxtBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == '.' && txtBox.Text.Contains('.'))
+                e.Handled = true;
+            if (char.IsNumber(e.KeyChar) || e.KeyChar == '.')
+            {
+                if (Regex.IsMatch(txtBox.Text, "^\\d*\\.\\d{2}$")) e.Handled = true;
+            }
+            else e.Handled = e.KeyChar != (char)Keys.Back;
         }
     }
 }

@@ -63,7 +63,7 @@ namespace LactoBioticsSystem
     #endregion
 		
 		public DatabaseDataContext() : 
-				base(global::LactoBioticsSystem.Properties.Settings.Default.LactoBioticsConnectionString2, mappingSource)
+				base(global::LactoBioticsSystem.Properties.Settings.Default.LactoBioticsConnectionString1, mappingSource)
 		{
 			OnCreated();
 		}
@@ -173,9 +173,9 @@ namespace LactoBioticsSystem
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.spAddCart")]
-		public int spAddCart([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ProductCode", DbType="VarChar(50)")] string productCode, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ProductName", DbType="VarChar(50)")] string productName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ProductPrice", DbType="Decimal(10,2)")] System.Nullable<decimal> productPrice, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="OrderQuantity", DbType="Int")] System.Nullable<int> orderQuantity, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TotalAmount", DbType="Decimal(10,2)")] System.Nullable<decimal> totalAmount, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CustomerName", DbType="VarChar(50)")] string customerName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CustomerAddress", DbType="VarChar(50)")] string customerAddress, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CustomerTin", DbType="VarChar(50)")] string customerTin, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Date", DbType="DateTime")] System.Nullable<System.DateTime> date, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TransactionType", DbType="VarChar(50)")] string transactionType, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CustomerID", DbType="Int")] System.Nullable<int> customerID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="UserID", DbType="Int")] System.Nullable<int> userID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="StockOnHand", DbType="Int")] System.Nullable<int> stockOnHand, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="QuantityPerBox", DbType="Int")] System.Nullable<int> quantityPerBox, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="AvailableBox", DbType="Decimal(7,2)")] System.Nullable<decimal> availableBox)
+		public int spAddCart([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ProductCode", DbType="VarChar(50)")] string productCode, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ProductName", DbType="VarChar(50)")] string productName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ProductPrice", DbType="Decimal(10,2)")] System.Nullable<decimal> productPrice, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="OrderQuantity", DbType="Int")] System.Nullable<int> orderQuantity, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TotalAmount", DbType="Decimal(10,2)")] System.Nullable<decimal> totalAmount, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CustomerName", DbType="VarChar(50)")] string customerName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CustomerAddress", DbType="VarChar(50)")] string customerAddress, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CustomerTin", DbType="VarChar(50)")] string customerTin, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Date", DbType="DateTime")] System.Nullable<System.DateTime> date, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CustomerID", DbType="Int")] System.Nullable<int> customerID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="UserID", DbType="Int")] System.Nullable<int> userID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="StockOnHand", DbType="Int")] System.Nullable<int> stockOnHand, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="QuantityPerBox", DbType="Int")] System.Nullable<int> quantityPerBox, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="AvailableBox", DbType="Decimal(7,2)")] System.Nullable<decimal> availableBox)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), productCode, productName, productPrice, orderQuantity, totalAmount, customerName, customerAddress, customerTin, date, transactionType, customerID, userID, stockOnHand, quantityPerBox, availableBox);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), productCode, productName, productPrice, orderQuantity, totalAmount, customerName, customerAddress, customerTin, date, customerID, userID, stockOnHand, quantityPerBox, availableBox);
 			return ((int)(result.ReturnValue));
 		}
 		
@@ -204,7 +204,6 @@ namespace LactoBioticsSystem
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="CustomerAddress", DbType="VarChar(50)")] string customerAddress, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="CustomerTin", DbType="VarChar(50)")] string customerTin, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="DeliveryDate", DbType="DateTime")] System.Nullable<System.DateTime> deliveryDate, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="TransactionType", DbType="VarChar(50)")] string transactionType, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Date", DbType="DateTime")] System.Nullable<System.DateTime> date, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="CustomerID", DbType="Int")] System.Nullable<int> customerID, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="UserID", DbType="Int")] System.Nullable<int> userID, 
@@ -213,14 +212,14 @@ namespace LactoBioticsSystem
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="QuantityPerBox", DbType="Int")] System.Nullable<int> quantityPerBox, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="AvailableBox", DbType="Decimal(7,2)")] System.Nullable<decimal> availableBox)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), productCode, productName, productPrice, orderQuantity, totalAmount, customerName, customerAddress, customerTin, deliveryDate, transactionType, date, customerID, userID, deliveryStatus, stockOnHand, quantityPerBox, availableBox);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), productCode, productName, productPrice, orderQuantity, totalAmount, customerName, customerAddress, customerTin, deliveryDate, date, customerID, userID, deliveryStatus, stockOnHand, quantityPerBox, availableBox);
 			return ((int)(result.ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.spAddDelivery")]
-		public int spAddDelivery([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ProductCode", DbType="VarChar(50)")] string productCode, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="OrderQuantity", DbType="Int")] System.Nullable<int> orderQuantity, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TotalPrice", DbType="Decimal(18,0)")] System.Nullable<decimal> totalPrice, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TransactionType", DbType="VarChar(50)")] string transactionType, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DeliveryDate", DbType="DateTime")] System.Nullable<System.DateTime> deliveryDate, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DeliveryStatus", DbType="VarChar(50)")] string deliveryStatus, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CustomerID", DbType="Int")] System.Nullable<int> customerID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="UserID", DbType="Int")] System.Nullable<int> userID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Date", DbType="DateTime")] System.Nullable<System.DateTime> date)
+		public int spAddDelivery([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ProductCode", DbType="VarChar(50)")] string productCode, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="OrderQuantity", DbType="Int")] System.Nullable<int> orderQuantity, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TotalPrice", DbType="Decimal(18,0)")] System.Nullable<decimal> totalPrice, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DeliveryDate", DbType="DateTime")] System.Nullable<System.DateTime> deliveryDate, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DeliveryStatus", DbType="VarChar(50)")] string deliveryStatus, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CustomerID", DbType="Int")] System.Nullable<int> customerID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="UserID", DbType="Int")] System.Nullable<int> userID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Date", DbType="DateTime")] System.Nullable<System.DateTime> date)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), productCode, orderQuantity, totalPrice, transactionType, deliveryDate, deliveryStatus, customerID, userID, date);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), productCode, orderQuantity, totalPrice, deliveryDate, deliveryStatus, customerID, userID, date);
 			return ((int)(result.ReturnValue));
 		}
 		
@@ -249,7 +248,6 @@ namespace LactoBioticsSystem
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="CustomerAddress", DbType="VarChar(50)")] string customerAddress, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="CustomerTin", DbType="VarChar(50)")] string customerTin, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="ClaimDate", DbType="DateTime")] System.Nullable<System.DateTime> claimDate, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="TransactionType", DbType="VarChar(50)")] string transactionType, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Date", DbType="DateTime")] System.Nullable<System.DateTime> date, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="CustomerID", DbType="Int")] System.Nullable<int> customerID, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="UserID", DbType="Int")] System.Nullable<int> userID, 
@@ -258,21 +256,21 @@ namespace LactoBioticsSystem
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="QuantityPerBox", DbType="Int")] System.Nullable<int> quantityPerBox, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="AvailableBox", DbType="Decimal(7,2)")] System.Nullable<decimal> availableBox)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), productCode, productName, productPrice, orderQuantity, totalAmount, customerName, customerAddress, customerTin, claimDate, transactionType, date, customerID, userID, reservationStatus, stockOnHand, quantityPerBox, availableBox);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), productCode, productName, productPrice, orderQuantity, totalAmount, customerName, customerAddress, customerTin, claimDate, date, customerID, userID, reservationStatus, stockOnHand, quantityPerBox, availableBox);
 			return ((int)(result.ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.spAddReservation")]
-		public int spAddReservation([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ProductCOde", DbType="VarChar(50)")] string productCOde, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="OrderQuantity", DbType="Int")] System.Nullable<int> orderQuantity, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TotalPrice", DbType="Decimal(18,0)")] System.Nullable<decimal> totalPrice, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TransactionType", DbType="VarChar(50)")] string transactionType, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ClaimDate", DbType="DateTime")] System.Nullable<System.DateTime> claimDate, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ReservationStatus", DbType="VarChar(50)")] string reservationStatus, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CustomerID", DbType="Int")] System.Nullable<int> customerID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="UserID", DbType="Int")] System.Nullable<int> userID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Date", DbType="DateTime")] System.Nullable<System.DateTime> date)
+		public int spAddReservation([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ProductCOde", DbType="VarChar(50)")] string productCOde, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="OrderQuantity", DbType="Int")] System.Nullable<int> orderQuantity, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TotalPrice", DbType="Decimal(18,0)")] System.Nullable<decimal> totalPrice, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ClaimDate", DbType="DateTime")] System.Nullable<System.DateTime> claimDate, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ReservationStatus", DbType="VarChar(50)")] string reservationStatus, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CustomerID", DbType="Int")] System.Nullable<int> customerID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="UserID", DbType="Int")] System.Nullable<int> userID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Date", DbType="DateTime")] System.Nullable<System.DateTime> date)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), productCOde, orderQuantity, totalPrice, transactionType, claimDate, reservationStatus, customerID, userID, date);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), productCOde, orderQuantity, totalPrice, claimDate, reservationStatus, customerID, userID, date);
 			return ((int)(result.ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.spAddSalesReports")]
-		public int spAddSalesReports([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ProductCode", DbType="VarChar(50)")] string productCode, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="OrderQuantity", DbType="Int")] System.Nullable<int> orderQuantity, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TotalAmount", DbType="Decimal(18,0)")] System.Nullable<decimal> totalAmount, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TransactionType", DbType="VarChar(50)")] string transactionType, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CustomerID", DbType="Int")] System.Nullable<int> customerID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="UserID", DbType="Int")] System.Nullable<int> userID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Date", DbType="DateTime")] System.Nullable<System.DateTime> date)
+		public int spAddSalesReports([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ProductCode", DbType="VarChar(50)")] string productCode, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="OrderQuantity", DbType="Int")] System.Nullable<int> orderQuantity, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TotalAmount", DbType="Decimal(10,2)")] System.Nullable<decimal> totalAmount, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CustomerID", DbType="Int")] System.Nullable<int> customerID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="UserID", DbType="Int")] System.Nullable<int> userID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Date", DbType="DateTime")] System.Nullable<System.DateTime> date)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), productCode, orderQuantity, totalAmount, transactionType, customerID, userID, date);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), productCode, orderQuantity, totalAmount, customerID, userID, date);
 			return ((int)(result.ReturnValue));
 		}
 		
@@ -301,6 +299,13 @@ namespace LactoBioticsSystem
 		public int spDeleteDelCart([global::System.Data.Linq.Mapping.ParameterAttribute(Name="OrderID", DbType="Int")] System.Nullable<int> orderID)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), orderID);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.spDeleteProInventory")]
+		public int spDeleteProInventory([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ProductCode", DbType="VarChar(50)")] string productCode)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), productCode);
 			return ((int)(result.ReturnValue));
 		}
 		
@@ -416,6 +421,13 @@ namespace LactoBioticsSystem
 			return ((int)(result.ReturnValue));
 		}
 		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.spUpdateInventory")]
+		public int spUpdateInventory([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ProductCode", DbType="VarChar(50)")] string productCode, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="StocksOut", DbType="Int")] System.Nullable<int> stocksOut)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), productCode, stocksOut);
+			return ((int)(result.ReturnValue));
+		}
+		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.spUpdateProduct")]
 		public int spUpdateProduct([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ProductCode", DbType="VarChar(50)")] string productCode, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Quantity", DbType="Int")] System.Nullable<int> quantity, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Box", DbType="Decimal(7,2)")] System.Nullable<decimal> box)
 		{
@@ -423,10 +435,24 @@ namespace LactoBioticsSystem
 			return ((int)(result.ReturnValue));
 		}
 		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.spUpdateProductInventory")]
+		public int spUpdateProductInventory([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ProductCode", DbType="VarChar(50)")] string productCode, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="StocksIn", DbType="Int")] System.Nullable<int> stocksIn)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), productCode, stocksIn);
+			return ((int)(result.ReturnValue));
+		}
+		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.spUpdateProducts")]
 		public int spUpdateProducts([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ProductID", DbType="Int")] System.Nullable<int> productID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ProductCode", DbType="VarChar(50)")] string productCode, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ProductName", DbType="VarChar(50)")] string productName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ProductCatergory", DbType="VarChar(50)")] string productCatergory, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ProductPrice", DbType="Decimal(10,2)")] System.Nullable<decimal> productPrice, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Quantity", DbType="Int")] System.Nullable<int> quantity, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="QuantityPerBox", DbType="Int")] System.Nullable<int> quantityPerBox, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Box", DbType="Decimal(7,2)")] System.Nullable<decimal> box, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ProductDescription", DbType="VarChar(50)")] string productDescription, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Date", DbType="DateTime")] System.Nullable<System.DateTime> date)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), productID, productCode, productName, productCatergory, productPrice, quantity, quantityPerBox, box, productDescription, date);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.spUpdateProInventory")]
+		public int spUpdateProInventory([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ProductCode", DbType="VarChar(50)")] string productCode, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="StocksIn", DbType="Int")] System.Nullable<int> stocksIn, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="StocksOut", DbType="Int")] System.Nullable<int> stocksOut)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), productCode, stocksIn, stocksOut);
 			return ((int)(result.ReturnValue));
 		}
 		
@@ -518,8 +544,6 @@ namespace LactoBioticsSystem
 		
 		private System.Nullable<System.DateTime> _Date;
 		
-		private string _TransactionType;
-		
 		private System.Nullable<int> _CustomerID;
 		
 		private System.Nullable<int> _UserID;
@@ -556,8 +580,6 @@ namespace LactoBioticsSystem
     partial void OnCustomerTinChanged();
     partial void OnDateChanging(System.Nullable<System.DateTime> value);
     partial void OnDateChanged();
-    partial void OnTransactionTypeChanging(string value);
-    partial void OnTransactionTypeChanged();
     partial void OnCustomerIDChanging(System.Nullable<int> value);
     partial void OnCustomerIDChanged();
     partial void OnUserIDChanging(System.Nullable<int> value);
@@ -758,26 +780,6 @@ namespace LactoBioticsSystem
 					this._Date = value;
 					this.SendPropertyChanged("Date");
 					this.OnDateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TransactionType", DbType="VarChar(50)")]
-		public string TransactionType
-		{
-			get
-			{
-				return this._TransactionType;
-			}
-			set
-			{
-				if ((this._TransactionType != value))
-				{
-					this.OnTransactionTypeChanging(value);
-					this.SendPropertyChanging();
-					this._TransactionType = value;
-					this.SendPropertyChanged("TransactionType");
-					this.OnTransactionTypeChanged();
 				}
 			}
 		}
@@ -1802,8 +1804,6 @@ namespace LactoBioticsSystem
 		
 		private System.Nullable<System.DateTime> _DeliveryDate;
 		
-		private string _TransactionType;
-		
 		private System.Nullable<System.DateTime> _date;
 		
 		private System.Nullable<int> _CustomerID;
@@ -1844,8 +1844,6 @@ namespace LactoBioticsSystem
     partial void OnCustomerTinChanged();
     partial void OnDeliveryDateChanging(System.Nullable<System.DateTime> value);
     partial void OnDeliveryDateChanged();
-    partial void OnTransactionTypeChanging(string value);
-    partial void OnTransactionTypeChanged();
     partial void OndateChanging(System.Nullable<System.DateTime> value);
     partial void OndateChanged();
     partial void OnCustomerIDChanging(System.Nullable<int> value);
@@ -2050,26 +2048,6 @@ namespace LactoBioticsSystem
 					this._DeliveryDate = value;
 					this.SendPropertyChanged("DeliveryDate");
 					this.OnDeliveryDateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TransactionType", DbType="VarChar(50)")]
-		public string TransactionType
-		{
-			get
-			{
-				return this._TransactionType;
-			}
-			set
-			{
-				if ((this._TransactionType != value))
-				{
-					this.OnTransactionTypeChanging(value);
-					this.SendPropertyChanging();
-					this._TransactionType = value;
-					this.SendPropertyChanged("TransactionType");
-					this.OnTransactionTypeChanged();
 				}
 			}
 		}
@@ -2842,8 +2820,6 @@ namespace LactoBioticsSystem
 		
 		private System.Nullable<decimal> _TotalPrice;
 		
-		private string _TransactionType;
-		
 		private System.Nullable<System.DateTime> _DeliveryDate;
 		
 		private string _DeliveryStatus;
@@ -2872,8 +2848,6 @@ namespace LactoBioticsSystem
     partial void OnOrderQuantityChanged();
     partial void OnTotalPriceChanging(System.Nullable<decimal> value);
     partial void OnTotalPriceChanged();
-    partial void OnTransactionTypeChanging(string value);
-    partial void OnTransactionTypeChanged();
     partial void OnDeliveryDateChanging(System.Nullable<System.DateTime> value);
     partial void OnDeliveryDateChanged();
     partial void OnDeliveryStatusChanging(string value);
@@ -2974,26 +2948,6 @@ namespace LactoBioticsSystem
 					this._TotalPrice = value;
 					this.SendPropertyChanged("TotalPrice");
 					this.OnTotalPriceChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TransactionType", DbType="VarChar(50)")]
-		public string TransactionType
-		{
-			get
-			{
-				return this._TransactionType;
-			}
-			set
-			{
-				if ((this._TransactionType != value))
-				{
-					this.OnTransactionTypeChanging(value);
-					this.SendPropertyChanging();
-					this._TransactionType = value;
-					this.SendPropertyChanged("TransactionType");
-					this.OnTransactionTypeChanged();
 				}
 			}
 		}
@@ -3490,8 +3444,6 @@ namespace LactoBioticsSystem
 		
 		private System.Nullable<decimal> _TotalPrice;
 		
-		private string _TransactionType;
-		
 		private System.Nullable<System.DateTime> _ClaimDate;
 		
 		private string _ReservationStatus;
@@ -3520,8 +3472,6 @@ namespace LactoBioticsSystem
     partial void OnOrderQuantityChanged();
     partial void OnTotalPriceChanging(System.Nullable<decimal> value);
     partial void OnTotalPriceChanged();
-    partial void OnTransactionTypeChanging(string value);
-    partial void OnTransactionTypeChanged();
     partial void OnClaimDateChanging(System.Nullable<System.DateTime> value);
     partial void OnClaimDateChanged();
     partial void OnReservationStatusChanging(string value);
@@ -3622,26 +3572,6 @@ namespace LactoBioticsSystem
 					this._TotalPrice = value;
 					this.SendPropertyChanged("TotalPrice");
 					this.OnTotalPriceChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TransactionType", DbType="VarChar(50)")]
-		public string TransactionType
-		{
-			get
-			{
-				return this._TransactionType;
-			}
-			set
-			{
-				if ((this._TransactionType != value))
-				{
-					this.OnTransactionTypeChanging(value);
-					this.SendPropertyChanging();
-					this._TransactionType = value;
-					this.SendPropertyChanged("TransactionType");
-					this.OnTransactionTypeChanged();
 				}
 			}
 		}
@@ -3901,8 +3831,6 @@ namespace LactoBioticsSystem
 		
 		private System.Nullable<System.DateTime> _ClaimDate;
 		
-		private string _TransactionType;
-		
 		private System.Nullable<System.DateTime> _date;
 		
 		private System.Nullable<int> _CustomerID;
@@ -3943,8 +3871,6 @@ namespace LactoBioticsSystem
     partial void OnCustomerTinChanged();
     partial void OnClaimDateChanging(System.Nullable<System.DateTime> value);
     partial void OnClaimDateChanged();
-    partial void OnTransactionTypeChanging(string value);
-    partial void OnTransactionTypeChanged();
     partial void OndateChanging(System.Nullable<System.DateTime> value);
     partial void OndateChanged();
     partial void OnCustomerIDChanging(System.Nullable<int> value);
@@ -4149,26 +4075,6 @@ namespace LactoBioticsSystem
 					this._ClaimDate = value;
 					this.SendPropertyChanged("ClaimDate");
 					this.OnClaimDateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TransactionType", DbType="VarChar(50)")]
-		public string TransactionType
-		{
-			get
-			{
-				return this._TransactionType;
-			}
-			set
-			{
-				if ((this._TransactionType != value))
-				{
-					this.OnTransactionTypeChanging(value);
-					this.SendPropertyChanging();
-					this._TransactionType = value;
-					this.SendPropertyChanged("TransactionType");
-					this.OnTransactionTypeChanged();
 				}
 			}
 		}
@@ -4400,9 +4306,7 @@ namespace LactoBioticsSystem
 		
 		private System.Nullable<int> _OrderQuantity;
 		
-		private System.Nullable<decimal> _TotalPrice;
-		
-		private string _TransactionType;
+		private System.Nullable<decimal> _TotalAmount;
 		
 		private System.Nullable<int> _CustomerID;
 		
@@ -4426,10 +4330,8 @@ namespace LactoBioticsSystem
     partial void OnProductCodeChanged();
     partial void OnOrderQuantityChanging(System.Nullable<int> value);
     partial void OnOrderQuantityChanged();
-    partial void OnTotalPriceChanging(System.Nullable<decimal> value);
-    partial void OnTotalPriceChanged();
-    partial void OnTransactionTypeChanging(string value);
-    partial void OnTransactionTypeChanged();
+    partial void OnTotalAmountChanging(System.Nullable<decimal> value);
+    partial void OnTotalAmountChanged();
     partial void OnCustomerIDChanging(System.Nullable<int> value);
     partial void OnCustomerIDChanged();
     partial void OnUserIDChanging(System.Nullable<int> value);
@@ -4510,42 +4412,22 @@ namespace LactoBioticsSystem
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TotalPrice", DbType="Decimal(18,0)")]
-		public System.Nullable<decimal> TotalPrice
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TotalAmount", DbType="Decimal(10,2)")]
+		public System.Nullable<decimal> TotalAmount
 		{
 			get
 			{
-				return this._TotalPrice;
+				return this._TotalAmount;
 			}
 			set
 			{
-				if ((this._TotalPrice != value))
+				if ((this._TotalAmount != value))
 				{
-					this.OnTotalPriceChanging(value);
+					this.OnTotalAmountChanging(value);
 					this.SendPropertyChanging();
-					this._TotalPrice = value;
-					this.SendPropertyChanged("TotalPrice");
-					this.OnTotalPriceChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TransactionType", DbType="VarChar(50)")]
-		public string TransactionType
-		{
-			get
-			{
-				return this._TransactionType;
-			}
-			set
-			{
-				if ((this._TransactionType != value))
-				{
-					this.OnTransactionTypeChanging(value);
-					this.SendPropertyChanging();
-					this._TransactionType = value;
-					this.SendPropertyChanged("TransactionType");
-					this.OnTransactionTypeChanged();
+					this._TotalAmount = value;
+					this.SendPropertyChanged("TotalAmount");
+					this.OnTotalAmountChanged();
 				}
 			}
 		}
@@ -5334,8 +5216,6 @@ namespace LactoBioticsSystem
 		
 		private System.Nullable<decimal> _TotalPrice;
 		
-		private string _TransactionType;
-		
 		private System.Nullable<System.DateTime> _DeliveryDate;
 		
 		private string _DeliveryStatus;
@@ -5472,22 +5352,6 @@ namespace LactoBioticsSystem
 				if ((this._TotalPrice != value))
 				{
 					this._TotalPrice = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TransactionType", DbType="VarChar(50)")]
-		public string TransactionType
-		{
-			get
-			{
-				return this._TransactionType;
-			}
-			set
-			{
-				if ((this._TransactionType != value))
-				{
-					this._TransactionType = value;
 				}
 			}
 		}
@@ -6286,8 +6150,6 @@ namespace LactoBioticsSystem
 		
 		private System.Nullable<decimal> _TotalPrice;
 		
-		private string _TransactionType;
-		
 		private System.Nullable<System.DateTime> _ClaimDate;
 		
 		private string _ReservationStatus;
@@ -6424,22 +6286,6 @@ namespace LactoBioticsSystem
 				if ((this._TotalPrice != value))
 				{
 					this._TotalPrice = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TransactionType", DbType="VarChar(50)")]
-		public string TransactionType
-		{
-			get
-			{
-				return this._TransactionType;
-			}
-			set
-			{
-				if ((this._TransactionType != value))
-				{
-					this._TransactionType = value;
 				}
 			}
 		}
@@ -7030,9 +6876,7 @@ namespace LactoBioticsSystem
 		
 		private System.Nullable<int> _OrderQuantity;
 		
-		private System.Nullable<decimal> _TotalPrice;
-		
-		private string _TransactionType;
+		private System.Nullable<decimal> _TotalAmount;
 		
 		private System.Nullable<int> _CustomerID;
 		
@@ -7154,34 +6998,18 @@ namespace LactoBioticsSystem
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TotalPrice", DbType="Decimal(18,0)")]
-		public System.Nullable<decimal> TotalPrice
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TotalAmount", DbType="Decimal(10,2)")]
+		public System.Nullable<decimal> TotalAmount
 		{
 			get
 			{
-				return this._TotalPrice;
+				return this._TotalAmount;
 			}
 			set
 			{
-				if ((this._TotalPrice != value))
+				if ((this._TotalAmount != value))
 				{
-					this._TotalPrice = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TransactionType", DbType="VarChar(50)")]
-		public string TransactionType
-		{
-			get
-			{
-				return this._TransactionType;
-			}
-			set
-			{
-				if ((this._TransactionType != value))
-				{
-					this._TransactionType = value;
+					this._TotalAmount = value;
 				}
 			}
 		}
@@ -7950,8 +7778,6 @@ namespace LactoBioticsSystem
 		
 		private System.Nullable<decimal> _TotalPrice;
 		
-		private string _TransactionType;
-		
 		private System.Nullable<System.DateTime> _DeliveryDate;
 		
 		private string _DeliveryStatus;
@@ -8048,22 +7874,6 @@ namespace LactoBioticsSystem
 				if ((this._TotalPrice != value))
 				{
 					this._TotalPrice = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TransactionType", DbType="VarChar(50)")]
-		public string TransactionType
-		{
-			get
-			{
-				return this._TransactionType;
-			}
-			set
-			{
-				if ((this._TransactionType != value))
-				{
-					this._TransactionType = value;
 				}
 			}
 		}
@@ -8362,8 +8172,6 @@ namespace LactoBioticsSystem
 		
 		private System.Nullable<decimal> _totalPrice;
 		
-		private string _TransactionType;
-		
 		private System.Nullable<System.DateTime> _ClaimDate;
 		
 		private string _ReservationStatus;
@@ -8460,22 +8268,6 @@ namespace LactoBioticsSystem
 				if ((this._totalPrice != value))
 				{
 					this._totalPrice = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TransactionType", DbType="VarChar(50)")]
-		public string TransactionType
-		{
-			get
-			{
-				return this._TransactionType;
-			}
-			set
-			{
-				if ((this._TransactionType != value))
-				{
-					this._TransactionType = value;
 				}
 			}
 		}
@@ -8629,8 +8421,6 @@ namespace LactoBioticsSystem
 		private string _CustomerTin;
 		
 		private System.Nullable<System.DateTime> _Date;
-		
-		private string _TransactionType;
 		
 		private System.Nullable<int> _CustomerID;
 		
@@ -8788,22 +8578,6 @@ namespace LactoBioticsSystem
 				if ((this._Date != value))
 				{
 					this._Date = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TransactionType", DbType="VarChar(50)")]
-		public string TransactionType
-		{
-			get
-			{
-				return this._TransactionType;
-			}
-			set
-			{
-				if ((this._TransactionType != value))
-				{
-					this._TransactionType = value;
 				}
 			}
 		}
@@ -9096,8 +8870,6 @@ namespace LactoBioticsSystem
 		
 		private System.Nullable<System.DateTime> _DeliveryDate;
 		
-		private string _TransactionType;
-		
 		private System.Nullable<System.DateTime> _date;
 		
 		private System.Nullable<int> _CustomerID;
@@ -9258,22 +9030,6 @@ namespace LactoBioticsSystem
 				if ((this._DeliveryDate != value))
 				{
 					this._DeliveryDate = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TransactionType", DbType="VarChar(50)")]
-		public string TransactionType
-		{
-			get
-			{
-				return this._TransactionType;
-			}
-			set
-			{
-				if ((this._TransactionType != value))
-				{
-					this._TransactionType = value;
 				}
 			}
 		}
@@ -9634,8 +9390,6 @@ namespace LactoBioticsSystem
 		
 		private System.Nullable<System.DateTime> _ClaimDate;
 		
-		private string _TransactionType;
-		
 		private System.Nullable<System.DateTime> _date;
 		
 		private System.Nullable<int> _CustomerID;
@@ -9800,22 +9554,6 @@ namespace LactoBioticsSystem
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TransactionType", DbType="VarChar(50)")]
-		public string TransactionType
-		{
-			get
-			{
-				return this._TransactionType;
-			}
-			set
-			{
-				if ((this._TransactionType != value))
-				{
-					this._TransactionType = value;
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_date", DbType="DateTime")]
 		public System.Nullable<System.DateTime> date
 		{
@@ -9960,9 +9698,7 @@ namespace LactoBioticsSystem
 		
 		private System.Nullable<int> _OrderQuantity;
 		
-		private System.Nullable<decimal> _TotalPrice;
-		
-		private string _TransactionType;
+		private System.Nullable<decimal> _TotalAmount;
 		
 		private string _ProductDescription;
 		
@@ -10078,34 +9814,18 @@ namespace LactoBioticsSystem
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TotalPrice", DbType="Decimal(18,0)")]
-		public System.Nullable<decimal> TotalPrice
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TotalAmount", DbType="Decimal(10,2)")]
+		public System.Nullable<decimal> TotalAmount
 		{
 			get
 			{
-				return this._TotalPrice;
+				return this._TotalAmount;
 			}
 			set
 			{
-				if ((this._TotalPrice != value))
+				if ((this._TotalAmount != value))
 				{
-					this._TotalPrice = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TransactionType", DbType="VarChar(50)")]
-		public string TransactionType
-		{
-			get
-			{
-				return this._TransactionType;
-			}
-			set
-			{
-				if ((this._TransactionType != value))
-				{
-					this._TransactionType = value;
+					this._TotalAmount = value;
 				}
 			}
 		}

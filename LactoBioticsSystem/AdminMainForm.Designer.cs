@@ -42,7 +42,9 @@
             this.lblStockOut = new System.Windows.Forms.Label();
             this.lblStockIn = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.lblClaimDate = new System.Windows.Forms.Label();
             this.btnSelectPro = new System.Windows.Forms.Button();
+            this.lblDateDel = new System.Windows.Forms.Label();
             this.label50 = new System.Windows.Forms.Label();
             this.label49 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
@@ -51,6 +53,8 @@
             this.lblProCode = new System.Windows.Forms.Label();
             this.label29 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
+            this.dtpClaimDate = new System.Windows.Forms.DateTimePicker();
+            this.dtpDateDel = new System.Windows.Forms.DateTimePicker();
             this.txtStockOnHand = new System.Windows.Forms.TextBox();
             this.txtAvailBox = new System.Windows.Forms.TextBox();
             this.txtQuantityPerBox = new System.Windows.Forms.TextBox();
@@ -68,17 +72,15 @@
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
-            this.lblClaimDate = new System.Windows.Forms.Label();
-            this.lblDateDel = new System.Windows.Forms.Label();
             this.btnSelectCust = new System.Windows.Forms.Button();
             this.txtcust_name = new System.Windows.Forms.TextBox();
+            this.txtTin = new System.Windows.Forms.TextBox();
             this.txtcust_address = new System.Windows.Forms.TextBox();
             this.lblCustID = new System.Windows.Forms.Label();
             this.lblCust_ID = new System.Windows.Forms.Label();
+            this.label52 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
-            this.dtpClaimDate = new System.Windows.Forms.DateTimePicker();
-            this.dtpDateDel = new System.Windows.Forms.DateTimePicker();
             this.gbOrderPayment = new System.Windows.Forms.GroupBox();
             this.txtchange = new System.Windows.Forms.TextBox();
             this.lblChange = new System.Windows.Forms.Label();
@@ -88,21 +90,21 @@
             this.txtAmount = new System.Windows.Forms.TextBox();
             this.lblBox2 = new System.Windows.Forms.Label();
             this.lblTin = new System.Windows.Forms.Label();
-            this.dgvReservation = new System.Windows.Forms.DataGridView();
             this.dgvAddToCart = new System.Windows.Forms.DataGridView();
             this.dgvDelivery = new System.Windows.Forms.DataGridView();
+            this.dgvReservation = new System.Windows.Forms.DataGridView();
+            this.gbReservation = new System.Windows.Forms.GroupBox();
+            this.btnResPro = new System.Windows.Forms.Button();
+            this.CancelRes = new System.Windows.Forms.Button();
+            this.btnPrintReseservation = new System.Windows.Forms.Button();
             this.gbDelivery = new System.Windows.Forms.GroupBox();
-            this.btnDel = new System.Windows.Forms.Button();
+            this.btnPrintDelivery = new System.Windows.Forms.Button();
             this.btnCancelDel = new System.Windows.Forms.Button();
             this.btnAddDelivery = new System.Windows.Forms.Button();
             this.gbWalkin = new System.Windows.Forms.GroupBox();
             this.btnAddOrder = new System.Windows.Forms.Button();
             this.btnCancelOrder = new System.Windows.Forms.Button();
             this.btnPrintOrder = new System.Windows.Forms.Button();
-            this.gbReservation = new System.Windows.Forms.GroupBox();
-            this.btnResPro = new System.Windows.Forms.Button();
-            this.CancelRes = new System.Windows.Forms.Button();
-            this.btnRes = new System.Windows.Forms.Button();
             this.pnlProReg = new System.Windows.Forms.Panel();
             this.bgProductsBtn = new System.Windows.Forms.GroupBox();
             this.btnAddProStocks = new System.Windows.Forms.Button();
@@ -219,21 +221,27 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.pnlDelivery = new System.Windows.Forms.Panel();
-            this.groupBox19 = new System.Windows.Forms.GroupBox();
-            this.cmbDelStatus = new System.Windows.Forms.ComboBox();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.btnCancelDelivery = new System.Windows.Forms.Button();
             this.btnUpdateDelivery = new System.Windows.Forms.Button();
+            this.groupBox19 = new System.Windows.Forms.GroupBox();
+            this.txtStatus = new System.Windows.Forms.TextBox();
             this.txtCustomerName = new System.Windows.Forms.TextBox();
             this.txtDeliveryDate = new System.Windows.Forms.TextBox();
+            this.txtTotalPrice = new System.Windows.Forms.TextBox();
             this.txtQuantity = new System.Windows.Forms.TextBox();
+            this.txtProductCode = new System.Windows.Forms.TextBox();
             this.txtProductName = new System.Windows.Forms.TextBox();
             this.txtCustomerAddress = new System.Windows.Forms.TextBox();
             this.label76 = new System.Windows.Forms.Label();
+            this.label82 = new System.Windows.Forms.Label();
             this.label81 = new System.Windows.Forms.Label();
+            this.label61 = new System.Windows.Forms.Label();
             this.lblDeliveryID = new System.Windows.Forms.Label();
             this.label77 = new System.Windows.Forms.Label();
+            this.label55 = new System.Windows.Forms.Label();
             this.label78 = new System.Windows.Forms.Label();
             this.label79 = new System.Windows.Forms.Label();
-            this.label82 = new System.Windows.Forms.Label();
             this.label80 = new System.Windows.Forms.Label();
             this.lblCustoID = new System.Windows.Forms.Label();
             this.lblTotalPrice = new System.Windows.Forms.Label();
@@ -245,21 +253,27 @@
             this.label28 = new System.Windows.Forms.Label();
             this.dgvCustDelivery = new System.Windows.Forms.DataGridView();
             this.pnlReservation = new System.Windows.Forms.Panel();
-            this.groupBox20 = new System.Windows.Forms.GroupBox();
-            this.cmbReservationStatus = new System.Windows.Forms.ComboBox();
+            this.groupBox11 = new System.Windows.Forms.GroupBox();
+            this.btnClear = new System.Windows.Forms.Button();
             this.btnUpdateResPro = new System.Windows.Forms.Button();
+            this.groupBox20 = new System.Windows.Forms.GroupBox();
             this.txtCName = new System.Windows.Forms.TextBox();
+            this.txtPStatus = new System.Windows.Forms.TextBox();
             this.txtClaimDate = new System.Windows.Forms.TextBox();
+            this.txtPTotal = new System.Windows.Forms.TextBox();
             this.txtResQuantity = new System.Windows.Forms.TextBox();
+            this.txtPCode = new System.Windows.Forms.TextBox();
             this.txtPName = new System.Windows.Forms.TextBox();
             this.txtCAddress = new System.Windows.Forms.TextBox();
+            this.label101 = new System.Windows.Forms.Label();
             this.label85 = new System.Windows.Forms.Label();
             this.label86 = new System.Windows.Forms.Label();
+            this.label98 = new System.Windows.Forms.Label();
             this.lblResID = new System.Windows.Forms.Label();
             this.label88 = new System.Windows.Forms.Label();
+            this.label75 = new System.Windows.Forms.Label();
             this.label89 = new System.Windows.Forms.Label();
             this.label90 = new System.Windows.Forms.Label();
-            this.label91 = new System.Windows.Forms.Label();
             this.label92 = new System.Windows.Forms.Label();
             this.label93 = new System.Windows.Forms.Label();
             this.txtSearchReservation = new System.Windows.Forms.TextBox();
@@ -348,12 +362,12 @@
             this.groupBox18.SuspendLayout();
             this.groupBox10.SuspendLayout();
             this.gbOrderPayment.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvReservation)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAddToCart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDelivery)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvReservation)).BeginInit();
+            this.gbReservation.SuspendLayout();
             this.gbDelivery.SuspendLayout();
             this.gbWalkin.SuspendLayout();
-            this.gbReservation.SuspendLayout();
             this.pnlProReg.SuspendLayout();
             this.bgProductsBtn.SuspendLayout();
             this.groupBox14.SuspendLayout();
@@ -375,9 +389,11 @@
             this.groupBox7.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.pnlDelivery.SuspendLayout();
+            this.groupBox5.SuspendLayout();
             this.groupBox19.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCustDelivery)).BeginInit();
             this.pnlReservation.SuspendLayout();
+            this.groupBox11.SuspendLayout();
             this.groupBox20.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCustReservation)).BeginInit();
             this.pnlHeader.SuspendLayout();
@@ -505,16 +521,16 @@
             this.pnlCustOrder.Controls.Add(this.gbOrderPayment);
             this.pnlCustOrder.Controls.Add(this.lblBox2);
             this.pnlCustOrder.Controls.Add(this.lblTin);
-            this.pnlCustOrder.Controls.Add(this.dgvReservation);
             this.pnlCustOrder.Controls.Add(this.dgvAddToCart);
             this.pnlCustOrder.Controls.Add(this.dgvDelivery);
+            this.pnlCustOrder.Controls.Add(this.dgvReservation);
             this.pnlCustOrder.Controls.Add(this.gbReservation);
             this.pnlCustOrder.Controls.Add(this.gbDelivery);
             this.pnlCustOrder.Controls.Add(this.gbWalkin);
             this.pnlCustOrder.ForeColor = System.Drawing.Color.Black;
-            this.pnlCustOrder.Location = new System.Drawing.Point(0, 114);
+            this.pnlCustOrder.Location = new System.Drawing.Point(-1, 111);
             this.pnlCustOrder.Name = "pnlCustOrder";
-            this.pnlCustOrder.Size = new System.Drawing.Size(1383, 609);
+            this.pnlCustOrder.Size = new System.Drawing.Size(1383, 613);
             this.pnlCustOrder.TabIndex = 52;
             this.pnlCustOrder.Visible = false;
             this.pnlCustOrder.Paint += new System.Windows.Forms.PaintEventHandler(this.PnlCustOrder_Paint);
@@ -552,7 +568,9 @@
             // groupBox4
             // 
             this.groupBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(60)))), ((int)(((byte)(70)))));
+            this.groupBox4.Controls.Add(this.lblClaimDate);
             this.groupBox4.Controls.Add(this.btnSelectPro);
+            this.groupBox4.Controls.Add(this.lblDateDel);
             this.groupBox4.Controls.Add(this.label50);
             this.groupBox4.Controls.Add(this.label49);
             this.groupBox4.Controls.Add(this.label16);
@@ -561,6 +579,8 @@
             this.groupBox4.Controls.Add(this.lblProCode);
             this.groupBox4.Controls.Add(this.label29);
             this.groupBox4.Controls.Add(this.label19);
+            this.groupBox4.Controls.Add(this.dtpClaimDate);
+            this.groupBox4.Controls.Add(this.dtpDateDel);
             this.groupBox4.Controls.Add(this.txtStockOnHand);
             this.groupBox4.Controls.Add(this.txtAvailBox);
             this.groupBox4.Controls.Add(this.txtQuantityPerBox);
@@ -568,12 +588,24 @@
             this.groupBox4.Controls.Add(this.txtpro_price);
             this.groupBox4.Controls.Add(this.txtpro_name);
             this.groupBox4.ForeColor = System.Drawing.Color.LightGray;
-            this.groupBox4.Location = new System.Drawing.Point(216, 323);
+            this.groupBox4.Location = new System.Drawing.Point(216, 306);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(280, 275);
+            this.groupBox4.Size = new System.Drawing.Size(280, 307);
             this.groupBox4.TabIndex = 14;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Product Details";
+            // 
+            // lblClaimDate
+            // 
+            this.lblClaimDate.AutoSize = true;
+            this.lblClaimDate.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblClaimDate.ForeColor = System.Drawing.Color.White;
+            this.lblClaimDate.Location = new System.Drawing.Point(40, 263);
+            this.lblClaimDate.Name = "lblClaimDate";
+            this.lblClaimDate.Size = new System.Drawing.Size(71, 17);
+            this.lblClaimDate.TabIndex = 6;
+            this.lblClaimDate.Text = "Date Claim";
+            this.lblClaimDate.Visible = false;
             // 
             // btnSelectPro
             // 
@@ -589,6 +621,18 @@
             this.btnSelectPro.Text = "+";
             this.btnSelectPro.UseVisualStyleBackColor = false;
             this.btnSelectPro.Click += new System.EventHandler(this.BtnSelectPro_Click);
+            // 
+            // lblDateDel
+            // 
+            this.lblDateDel.AutoSize = true;
+            this.lblDateDel.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDateDel.ForeColor = System.Drawing.Color.White;
+            this.lblDateDel.Location = new System.Drawing.Point(40, 263);
+            this.lblDateDel.Name = "lblDateDel";
+            this.lblDateDel.Size = new System.Drawing.Size(85, 17);
+            this.lblDateDel.TabIndex = 5;
+            this.lblDateDel.Text = "Date Delivery";
+            this.lblDateDel.Visible = false;
             // 
             // label50
             // 
@@ -606,7 +650,7 @@
             this.label49.AutoSize = true;
             this.label49.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label49.ForeColor = System.Drawing.Color.White;
-            this.label49.Location = new System.Drawing.Point(42, 143);
+            this.label49.Location = new System.Drawing.Point(42, 138);
             this.label49.Name = "label49";
             this.label49.Size = new System.Drawing.Size(104, 17);
             this.label49.TabIndex = 2;
@@ -617,7 +661,7 @@
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.ForeColor = System.Drawing.Color.White;
-            this.label16.Location = new System.Drawing.Point(41, 227);
+            this.label16.Location = new System.Drawing.Point(41, 222);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(56, 17);
             this.label16.TabIndex = 2;
@@ -628,7 +672,7 @@
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label17.ForeColor = System.Drawing.Color.White;
-            this.label17.Location = new System.Drawing.Point(41, 185);
+            this.label17.Location = new System.Drawing.Point(41, 180);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(93, 17);
             this.label17.TabIndex = 2;
@@ -639,7 +683,7 @@
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label18.ForeColor = System.Drawing.Color.White;
-            this.label18.Location = new System.Drawing.Point(42, 101);
+            this.label18.Location = new System.Drawing.Point(42, 96);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(36, 17);
             this.label18.TabIndex = 2;
@@ -672,17 +716,39 @@
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label19.ForeColor = System.Drawing.Color.White;
-            this.label19.Location = new System.Drawing.Point(42, 60);
+            this.label19.Location = new System.Drawing.Point(42, 55);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(92, 17);
             this.label19.TabIndex = 2;
             this.label19.Text = "Product Name";
             // 
+            // dtpClaimDate
+            // 
+            this.dtpClaimDate.CalendarTitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(60)))), ((int)(((byte)(70)))));
+            this.dtpClaimDate.Cursor = System.Windows.Forms.Cursors.Default;
+            this.dtpClaimDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpClaimDate.Location = new System.Drawing.Point(28, 282);
+            this.dtpClaimDate.Name = "dtpClaimDate";
+            this.dtpClaimDate.Size = new System.Drawing.Size(213, 20);
+            this.dtpClaimDate.TabIndex = 5;
+            this.dtpClaimDate.Visible = false;
+            this.dtpClaimDate.ValueChanged += new System.EventHandler(this.DtpClaimDate_ValueChanged);
+            // 
+            // dtpDateDel
+            // 
+            this.dtpDateDel.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpDateDel.Location = new System.Drawing.Point(28, 282);
+            this.dtpDateDel.Name = "dtpDateDel";
+            this.dtpDateDel.Size = new System.Drawing.Size(213, 20);
+            this.dtpDateDel.TabIndex = 5;
+            this.dtpDateDel.Value = new System.DateTime(2019, 9, 25, 2, 36, 32, 0);
+            this.dtpDateDel.Visible = false;
+            // 
             // txtStockOnHand
             // 
             this.txtStockOnHand.BackColor = System.Drawing.Color.White;
             this.txtStockOnHand.Enabled = false;
-            this.txtStockOnHand.Location = new System.Drawing.Point(31, 204);
+            this.txtStockOnHand.Location = new System.Drawing.Point(31, 199);
             this.txtStockOnHand.Name = "txtStockOnHand";
             this.txtStockOnHand.Size = new System.Drawing.Size(215, 20);
             this.txtStockOnHand.TabIndex = 0;
@@ -703,7 +769,7 @@
             // 
             this.txtQuantityPerBox.BackColor = System.Drawing.Color.White;
             this.txtQuantityPerBox.Enabled = false;
-            this.txtQuantityPerBox.Location = new System.Drawing.Point(32, 162);
+            this.txtQuantityPerBox.Location = new System.Drawing.Point(32, 157);
             this.txtQuantityPerBox.Name = "txtQuantityPerBox";
             this.txtQuantityPerBox.Size = new System.Drawing.Size(133, 20);
             this.txtQuantityPerBox.TabIndex = 2;
@@ -713,7 +779,7 @@
             // txtpro_quantity
             // 
             this.txtpro_quantity.BackColor = System.Drawing.Color.White;
-            this.txtpro_quantity.Location = new System.Drawing.Point(31, 246);
+            this.txtpro_quantity.Location = new System.Drawing.Point(31, 241);
             this.txtpro_quantity.Name = "txtpro_quantity";
             this.txtpro_quantity.Size = new System.Drawing.Size(215, 20);
             this.txtpro_quantity.TabIndex = 2;
@@ -724,7 +790,7 @@
             // 
             this.txtpro_price.BackColor = System.Drawing.Color.White;
             this.txtpro_price.Enabled = false;
-            this.txtpro_price.Location = new System.Drawing.Point(32, 121);
+            this.txtpro_price.Location = new System.Drawing.Point(32, 116);
             this.txtpro_price.Name = "txtpro_price";
             this.txtpro_price.Size = new System.Drawing.Size(215, 20);
             this.txtpro_price.TabIndex = 0;
@@ -733,7 +799,7 @@
             // 
             this.txtpro_name.BackColor = System.Drawing.Color.White;
             this.txtpro_name.Enabled = false;
-            this.txtpro_name.Location = new System.Drawing.Point(32, 79);
+            this.txtpro_name.Location = new System.Drawing.Point(32, 74);
             this.txtpro_name.Name = "txtpro_name";
             this.txtpro_name.Size = new System.Drawing.Size(215, 20);
             this.txtpro_name.TabIndex = 0;
@@ -753,7 +819,7 @@
             this.groupBox18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(60)))), ((int)(((byte)(70)))));
             this.groupBox18.Controls.Add(this.cmbTranType);
             this.groupBox18.ForeColor = System.Drawing.Color.LightGray;
-            this.groupBox18.Location = new System.Drawing.Point(216, 255);
+            this.groupBox18.Location = new System.Drawing.Point(216, 243);
             this.groupBox18.Name = "groupBox18";
             this.groupBox18.Size = new System.Drawing.Size(281, 61);
             this.groupBox18.TabIndex = 39;
@@ -787,7 +853,7 @@
             // lblTotal
             // 
             this.lblTotal.AutoSize = true;
-            this.lblTotal.Location = new System.Drawing.Point(284, 499);
+            this.lblTotal.Location = new System.Drawing.Point(284, 490);
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(22, 13);
             this.lblTotal.TabIndex = 38;
@@ -829,7 +895,7 @@
             this.label15.Cursor = System.Windows.Forms.Cursors.Default;
             this.label15.Font = new System.Drawing.Font("Segoe UI Semibold", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.ForeColor = System.Drawing.Color.LightGray;
-            this.label15.Location = new System.Drawing.Point(604, 13);
+            this.label15.Location = new System.Drawing.Point(604, 4);
             this.label15.Name = "label15";
             this.label15.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label15.Size = new System.Drawing.Size(190, 40);
@@ -840,7 +906,7 @@
             // 
             this.label14.AutoSize = true;
             this.label14.ForeColor = System.Drawing.Color.LightGray;
-            this.label14.Location = new System.Drawing.Point(354, 49);
+            this.label14.Location = new System.Drawing.Point(354, 40);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(673, 13);
             this.label14.TabIndex = 35;
@@ -850,48 +916,22 @@
             // groupBox10
             // 
             this.groupBox10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(60)))), ((int)(((byte)(70)))));
-            this.groupBox10.Controls.Add(this.lblClaimDate);
-            this.groupBox10.Controls.Add(this.lblDateDel);
             this.groupBox10.Controls.Add(this.btnSelectCust);
             this.groupBox10.Controls.Add(this.txtcust_name);
+            this.groupBox10.Controls.Add(this.txtTin);
             this.groupBox10.Controls.Add(this.txtcust_address);
             this.groupBox10.Controls.Add(this.lblCustID);
             this.groupBox10.Controls.Add(this.lblCust_ID);
+            this.groupBox10.Controls.Add(this.label52);
             this.groupBox10.Controls.Add(this.label20);
             this.groupBox10.Controls.Add(this.label21);
-            this.groupBox10.Controls.Add(this.dtpClaimDate);
-            this.groupBox10.Controls.Add(this.dtpDateDel);
             this.groupBox10.ForeColor = System.Drawing.Color.LightGray;
-            this.groupBox10.Location = new System.Drawing.Point(517, 251);
+            this.groupBox10.Location = new System.Drawing.Point(517, 242);
             this.groupBox10.Name = "groupBox10";
             this.groupBox10.Size = new System.Drawing.Size(299, 198);
             this.groupBox10.TabIndex = 15;
             this.groupBox10.TabStop = false;
             this.groupBox10.Text = "Registered Customer";
-            // 
-            // lblClaimDate
-            // 
-            this.lblClaimDate.AutoSize = true;
-            this.lblClaimDate.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblClaimDate.ForeColor = System.Drawing.Color.White;
-            this.lblClaimDate.Location = new System.Drawing.Point(52, 145);
-            this.lblClaimDate.Name = "lblClaimDate";
-            this.lblClaimDate.Size = new System.Drawing.Size(71, 17);
-            this.lblClaimDate.TabIndex = 6;
-            this.lblClaimDate.Text = "Date Claim";
-            this.lblClaimDate.Visible = false;
-            // 
-            // lblDateDel
-            // 
-            this.lblDateDel.AutoSize = true;
-            this.lblDateDel.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDateDel.ForeColor = System.Drawing.Color.White;
-            this.lblDateDel.Location = new System.Drawing.Point(52, 145);
-            this.lblDateDel.Name = "lblDateDel";
-            this.lblDateDel.Size = new System.Drawing.Size(85, 17);
-            this.lblDateDel.TabIndex = 5;
-            this.lblDateDel.Text = "Date Delivery";
-            this.lblDateDel.Visible = false;
             // 
             // btnSelectCust
             // 
@@ -916,6 +956,15 @@
             this.txtcust_name.Name = "txtcust_name";
             this.txtcust_name.Size = new System.Drawing.Size(213, 20);
             this.txtcust_name.TabIndex = 0;
+            // 
+            // txtTin
+            // 
+            this.txtTin.BackColor = System.Drawing.Color.White;
+            this.txtTin.Enabled = false;
+            this.txtTin.Location = new System.Drawing.Point(40, 166);
+            this.txtTin.Name = "txtTin";
+            this.txtTin.Size = new System.Drawing.Size(213, 20);
+            this.txtTin.TabIndex = 0;
             // 
             // txtcust_address
             // 
@@ -948,6 +997,17 @@
             this.lblCust_ID.TabIndex = 2;
             this.lblCust_ID.Text = "Customer ID:";
             // 
+            // label52
+            // 
+            this.label52.AutoSize = true;
+            this.label52.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label52.ForeColor = System.Drawing.Color.White;
+            this.label52.Location = new System.Drawing.Point(52, 146);
+            this.label52.Name = "label52";
+            this.label52.Size = new System.Drawing.Size(85, 17);
+            this.label52.TabIndex = 2;
+            this.label52.Text = "Customer Tin";
+            // 
             // label20
             // 
             this.label20.AutoSize = true;
@@ -970,28 +1030,6 @@
             this.label21.TabIndex = 2;
             this.label21.Text = "Address";
             // 
-            // dtpClaimDate
-            // 
-            this.dtpClaimDate.CalendarTitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(60)))), ((int)(((byte)(70)))));
-            this.dtpClaimDate.Cursor = System.Windows.Forms.Cursors.Default;
-            this.dtpClaimDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpClaimDate.Location = new System.Drawing.Point(40, 164);
-            this.dtpClaimDate.Name = "dtpClaimDate";
-            this.dtpClaimDate.Size = new System.Drawing.Size(213, 20);
-            this.dtpClaimDate.TabIndex = 5;
-            this.dtpClaimDate.Visible = false;
-            this.dtpClaimDate.ValueChanged += new System.EventHandler(this.DtpClaimDate_ValueChanged);
-            // 
-            // dtpDateDel
-            // 
-            this.dtpDateDel.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDateDel.Location = new System.Drawing.Point(40, 164);
-            this.dtpDateDel.Name = "dtpDateDel";
-            this.dtpDateDel.Size = new System.Drawing.Size(213, 20);
-            this.dtpDateDel.TabIndex = 5;
-            this.dtpDateDel.Value = new System.DateTime(2019, 9, 25, 2, 36, 32, 0);
-            this.dtpDateDel.Visible = false;
-            // 
             // gbOrderPayment
             // 
             this.gbOrderPayment.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(60)))), ((int)(((byte)(70)))));
@@ -1002,7 +1040,7 @@
             this.gbOrderPayment.Controls.Add(this.label24);
             this.gbOrderPayment.Controls.Add(this.txtAmount);
             this.gbOrderPayment.ForeColor = System.Drawing.Color.LightGray;
-            this.gbOrderPayment.Location = new System.Drawing.Point(844, 252);
+            this.gbOrderPayment.Location = new System.Drawing.Point(844, 243);
             this.gbOrderPayment.Name = "gbOrderPayment";
             this.gbOrderPayment.Size = new System.Drawing.Size(310, 197);
             this.gbOrderPayment.TabIndex = 17;
@@ -1076,7 +1114,7 @@
             // 
             this.lblBox2.AutoSize = true;
             this.lblBox2.ForeColor = System.Drawing.Color.LightGray;
-            this.lblBox2.Location = new System.Drawing.Point(287, 366);
+            this.lblBox2.Location = new System.Drawing.Point(287, 363);
             this.lblBox2.Name = "lblBox2";
             this.lblBox2.Size = new System.Drawing.Size(28, 13);
             this.lblBox2.TabIndex = 41;
@@ -1092,26 +1130,12 @@
             this.lblTin.TabIndex = 43;
             this.lblTin.Text = "     ";
             // 
-            // dgvReservation
-            // 
-            this.dgvReservation.AllowUserToAddRows = false;
-            this.dgvReservation.AllowUserToDeleteRows = false;
-            this.dgvReservation.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvReservation.Location = new System.Drawing.Point(166, 68);
-            this.dgvReservation.Name = "dgvReservation";
-            this.dgvReservation.ReadOnly = true;
-            this.dgvReservation.RowHeadersWidth = 51;
-            this.dgvReservation.Size = new System.Drawing.Size(1041, 183);
-            this.dgvReservation.TabIndex = 33;
-            this.dgvReservation.Visible = false;
-            this.dgvReservation.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvReservation_CellContentClick);
-            // 
             // dgvAddToCart
             // 
             this.dgvAddToCart.AllowUserToAddRows = false;
             this.dgvAddToCart.AllowUserToDeleteRows = false;
             this.dgvAddToCart.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvAddToCart.Location = new System.Drawing.Point(166, 68);
+            this.dgvAddToCart.Location = new System.Drawing.Point(166, 59);
             this.dgvAddToCart.Name = "dgvAddToCart";
             this.dgvAddToCart.ReadOnly = true;
             this.dgvAddToCart.RowHeadersWidth = 51;
@@ -1124,7 +1148,7 @@
             this.dgvDelivery.AllowUserToAddRows = false;
             this.dgvDelivery.AllowUserToDeleteRows = false;
             this.dgvDelivery.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDelivery.Location = new System.Drawing.Point(166, 68);
+            this.dgvDelivery.Location = new System.Drawing.Point(166, 59);
             this.dgvDelivery.Name = "dgvDelivery";
             this.dgvDelivery.ReadOnly = true;
             this.dgvDelivery.RowHeadersWidth = 51;
@@ -1133,34 +1157,109 @@
             this.dgvDelivery.Visible = false;
             this.dgvDelivery.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvDelivery_CellContentClick);
             // 
+            // dgvReservation
+            // 
+            this.dgvReservation.AllowUserToAddRows = false;
+            this.dgvReservation.AllowUserToDeleteRows = false;
+            this.dgvReservation.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvReservation.Location = new System.Drawing.Point(166, 59);
+            this.dgvReservation.Name = "dgvReservation";
+            this.dgvReservation.ReadOnly = true;
+            this.dgvReservation.RowHeadersWidth = 51;
+            this.dgvReservation.Size = new System.Drawing.Size(1041, 183);
+            this.dgvReservation.TabIndex = 33;
+            this.dgvReservation.Visible = false;
+            this.dgvReservation.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvReservation_CellContentClick);
+            // 
+            // gbReservation
+            // 
+            this.gbReservation.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(60)))), ((int)(((byte)(70)))));
+            this.gbReservation.Controls.Add(this.btnResPro);
+            this.gbReservation.Controls.Add(this.CancelRes);
+            this.gbReservation.Controls.Add(this.btnPrintReseservation);
+            this.gbReservation.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.gbReservation.ForeColor = System.Drawing.Color.White;
+            this.gbReservation.Location = new System.Drawing.Point(561, 446);
+            this.gbReservation.Name = "gbReservation";
+            this.gbReservation.Size = new System.Drawing.Size(490, 112);
+            this.gbReservation.TabIndex = 18;
+            this.gbReservation.TabStop = false;
+            this.gbReservation.Text = "Reservation Buttons";
+            this.gbReservation.Visible = false;
+            // 
+            // btnResPro
+            // 
+            this.btnResPro.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnResPro.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnResPro.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnResPro.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnResPro.ForeColor = System.Drawing.Color.White;
+            this.btnResPro.Location = new System.Drawing.Point(60, 24);
+            this.btnResPro.Name = "btnResPro";
+            this.btnResPro.Size = new System.Drawing.Size(171, 35);
+            this.btnResPro.TabIndex = 6;
+            this.btnResPro.Text = "Add To Cart";
+            this.btnResPro.UseVisualStyleBackColor = false;
+            this.btnResPro.Click += new System.EventHandler(this.BtnResPro_Click);
+            // 
+            // CancelRes
+            // 
+            this.CancelRes.BackColor = System.Drawing.Color.DodgerBlue;
+            this.CancelRes.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CancelRes.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.CancelRes.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CancelRes.ForeColor = System.Drawing.Color.White;
+            this.CancelRes.Location = new System.Drawing.Point(254, 24);
+            this.CancelRes.Name = "CancelRes";
+            this.CancelRes.Size = new System.Drawing.Size(167, 35);
+            this.CancelRes.TabIndex = 7;
+            this.CancelRes.Text = "Cancel Reservation";
+            this.CancelRes.UseVisualStyleBackColor = false;
+            this.CancelRes.Click += new System.EventHandler(this.CancelRes_Click);
+            // 
+            // btnPrintReseservation
+            // 
+            this.btnPrintReseservation.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnPrintReseservation.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPrintReseservation.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnPrintReseservation.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPrintReseservation.ForeColor = System.Drawing.Color.White;
+            this.btnPrintReseservation.Location = new System.Drawing.Point(60, 65);
+            this.btnPrintReseservation.Name = "btnPrintReseservation";
+            this.btnPrintReseservation.Size = new System.Drawing.Size(361, 34);
+            this.btnPrintReseservation.TabIndex = 10;
+            this.btnPrintReseservation.Text = "Print Reservation";
+            this.btnPrintReseservation.UseVisualStyleBackColor = false;
+            this.btnPrintReseservation.Click += new System.EventHandler(this.BtnRes_Click);
+            // 
             // gbDelivery
             // 
             this.gbDelivery.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(60)))), ((int)(((byte)(70)))));
-            this.gbDelivery.Controls.Add(this.btnDel);
+            this.gbDelivery.Controls.Add(this.btnPrintDelivery);
             this.gbDelivery.Controls.Add(this.btnCancelDel);
             this.gbDelivery.Controls.Add(this.btnAddDelivery);
             this.gbDelivery.ForeColor = System.Drawing.Color.White;
-            this.gbDelivery.Location = new System.Drawing.Point(561, 455);
+            this.gbDelivery.Location = new System.Drawing.Point(561, 446);
             this.gbDelivery.Name = "gbDelivery";
             this.gbDelivery.Size = new System.Drawing.Size(490, 112);
             this.gbDelivery.TabIndex = 17;
             this.gbDelivery.TabStop = false;
             this.gbDelivery.Text = "Delivery Buttons";
             // 
-            // btnDel
+            // btnPrintDelivery
             // 
-            this.btnDel.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnDel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnDel.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnDel.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDel.ForeColor = System.Drawing.Color.White;
-            this.btnDel.Location = new System.Drawing.Point(59, 65);
-            this.btnDel.Name = "btnDel";
-            this.btnDel.Size = new System.Drawing.Size(363, 35);
-            this.btnDel.TabIndex = 10;
-            this.btnDel.Text = "Print Delivery";
-            this.btnDel.UseVisualStyleBackColor = false;
-            this.btnDel.Click += new System.EventHandler(this.BtnDel_Click);
+            this.btnPrintDelivery.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnPrintDelivery.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPrintDelivery.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnPrintDelivery.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPrintDelivery.ForeColor = System.Drawing.Color.White;
+            this.btnPrintDelivery.Location = new System.Drawing.Point(59, 65);
+            this.btnPrintDelivery.Name = "btnPrintDelivery";
+            this.btnPrintDelivery.Size = new System.Drawing.Size(363, 35);
+            this.btnPrintDelivery.TabIndex = 10;
+            this.btnPrintDelivery.Text = "Print Delivery";
+            this.btnPrintDelivery.UseVisualStyleBackColor = false;
+            this.btnPrintDelivery.Click += new System.EventHandler(this.BtnDel_Click);
             // 
             // btnCancelDel
             // 
@@ -1199,7 +1298,7 @@
             this.gbWalkin.Controls.Add(this.btnCancelOrder);
             this.gbWalkin.Controls.Add(this.btnPrintOrder);
             this.gbWalkin.ForeColor = System.Drawing.Color.White;
-            this.gbWalkin.Location = new System.Drawing.Point(560, 456);
+            this.gbWalkin.Location = new System.Drawing.Point(560, 447);
             this.gbWalkin.Name = "gbWalkin";
             this.gbWalkin.Size = new System.Drawing.Size(490, 112);
             this.gbWalkin.TabIndex = 16;
@@ -1252,67 +1351,6 @@
             this.btnPrintOrder.UseVisualStyleBackColor = false;
             this.btnPrintOrder.Click += new System.EventHandler(this.BtnPrintOrder_Click);
             // 
-            // gbReservation
-            // 
-            this.gbReservation.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(60)))), ((int)(((byte)(70)))));
-            this.gbReservation.Controls.Add(this.btnResPro);
-            this.gbReservation.Controls.Add(this.CancelRes);
-            this.gbReservation.Controls.Add(this.btnRes);
-            this.gbReservation.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.gbReservation.ForeColor = System.Drawing.Color.White;
-            this.gbReservation.Location = new System.Drawing.Point(561, 455);
-            this.gbReservation.Name = "gbReservation";
-            this.gbReservation.Size = new System.Drawing.Size(490, 112);
-            this.gbReservation.TabIndex = 18;
-            this.gbReservation.TabStop = false;
-            this.gbReservation.Text = "Reservation Buttons";
-            this.gbReservation.Visible = false;
-            // 
-            // btnResPro
-            // 
-            this.btnResPro.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnResPro.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnResPro.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnResPro.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnResPro.ForeColor = System.Drawing.Color.White;
-            this.btnResPro.Location = new System.Drawing.Point(60, 24);
-            this.btnResPro.Name = "btnResPro";
-            this.btnResPro.Size = new System.Drawing.Size(171, 35);
-            this.btnResPro.TabIndex = 6;
-            this.btnResPro.Text = "Add To Cart";
-            this.btnResPro.UseVisualStyleBackColor = false;
-            this.btnResPro.Click += new System.EventHandler(this.BtnResPro_Click);
-            // 
-            // CancelRes
-            // 
-            this.CancelRes.BackColor = System.Drawing.Color.DodgerBlue;
-            this.CancelRes.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.CancelRes.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.CancelRes.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CancelRes.ForeColor = System.Drawing.Color.White;
-            this.CancelRes.Location = new System.Drawing.Point(254, 24);
-            this.CancelRes.Name = "CancelRes";
-            this.CancelRes.Size = new System.Drawing.Size(167, 35);
-            this.CancelRes.TabIndex = 7;
-            this.CancelRes.Text = "Cancel Reservation";
-            this.CancelRes.UseVisualStyleBackColor = false;
-            this.CancelRes.Click += new System.EventHandler(this.CancelRes_Click);
-            // 
-            // btnRes
-            // 
-            this.btnRes.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnRes.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnRes.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnRes.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRes.ForeColor = System.Drawing.Color.White;
-            this.btnRes.Location = new System.Drawing.Point(60, 65);
-            this.btnRes.Name = "btnRes";
-            this.btnRes.Size = new System.Drawing.Size(361, 34);
-            this.btnRes.TabIndex = 10;
-            this.btnRes.Text = "Print Reservation";
-            this.btnRes.UseVisualStyleBackColor = false;
-            this.btnRes.Click += new System.EventHandler(this.BtnRes_Click);
-            // 
             // pnlProReg
             // 
             this.pnlProReg.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(44)))), ((int)(((byte)(46)))));
@@ -1323,9 +1361,9 @@
             this.pnlProReg.Controls.Add(this.txtSearchProducts);
             this.pnlProReg.Controls.Add(this.label12);
             this.pnlProReg.Controls.Add(this.dgvProducts);
-            this.pnlProReg.Location = new System.Drawing.Point(-1, 114);
+            this.pnlProReg.Location = new System.Drawing.Point(-2, 111);
             this.pnlProReg.Name = "pnlProReg";
-            this.pnlProReg.Size = new System.Drawing.Size(1386, 609);
+            this.pnlProReg.Size = new System.Drawing.Size(1386, 612);
             this.pnlProReg.TabIndex = 51;
             this.pnlProReg.Visible = false;
             this.pnlProReg.Paint += new System.Windows.Forms.PaintEventHandler(this.PnlProReg_Paint);
@@ -1722,9 +1760,9 @@
             this.pnlCust_reg.Controls.Add(this.label9);
             this.pnlCust_reg.Controls.Add(this.dgvCustomersAcc);
             this.pnlCust_reg.Controls.Add(this.groupBox1);
-            this.pnlCust_reg.Location = new System.Drawing.Point(-2, 115);
+            this.pnlCust_reg.Location = new System.Drawing.Point(-3, 112);
             this.pnlCust_reg.Name = "pnlCust_reg";
-            this.pnlCust_reg.Size = new System.Drawing.Size(1387, 608);
+            this.pnlCust_reg.Size = new System.Drawing.Size(1387, 611);
             this.pnlCust_reg.TabIndex = 50;
             this.pnlCust_reg.Visible = false;
             // 
@@ -2053,9 +2091,9 @@
             this.pnlUser_reg.Controls.Add(this.dgvUsersAcc);
             this.pnlUser_reg.Controls.Add(this.groupBox2);
             this.pnlUser_reg.Controls.Add(this.label6);
-            this.pnlUser_reg.Location = new System.Drawing.Point(0, 114);
+            this.pnlUser_reg.Location = new System.Drawing.Point(-1, 111);
             this.pnlUser_reg.Name = "pnlUser_reg";
-            this.pnlUser_reg.Size = new System.Drawing.Size(1383, 609);
+            this.pnlUser_reg.Size = new System.Drawing.Size(1383, 612);
             this.pnlUser_reg.TabIndex = 48;
             this.pnlUser_reg.Visible = false;
             // 
@@ -2493,9 +2531,9 @@
             this.pnlAdminMenu.Controls.Add(this.label8);
             this.pnlAdminMenu.Controls.Add(this.label7);
             this.pnlAdminMenu.Controls.Add(this.lblUserID);
-            this.pnlAdminMenu.Location = new System.Drawing.Point(-1, 114);
+            this.pnlAdminMenu.Location = new System.Drawing.Point(-2, 111);
             this.pnlAdminMenu.Name = "pnlAdminMenu";
-            this.pnlAdminMenu.Size = new System.Drawing.Size(1386, 609);
+            this.pnlAdminMenu.Size = new System.Drawing.Size(1386, 612);
             this.pnlAdminMenu.TabIndex = 49;
             this.pnlAdminMenu.Visible = false;
             // 
@@ -2777,6 +2815,7 @@
             // pnlDelivery
             // 
             this.pnlDelivery.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(44)))), ((int)(((byte)(46)))));
+            this.pnlDelivery.Controls.Add(this.groupBox5);
             this.pnlDelivery.Controls.Add(this.groupBox19);
             this.pnlDelivery.Controls.Add(this.lblCustoID);
             this.pnlDelivery.Controls.Add(this.lblTotalPrice);
@@ -2787,50 +2826,39 @@
             this.pnlDelivery.Controls.Add(this.label34);
             this.pnlDelivery.Controls.Add(this.label28);
             this.pnlDelivery.Controls.Add(this.dgvCustDelivery);
-            this.pnlDelivery.Location = new System.Drawing.Point(1, 114);
+            this.pnlDelivery.Location = new System.Drawing.Point(0, 111);
             this.pnlDelivery.Name = "pnlDelivery";
-            this.pnlDelivery.Size = new System.Drawing.Size(1386, 609);
+            this.pnlDelivery.Size = new System.Drawing.Size(1386, 612);
             this.pnlDelivery.TabIndex = 54;
             this.pnlDelivery.Visible = false;
             this.pnlDelivery.Paint += new System.Windows.Forms.PaintEventHandler(this.PnlDelivery_Paint);
             // 
-            // groupBox19
+            // groupBox5
             // 
-            this.groupBox19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(60)))), ((int)(((byte)(70)))));
-            this.groupBox19.Controls.Add(this.cmbDelStatus);
-            this.groupBox19.Controls.Add(this.btnUpdateDelivery);
-            this.groupBox19.Controls.Add(this.txtCustomerName);
-            this.groupBox19.Controls.Add(this.txtDeliveryDate);
-            this.groupBox19.Controls.Add(this.txtQuantity);
-            this.groupBox19.Controls.Add(this.txtProductName);
-            this.groupBox19.Controls.Add(this.txtCustomerAddress);
-            this.groupBox19.Controls.Add(this.label76);
-            this.groupBox19.Controls.Add(this.label81);
-            this.groupBox19.Controls.Add(this.lblDeliveryID);
-            this.groupBox19.Controls.Add(this.label77);
-            this.groupBox19.Controls.Add(this.label78);
-            this.groupBox19.Controls.Add(this.label79);
-            this.groupBox19.Controls.Add(this.label82);
-            this.groupBox19.Controls.Add(this.label80);
-            this.groupBox19.ForeColor = System.Drawing.Color.LightGray;
-            this.groupBox19.Location = new System.Drawing.Point(375, 308);
-            this.groupBox19.Name = "groupBox19";
-            this.groupBox19.Size = new System.Drawing.Size(612, 280);
-            this.groupBox19.TabIndex = 47;
-            this.groupBox19.TabStop = false;
-            this.groupBox19.Text = "Delivery Details";
+            this.groupBox5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(60)))), ((int)(((byte)(70)))));
+            this.groupBox5.Controls.Add(this.btnCancelDelivery);
+            this.groupBox5.Controls.Add(this.btnUpdateDelivery);
+            this.groupBox5.ForeColor = System.Drawing.Color.LightGray;
+            this.groupBox5.Location = new System.Drawing.Point(506, 494);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(620, 100);
+            this.groupBox5.TabIndex = 52;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Buttons";
             // 
-            // cmbDelStatus
+            // btnCancelDelivery
             // 
-            this.cmbDelStatus.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbDelStatus.FormattingEnabled = true;
-            this.cmbDelStatus.Items.AddRange(new object[] {
-            "Not Delivered",
-            "Delivered"});
-            this.cmbDelStatus.Location = new System.Drawing.Point(320, 173);
-            this.cmbDelStatus.Name = "cmbDelStatus";
-            this.cmbDelStatus.Size = new System.Drawing.Size(260, 28);
-            this.cmbDelStatus.TabIndex = 41;
+            this.btnCancelDelivery.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnCancelDelivery.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnCancelDelivery.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelDelivery.ForeColor = System.Drawing.Color.White;
+            this.btnCancelDelivery.Location = new System.Drawing.Point(332, 32);
+            this.btnCancelDelivery.Name = "btnCancelDelivery";
+            this.btnCancelDelivery.Size = new System.Drawing.Size(187, 37);
+            this.btnCancelDelivery.TabIndex = 2;
+            this.btnCancelDelivery.Text = "Cancel ";
+            this.btnCancelDelivery.UseVisualStyleBackColor = false;
+            this.btnCancelDelivery.Click += new System.EventHandler(this.BtnCancelDelivery_Click);
             // 
             // btnUpdateDelivery
             // 
@@ -2838,146 +2866,227 @@
             this.btnUpdateDelivery.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnUpdateDelivery.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdateDelivery.ForeColor = System.Drawing.Color.White;
-            this.btnUpdateDelivery.Location = new System.Drawing.Point(241, 227);
+            this.btnUpdateDelivery.Location = new System.Drawing.Point(101, 32);
             this.btnUpdateDelivery.Name = "btnUpdateDelivery";
-            this.btnUpdateDelivery.Size = new System.Drawing.Size(131, 37);
+            this.btnUpdateDelivery.Size = new System.Drawing.Size(187, 37);
             this.btnUpdateDelivery.TabIndex = 2;
-            this.btnUpdateDelivery.Text = "Update Delivery";
+            this.btnUpdateDelivery.Text = "Claim Delivery";
             this.btnUpdateDelivery.UseVisualStyleBackColor = false;
             this.btnUpdateDelivery.Click += new System.EventHandler(this.btnUpdateDelivery_Click);
+            // 
+            // groupBox19
+            // 
+            this.groupBox19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(60)))), ((int)(((byte)(70)))));
+            this.groupBox19.Controls.Add(this.txtStatus);
+            this.groupBox19.Controls.Add(this.txtCustomerName);
+            this.groupBox19.Controls.Add(this.txtDeliveryDate);
+            this.groupBox19.Controls.Add(this.txtTotalPrice);
+            this.groupBox19.Controls.Add(this.txtQuantity);
+            this.groupBox19.Controls.Add(this.txtProductCode);
+            this.groupBox19.Controls.Add(this.txtProductName);
+            this.groupBox19.Controls.Add(this.txtCustomerAddress);
+            this.groupBox19.Controls.Add(this.label76);
+            this.groupBox19.Controls.Add(this.label82);
+            this.groupBox19.Controls.Add(this.label81);
+            this.groupBox19.Controls.Add(this.label61);
+            this.groupBox19.Controls.Add(this.lblDeliveryID);
+            this.groupBox19.Controls.Add(this.label77);
+            this.groupBox19.Controls.Add(this.label55);
+            this.groupBox19.Controls.Add(this.label78);
+            this.groupBox19.Controls.Add(this.label79);
+            this.groupBox19.Controls.Add(this.label80);
+            this.groupBox19.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox19.ForeColor = System.Drawing.Color.LightGray;
+            this.groupBox19.Location = new System.Drawing.Point(32, 107);
+            this.groupBox19.Name = "groupBox19";
+            this.groupBox19.Size = new System.Drawing.Size(315, 413);
+            this.groupBox19.TabIndex = 47;
+            this.groupBox19.TabStop = false;
+            this.groupBox19.Text = "Delivery Details";
+            // 
+            // txtStatus
+            // 
+            this.txtStatus.BackColor = System.Drawing.Color.White;
+            this.txtStatus.Enabled = false;
+            this.txtStatus.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtStatus.ForeColor = System.Drawing.Color.Black;
+            this.txtStatus.Location = new System.Drawing.Point(30, 236);
+            this.txtStatus.Name = "txtStatus";
+            this.txtStatus.Size = new System.Drawing.Size(260, 22);
+            this.txtStatus.TabIndex = 41;
             // 
             // txtCustomerName
             // 
             this.txtCustomerName.Enabled = false;
-            this.txtCustomerName.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCustomerName.Location = new System.Drawing.Point(320, 73);
+            this.txtCustomerName.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCustomerName.Location = new System.Drawing.Point(26, 324);
             this.txtCustomerName.Name = "txtCustomerName";
-            this.txtCustomerName.Size = new System.Drawing.Size(260, 25);
+            this.txtCustomerName.Size = new System.Drawing.Size(260, 22);
             this.txtCustomerName.TabIndex = 40;
             // 
             // txtDeliveryDate
             // 
             this.txtDeliveryDate.Enabled = false;
-            this.txtDeliveryDate.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDeliveryDate.Location = new System.Drawing.Point(25, 175);
+            this.txtDeliveryDate.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDeliveryDate.Location = new System.Drawing.Point(28, 280);
             this.txtDeliveryDate.Name = "txtDeliveryDate";
-            this.txtDeliveryDate.Size = new System.Drawing.Size(258, 25);
+            this.txtDeliveryDate.Size = new System.Drawing.Size(258, 22);
             this.txtDeliveryDate.TabIndex = 40;
+            // 
+            // txtTotalPrice
+            // 
+            this.txtTotalPrice.Enabled = false;
+            this.txtTotalPrice.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTotalPrice.Location = new System.Drawing.Point(28, 193);
+            this.txtTotalPrice.Name = "txtTotalPrice";
+            this.txtTotalPrice.Size = new System.Drawing.Size(258, 22);
+            this.txtTotalPrice.TabIndex = 40;
             // 
             // txtQuantity
             // 
             this.txtQuantity.Enabled = false;
-            this.txtQuantity.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtQuantity.Location = new System.Drawing.Point(28, 125);
+            this.txtQuantity.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtQuantity.Location = new System.Drawing.Point(27, 151);
             this.txtQuantity.Name = "txtQuantity";
-            this.txtQuantity.Size = new System.Drawing.Size(258, 25);
+            this.txtQuantity.Size = new System.Drawing.Size(258, 22);
             this.txtQuantity.TabIndex = 40;
+            // 
+            // txtProductCode
+            // 
+            this.txtProductCode.Enabled = false;
+            this.txtProductCode.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtProductCode.Location = new System.Drawing.Point(29, 65);
+            this.txtProductCode.Name = "txtProductCode";
+            this.txtProductCode.Size = new System.Drawing.Size(258, 22);
+            this.txtProductCode.TabIndex = 40;
             // 
             // txtProductName
             // 
             this.txtProductName.Enabled = false;
-            this.txtProductName.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtProductName.Location = new System.Drawing.Point(28, 75);
+            this.txtProductName.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtProductName.Location = new System.Drawing.Point(27, 108);
             this.txtProductName.Name = "txtProductName";
-            this.txtProductName.Size = new System.Drawing.Size(258, 25);
+            this.txtProductName.Size = new System.Drawing.Size(258, 22);
             this.txtProductName.TabIndex = 40;
             // 
             // txtCustomerAddress
             // 
             this.txtCustomerAddress.BackColor = System.Drawing.Color.White;
             this.txtCustomerAddress.Enabled = false;
-            this.txtCustomerAddress.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCustomerAddress.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCustomerAddress.ForeColor = System.Drawing.Color.Black;
-            this.txtCustomerAddress.Location = new System.Drawing.Point(320, 124);
+            this.txtCustomerAddress.Location = new System.Drawing.Point(26, 367);
             this.txtCustomerAddress.Name = "txtCustomerAddress";
-            this.txtCustomerAddress.Size = new System.Drawing.Size(260, 25);
+            this.txtCustomerAddress.Size = new System.Drawing.Size(260, 22);
             this.txtCustomerAddress.TabIndex = 1;
             // 
             // label76
             // 
             this.label76.AutoSize = true;
-            this.label76.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label76.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label76.ForeColor = System.Drawing.Color.LightGray;
             this.label76.Location = new System.Drawing.Point(32, 22);
             this.label76.Name = "label76";
-            this.label76.Size = new System.Drawing.Size(92, 20);
+            this.label76.Size = new System.Drawing.Size(68, 13);
             this.label76.TabIndex = 27;
             this.label76.Text = "Delivery ID -";
+            // 
+            // label82
+            // 
+            this.label82.AutoSize = true;
+            this.label82.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label82.ForeColor = System.Drawing.Color.LightGray;
+            this.label82.Location = new System.Drawing.Point(32, 217);
+            this.label82.Name = "label82";
+            this.label82.Size = new System.Drawing.Size(39, 13);
+            this.label82.TabIndex = 28;
+            this.label82.Text = "Status";
             // 
             // label81
             // 
             this.label81.AutoSize = true;
-            this.label81.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label81.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label81.ForeColor = System.Drawing.Color.LightGray;
-            this.label81.Location = new System.Drawing.Point(29, 152);
+            this.label81.Location = new System.Drawing.Point(32, 261);
             this.label81.Name = "label81";
-            this.label81.Size = new System.Drawing.Size(99, 20);
+            this.label81.Size = new System.Drawing.Size(74, 13);
             this.label81.TabIndex = 35;
             this.label81.Text = "Delivery Date";
+            // 
+            // label61
+            // 
+            this.label61.AutoSize = true;
+            this.label61.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label61.ForeColor = System.Drawing.Color.LightGray;
+            this.label61.Location = new System.Drawing.Point(32, 175);
+            this.label61.Name = "label61";
+            this.label61.Size = new System.Drawing.Size(76, 13);
+            this.label61.TabIndex = 35;
+            this.label61.Text = "Total Amount";
             // 
             // lblDeliveryID
             // 
             this.lblDeliveryID.AutoSize = true;
-            this.lblDeliveryID.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDeliveryID.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDeliveryID.ForeColor = System.Drawing.Color.LightGray;
-            this.lblDeliveryID.Location = new System.Drawing.Point(126, 26);
+            this.lblDeliveryID.Location = new System.Drawing.Point(106, 23);
             this.lblDeliveryID.Name = "lblDeliveryID";
-            this.lblDeliveryID.Size = new System.Drawing.Size(28, 15);
+            this.lblDeliveryID.Size = new System.Drawing.Size(28, 13);
             this.lblDeliveryID.TabIndex = 39;
             this.lblDeliveryID.Text = "       ";
             // 
             // label77
             // 
             this.label77.AutoSize = true;
-            this.label77.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label77.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label77.ForeColor = System.Drawing.Color.LightGray;
-            this.label77.Location = new System.Drawing.Point(32, 102);
+            this.label77.Location = new System.Drawing.Point(31, 132);
             this.label77.Name = "label77";
-            this.label77.Size = new System.Drawing.Size(65, 20);
+            this.label77.Size = new System.Drawing.Size(51, 13);
             this.label77.TabIndex = 35;
             this.label77.Text = "Quantity";
+            // 
+            // label55
+            // 
+            this.label55.AutoSize = true;
+            this.label55.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label55.ForeColor = System.Drawing.Color.LightGray;
+            this.label55.Location = new System.Drawing.Point(32, 47);
+            this.label55.Name = "label55";
+            this.label55.Size = new System.Drawing.Size(77, 13);
+            this.label55.TabIndex = 33;
+            this.label55.Text = "Product Code";
             // 
             // label78
             // 
             this.label78.AutoSize = true;
-            this.label78.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label78.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label78.ForeColor = System.Drawing.Color.LightGray;
-            this.label78.Location = new System.Drawing.Point(323, 50);
+            this.label78.Location = new System.Drawing.Point(29, 304);
             this.label78.Name = "label78";
-            this.label78.Size = new System.Drawing.Size(116, 20);
+            this.label78.Size = new System.Drawing.Size(88, 13);
             this.label78.TabIndex = 38;
             this.label78.Text = "Customer Name";
             // 
             // label79
             // 
             this.label79.AutoSize = true;
-            this.label79.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label79.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label79.ForeColor = System.Drawing.Color.LightGray;
-            this.label79.Location = new System.Drawing.Point(31, 51);
+            this.label79.Location = new System.Drawing.Point(30, 90);
             this.label79.Name = "label79";
-            this.label79.Size = new System.Drawing.Size(104, 20);
+            this.label79.Size = new System.Drawing.Size(79, 13);
             this.label79.TabIndex = 33;
             this.label79.Text = "Product Name";
-            // 
-            // label82
-            // 
-            this.label82.AutoSize = true;
-            this.label82.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label82.ForeColor = System.Drawing.Color.LightGray;
-            this.label82.Location = new System.Drawing.Point(323, 151);
-            this.label82.Name = "label82";
-            this.label82.Size = new System.Drawing.Size(49, 20);
-            this.label82.TabIndex = 28;
-            this.label82.Text = "Status";
             // 
             // label80
             // 
             this.label80.AutoSize = true;
-            this.label80.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label80.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label80.ForeColor = System.Drawing.Color.LightGray;
-            this.label80.Location = new System.Drawing.Point(323, 101);
+            this.label80.Location = new System.Drawing.Point(29, 348);
             this.label80.Name = "label80";
-            this.label80.Size = new System.Drawing.Size(129, 20);
+            this.label80.Size = new System.Drawing.Size(100, 13);
             this.label80.TabIndex = 28;
             this.label80.Text = "Customer Address";
             // 
@@ -2986,7 +3095,7 @@
             this.lblCustoID.AutoSize = true;
             this.lblCustoID.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCustoID.ForeColor = System.Drawing.Color.LightGray;
-            this.lblCustoID.Location = new System.Drawing.Point(419, 409);
+            this.lblCustoID.Location = new System.Drawing.Point(285, 406);
             this.lblCustoID.Name = "lblCustoID";
             this.lblCustoID.Size = new System.Drawing.Size(28, 15);
             this.lblCustoID.TabIndex = 51;
@@ -2997,7 +3106,7 @@
             this.lblTotalPrice.AutoSize = true;
             this.lblTotalPrice.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotalPrice.ForeColor = System.Drawing.Color.LightGray;
-            this.lblTotalPrice.Location = new System.Drawing.Point(419, 464);
+            this.lblTotalPrice.Location = new System.Drawing.Point(285, 461);
             this.lblTotalPrice.Name = "lblTotalPrice";
             this.lblTotalPrice.Size = new System.Drawing.Size(28, 15);
             this.lblTotalPrice.TabIndex = 50;
@@ -3008,7 +3117,7 @@
             this.lblTransactionType.AutoSize = true;
             this.lblTransactionType.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTransactionType.ForeColor = System.Drawing.Color.LightGray;
-            this.lblTransactionType.Location = new System.Drawing.Point(419, 493);
+            this.lblTransactionType.Location = new System.Drawing.Point(285, 490);
             this.lblTransactionType.Name = "lblTransactionType";
             this.lblTransactionType.Size = new System.Drawing.Size(28, 15);
             this.lblTransactionType.TabIndex = 49;
@@ -3019,7 +3128,7 @@
             this.lblProductCode.AutoSize = true;
             this.lblProductCode.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblProductCode.ForeColor = System.Drawing.Color.LightGray;
-            this.lblProductCode.Location = new System.Drawing.Point(419, 437);
+            this.lblProductCode.Location = new System.Drawing.Point(285, 434);
             this.lblProductCode.Name = "lblProductCode";
             this.lblProductCode.Size = new System.Drawing.Size(28, 15);
             this.lblProductCode.TabIndex = 48;
@@ -3030,7 +3139,7 @@
             this.label72.AutoSize = true;
             this.label72.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label72.ForeColor = System.Drawing.Color.White;
-            this.label72.Location = new System.Drawing.Point(194, 76);
+            this.label72.Location = new System.Drawing.Point(369, 80);
             this.label72.Name = "label72";
             this.label72.Size = new System.Drawing.Size(97, 17);
             this.label72.TabIndex = 44;
@@ -3038,7 +3147,7 @@
             // 
             // txtSearchDelivery
             // 
-            this.txtSearchDelivery.Location = new System.Drawing.Point(297, 73);
+            this.txtSearchDelivery.Location = new System.Drawing.Point(480, 79);
             this.txtSearchDelivery.Name = "txtSearchDelivery";
             this.txtSearchDelivery.Size = new System.Drawing.Size(550, 20);
             this.txtSearchDelivery.TabIndex = 43;
@@ -3073,67 +3182,57 @@
             this.dgvCustDelivery.AllowUserToAddRows = false;
             this.dgvCustDelivery.AllowUserToDeleteRows = false;
             this.dgvCustDelivery.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCustDelivery.Location = new System.Drawing.Point(115, 101);
+            this.dgvCustDelivery.Location = new System.Drawing.Point(359, 115);
             this.dgvCustDelivery.Name = "dgvCustDelivery";
             this.dgvCustDelivery.ReadOnly = true;
             this.dgvCustDelivery.RowHeadersWidth = 51;
-            this.dgvCustDelivery.Size = new System.Drawing.Size(1161, 197);
+            this.dgvCustDelivery.Size = new System.Drawing.Size(931, 373);
             this.dgvCustDelivery.TabIndex = 42;
             this.dgvCustDelivery.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvCustDelivery_CellContentClick);
             // 
             // pnlReservation
             // 
             this.pnlReservation.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(44)))), ((int)(((byte)(46)))));
+            this.pnlReservation.Controls.Add(this.groupBox11);
             this.pnlReservation.Controls.Add(this.groupBox20);
             this.pnlReservation.Controls.Add(this.label93);
             this.pnlReservation.Controls.Add(this.txtSearchReservation);
             this.pnlReservation.Controls.Add(this.label27);
             this.pnlReservation.Controls.Add(this.label32);
             this.pnlReservation.Controls.Add(this.dgvCustReservation);
-            this.pnlReservation.Location = new System.Drawing.Point(0, 114);
+            this.pnlReservation.Location = new System.Drawing.Point(-1, 111);
             this.pnlReservation.Name = "pnlReservation";
-            this.pnlReservation.Size = new System.Drawing.Size(1386, 609);
+            this.pnlReservation.Size = new System.Drawing.Size(1386, 612);
             this.pnlReservation.TabIndex = 53;
             this.pnlReservation.Visible = false;
             this.pnlReservation.Paint += new System.Windows.Forms.PaintEventHandler(this.PnlReservation_Paint);
             // 
-            // groupBox20
+            // groupBox11
             // 
-            this.groupBox20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(60)))), ((int)(((byte)(70)))));
-            this.groupBox20.Controls.Add(this.cmbReservationStatus);
-            this.groupBox20.Controls.Add(this.btnUpdateResPro);
-            this.groupBox20.Controls.Add(this.txtCName);
-            this.groupBox20.Controls.Add(this.txtClaimDate);
-            this.groupBox20.Controls.Add(this.txtResQuantity);
-            this.groupBox20.Controls.Add(this.txtPName);
-            this.groupBox20.Controls.Add(this.txtCAddress);
-            this.groupBox20.Controls.Add(this.label85);
-            this.groupBox20.Controls.Add(this.label86);
-            this.groupBox20.Controls.Add(this.lblResID);
-            this.groupBox20.Controls.Add(this.label88);
-            this.groupBox20.Controls.Add(this.label89);
-            this.groupBox20.Controls.Add(this.label90);
-            this.groupBox20.Controls.Add(this.label91);
-            this.groupBox20.Controls.Add(this.label92);
-            this.groupBox20.ForeColor = System.Drawing.Color.LightGray;
-            this.groupBox20.Location = new System.Drawing.Point(364, 318);
-            this.groupBox20.Name = "groupBox20";
-            this.groupBox20.Size = new System.Drawing.Size(612, 280);
-            this.groupBox20.TabIndex = 53;
-            this.groupBox20.TabStop = false;
-            this.groupBox20.Text = "Reservation Details";
+            this.groupBox11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(60)))), ((int)(((byte)(70)))));
+            this.groupBox11.Controls.Add(this.btnClear);
+            this.groupBox11.Controls.Add(this.btnUpdateResPro);
+            this.groupBox11.ForeColor = System.Drawing.Color.LightGray;
+            this.groupBox11.Location = new System.Drawing.Point(541, 482);
+            this.groupBox11.Name = "groupBox11";
+            this.groupBox11.Size = new System.Drawing.Size(564, 100);
+            this.groupBox11.TabIndex = 54;
+            this.groupBox11.TabStop = false;
+            this.groupBox11.Text = "Buttons";
             // 
-            // cmbReservationStatus
+            // btnClear
             // 
-            this.cmbReservationStatus.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbReservationStatus.FormattingEnabled = true;
-            this.cmbReservationStatus.Items.AddRange(new object[] {
-            "Unclaim",
-            "Claimed"});
-            this.cmbReservationStatus.Location = new System.Drawing.Point(320, 173);
-            this.cmbReservationStatus.Name = "cmbReservationStatus";
-            this.cmbReservationStatus.Size = new System.Drawing.Size(260, 28);
-            this.cmbReservationStatus.TabIndex = 41;
+            this.btnClear.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnClear.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClear.ForeColor = System.Drawing.Color.White;
+            this.btnClear.Location = new System.Drawing.Point(296, 36);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(189, 37);
+            this.btnClear.TabIndex = 2;
+            this.btnClear.Text = "Cancel";
+            this.btnClear.UseVisualStyleBackColor = false;
+            this.btnClear.Click += new System.EventHandler(this.BtnClear_Click);
             // 
             // btnUpdateResPro
             // 
@@ -3141,146 +3240,224 @@
             this.btnUpdateResPro.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnUpdateResPro.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdateResPro.ForeColor = System.Drawing.Color.White;
-            this.btnUpdateResPro.Location = new System.Drawing.Point(211, 223);
+            this.btnUpdateResPro.Location = new System.Drawing.Point(75, 36);
             this.btnUpdateResPro.Name = "btnUpdateResPro";
             this.btnUpdateResPro.Size = new System.Drawing.Size(189, 37);
             this.btnUpdateResPro.TabIndex = 2;
-            this.btnUpdateResPro.Text = "Update Reserved Products";
+            this.btnUpdateResPro.Text = "Claim Reservation";
             this.btnUpdateResPro.UseVisualStyleBackColor = false;
             this.btnUpdateResPro.Click += new System.EventHandler(this.BtnUpdateResPro_Click);
+            // 
+            // groupBox20
+            // 
+            this.groupBox20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(60)))), ((int)(((byte)(70)))));
+            this.groupBox20.Controls.Add(this.txtCName);
+            this.groupBox20.Controls.Add(this.txtPStatus);
+            this.groupBox20.Controls.Add(this.txtClaimDate);
+            this.groupBox20.Controls.Add(this.txtPTotal);
+            this.groupBox20.Controls.Add(this.txtResQuantity);
+            this.groupBox20.Controls.Add(this.txtPCode);
+            this.groupBox20.Controls.Add(this.txtPName);
+            this.groupBox20.Controls.Add(this.txtCAddress);
+            this.groupBox20.Controls.Add(this.label101);
+            this.groupBox20.Controls.Add(this.label85);
+            this.groupBox20.Controls.Add(this.label86);
+            this.groupBox20.Controls.Add(this.label98);
+            this.groupBox20.Controls.Add(this.lblResID);
+            this.groupBox20.Controls.Add(this.label88);
+            this.groupBox20.Controls.Add(this.label75);
+            this.groupBox20.Controls.Add(this.label89);
+            this.groupBox20.Controls.Add(this.label90);
+            this.groupBox20.Controls.Add(this.label92);
+            this.groupBox20.ForeColor = System.Drawing.Color.LightGray;
+            this.groupBox20.Location = new System.Drawing.Point(22, 92);
+            this.groupBox20.Name = "groupBox20";
+            this.groupBox20.Size = new System.Drawing.Size(334, 417);
+            this.groupBox20.TabIndex = 53;
+            this.groupBox20.TabStop = false;
+            this.groupBox20.Text = "Reservation Details";
             // 
             // txtCName
             // 
             this.txtCName.Enabled = false;
-            this.txtCName.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCName.Location = new System.Drawing.Point(320, 73);
+            this.txtCName.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCName.Location = new System.Drawing.Point(36, 320);
             this.txtCName.Name = "txtCName";
-            this.txtCName.Size = new System.Drawing.Size(260, 25);
+            this.txtCName.Size = new System.Drawing.Size(260, 22);
             this.txtCName.TabIndex = 40;
+            // 
+            // txtPStatus
+            // 
+            this.txtPStatus.Enabled = false;
+            this.txtPStatus.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPStatus.Location = new System.Drawing.Point(36, 276);
+            this.txtPStatus.Name = "txtPStatus";
+            this.txtPStatus.Size = new System.Drawing.Size(258, 22);
+            this.txtPStatus.TabIndex = 40;
             // 
             // txtClaimDate
             // 
             this.txtClaimDate.Enabled = false;
-            this.txtClaimDate.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtClaimDate.Location = new System.Drawing.Point(25, 175);
+            this.txtClaimDate.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtClaimDate.Location = new System.Drawing.Point(36, 233);
             this.txtClaimDate.Name = "txtClaimDate";
-            this.txtClaimDate.Size = new System.Drawing.Size(258, 25);
+            this.txtClaimDate.Size = new System.Drawing.Size(258, 22);
             this.txtClaimDate.TabIndex = 40;
+            // 
+            // txtPTotal
+            // 
+            this.txtPTotal.Enabled = false;
+            this.txtPTotal.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPTotal.Location = new System.Drawing.Point(37, 191);
+            this.txtPTotal.Name = "txtPTotal";
+            this.txtPTotal.Size = new System.Drawing.Size(258, 22);
+            this.txtPTotal.TabIndex = 40;
             // 
             // txtResQuantity
             // 
             this.txtResQuantity.Enabled = false;
-            this.txtResQuantity.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtResQuantity.Location = new System.Drawing.Point(28, 125);
+            this.txtResQuantity.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtResQuantity.Location = new System.Drawing.Point(36, 149);
             this.txtResQuantity.Name = "txtResQuantity";
-            this.txtResQuantity.Size = new System.Drawing.Size(258, 25);
+            this.txtResQuantity.Size = new System.Drawing.Size(258, 22);
             this.txtResQuantity.TabIndex = 40;
+            // 
+            // txtPCode
+            // 
+            this.txtPCode.Enabled = false;
+            this.txtPCode.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPCode.Location = new System.Drawing.Point(37, 66);
+            this.txtPCode.Name = "txtPCode";
+            this.txtPCode.Size = new System.Drawing.Size(258, 22);
+            this.txtPCode.TabIndex = 40;
             // 
             // txtPName
             // 
             this.txtPName.Enabled = false;
-            this.txtPName.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPName.Location = new System.Drawing.Point(28, 75);
+            this.txtPName.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPName.Location = new System.Drawing.Point(37, 106);
             this.txtPName.Name = "txtPName";
-            this.txtPName.Size = new System.Drawing.Size(258, 25);
+            this.txtPName.Size = new System.Drawing.Size(258, 22);
             this.txtPName.TabIndex = 40;
             // 
             // txtCAddress
             // 
             this.txtCAddress.BackColor = System.Drawing.Color.White;
             this.txtCAddress.Enabled = false;
-            this.txtCAddress.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCAddress.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCAddress.ForeColor = System.Drawing.Color.Black;
-            this.txtCAddress.Location = new System.Drawing.Point(320, 124);
+            this.txtCAddress.Location = new System.Drawing.Point(36, 364);
             this.txtCAddress.Name = "txtCAddress";
-            this.txtCAddress.Size = new System.Drawing.Size(260, 25);
+            this.txtCAddress.Size = new System.Drawing.Size(260, 22);
             this.txtCAddress.TabIndex = 1;
+            // 
+            // label101
+            // 
+            this.label101.AutoSize = true;
+            this.label101.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label101.ForeColor = System.Drawing.Color.LightGray;
+            this.label101.Location = new System.Drawing.Point(40, 258);
+            this.label101.Name = "label101";
+            this.label101.Size = new System.Drawing.Size(39, 13);
+            this.label101.TabIndex = 35;
+            this.label101.Text = "Status";
             // 
             // label85
             // 
             this.label85.AutoSize = true;
-            this.label85.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label85.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label85.ForeColor = System.Drawing.Color.LightGray;
-            this.label85.Location = new System.Drawing.Point(32, 22);
+            this.label85.Location = new System.Drawing.Point(45, 22);
             this.label85.Name = "label85";
-            this.label85.Size = new System.Drawing.Size(115, 20);
+            this.label85.Size = new System.Drawing.Size(88, 13);
             this.label85.TabIndex = 27;
             this.label85.Text = "Reservation ID -";
             // 
             // label86
             // 
             this.label86.AutoSize = true;
-            this.label86.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label86.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label86.ForeColor = System.Drawing.Color.LightGray;
-            this.label86.Location = new System.Drawing.Point(29, 152);
+            this.label86.Location = new System.Drawing.Point(40, 215);
             this.label86.Name = "label86";
-            this.label86.Size = new System.Drawing.Size(83, 20);
+            this.label86.Size = new System.Drawing.Size(62, 13);
             this.label86.TabIndex = 35;
             this.label86.Text = "Claim Date";
+            // 
+            // label98
+            // 
+            this.label98.AutoSize = true;
+            this.label98.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label98.ForeColor = System.Drawing.Color.LightGray;
+            this.label98.Location = new System.Drawing.Point(41, 173);
+            this.label98.Name = "label98";
+            this.label98.Size = new System.Drawing.Size(76, 13);
+            this.label98.TabIndex = 35;
+            this.label98.Text = "Total Amount";
             // 
             // lblResID
             // 
             this.lblResID.AutoSize = true;
-            this.lblResID.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblResID.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblResID.ForeColor = System.Drawing.Color.LightGray;
-            this.lblResID.Location = new System.Drawing.Point(145, 26);
+            this.lblResID.Location = new System.Drawing.Point(136, 23);
             this.lblResID.Name = "lblResID";
-            this.lblResID.Size = new System.Drawing.Size(28, 15);
+            this.lblResID.Size = new System.Drawing.Size(28, 13);
             this.lblResID.TabIndex = 39;
             this.lblResID.Text = "       ";
             // 
             // label88
             // 
             this.label88.AutoSize = true;
-            this.label88.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label88.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label88.ForeColor = System.Drawing.Color.LightGray;
-            this.label88.Location = new System.Drawing.Point(32, 102);
+            this.label88.Location = new System.Drawing.Point(40, 131);
             this.label88.Name = "label88";
-            this.label88.Size = new System.Drawing.Size(65, 20);
+            this.label88.Size = new System.Drawing.Size(51, 13);
             this.label88.TabIndex = 35;
             this.label88.Text = "Quantity";
+            // 
+            // label75
+            // 
+            this.label75.AutoSize = true;
+            this.label75.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label75.ForeColor = System.Drawing.Color.LightGray;
+            this.label75.Location = new System.Drawing.Point(40, 50);
+            this.label75.Name = "label75";
+            this.label75.Size = new System.Drawing.Size(77, 13);
+            this.label75.TabIndex = 33;
+            this.label75.Text = "Product Code";
             // 
             // label89
             // 
             this.label89.AutoSize = true;
-            this.label89.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label89.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label89.ForeColor = System.Drawing.Color.LightGray;
-            this.label89.Location = new System.Drawing.Point(323, 50);
+            this.label89.Location = new System.Drawing.Point(39, 301);
             this.label89.Name = "label89";
-            this.label89.Size = new System.Drawing.Size(116, 20);
+            this.label89.Size = new System.Drawing.Size(88, 13);
             this.label89.TabIndex = 38;
             this.label89.Text = "Customer Name";
             // 
             // label90
             // 
             this.label90.AutoSize = true;
-            this.label90.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label90.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label90.ForeColor = System.Drawing.Color.LightGray;
-            this.label90.Location = new System.Drawing.Point(31, 51);
+            this.label90.Location = new System.Drawing.Point(40, 90);
             this.label90.Name = "label90";
-            this.label90.Size = new System.Drawing.Size(104, 20);
+            this.label90.Size = new System.Drawing.Size(79, 13);
             this.label90.TabIndex = 33;
             this.label90.Text = "Product Name";
-            // 
-            // label91
-            // 
-            this.label91.AutoSize = true;
-            this.label91.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label91.ForeColor = System.Drawing.Color.LightGray;
-            this.label91.Location = new System.Drawing.Point(323, 151);
-            this.label91.Name = "label91";
-            this.label91.Size = new System.Drawing.Size(49, 20);
-            this.label91.TabIndex = 28;
-            this.label91.Text = "Status";
             // 
             // label92
             // 
             this.label92.AutoSize = true;
-            this.label92.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label92.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label92.ForeColor = System.Drawing.Color.LightGray;
-            this.label92.Location = new System.Drawing.Point(323, 101);
+            this.label92.Location = new System.Drawing.Point(39, 345);
             this.label92.Name = "label92";
-            this.label92.Size = new System.Drawing.Size(129, 20);
+            this.label92.Size = new System.Drawing.Size(100, 13);
             this.label92.TabIndex = 28;
             this.label92.Text = "Customer Address";
             // 
@@ -3289,7 +3466,7 @@
             this.label93.AutoSize = true;
             this.label93.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label93.ForeColor = System.Drawing.Color.White;
-            this.label93.Location = new System.Drawing.Point(170, 80);
+            this.label93.Location = new System.Drawing.Point(405, 67);
             this.label93.Name = "label93";
             this.label93.Size = new System.Drawing.Size(119, 17);
             this.label93.TabIndex = 52;
@@ -3297,7 +3474,7 @@
             // 
             // txtSearchReservation
             // 
-            this.txtSearchReservation.Location = new System.Drawing.Point(295, 77);
+            this.txtSearchReservation.Location = new System.Drawing.Point(530, 64);
             this.txtSearchReservation.Name = "txtSearchReservation";
             this.txtSearchReservation.Size = new System.Drawing.Size(550, 20);
             this.txtSearchReservation.TabIndex = 51;
@@ -3307,12 +3484,12 @@
             // 
             this.label27.AutoSize = true;
             this.label27.ForeColor = System.Drawing.Color.LightGray;
-            this.label27.Location = new System.Drawing.Point(334, 41);
+            this.label27.Location = new System.Drawing.Point(361, 41);
             this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(673, 13);
+            this.label27.Size = new System.Drawing.Size(637, 13);
             this.label27.TabIndex = 37;
             this.label27.Text = "_________________________________________________________________________________" +
-    "______________________________";
+    "________________________";
             // 
             // label32
             // 
@@ -3332,11 +3509,11 @@
             this.dgvCustReservation.AllowUserToAddRows = false;
             this.dgvCustReservation.AllowUserToDeleteRows = false;
             this.dgvCustReservation.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCustReservation.Location = new System.Drawing.Point(113, 105);
+            this.dgvCustReservation.Location = new System.Drawing.Point(372, 97);
             this.dgvCustReservation.Name = "dgvCustReservation";
             this.dgvCustReservation.ReadOnly = true;
             this.dgvCustReservation.RowHeadersWidth = 51;
-            this.dgvCustReservation.Size = new System.Drawing.Size(1161, 197);
+            this.dgvCustReservation.Size = new System.Drawing.Size(956, 369);
             this.dgvCustReservation.TabIndex = 50;
             this.dgvCustReservation.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvCustReservation_CellContentClick);
             // 
@@ -3736,9 +3913,9 @@
             this.pnlReports.Controls.Add(this.label69);
             this.pnlReports.Controls.Add(this.groupBox17);
             this.pnlReports.Controls.Add(this.groupBox16);
-            this.pnlReports.Location = new System.Drawing.Point(2, 115);
+            this.pnlReports.Location = new System.Drawing.Point(1, 112);
             this.pnlReports.Name = "pnlReports";
-            this.pnlReports.Size = new System.Drawing.Size(1386, 603);
+            this.pnlReports.Size = new System.Drawing.Size(1386, 606);
             this.pnlReports.TabIndex = 55;
             this.pnlReports.Visible = false;
             // 
@@ -3840,9 +4017,9 @@
             this.pnlStaffMainMenu.Controls.Add(this.label103);
             this.pnlStaffMainMenu.Controls.Add(this.label104);
             this.pnlStaffMainMenu.Controls.Add(this.label105);
-            this.pnlStaffMainMenu.Location = new System.Drawing.Point(0, 114);
+            this.pnlStaffMainMenu.Location = new System.Drawing.Point(-1, 111);
             this.pnlStaffMainMenu.Name = "pnlStaffMainMenu";
-            this.pnlStaffMainMenu.Size = new System.Drawing.Size(1386, 609);
+            this.pnlStaffMainMenu.Size = new System.Drawing.Size(1386, 612);
             this.pnlStaffMainMenu.TabIndex = 50;
             this.pnlStaffMainMenu.Visible = false;
             this.pnlStaffMainMenu.Paint += new System.Windows.Forms.PaintEventHandler(this.PnlStaffMainMenu_Paint);
@@ -4296,6 +4473,7 @@
             this.BackColor = System.Drawing.Color.LightGray;
             this.ClientSize = new System.Drawing.Size(1381, 777);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.pnlHeader);
             this.Controls.Add(this.pnlSystemTitle);
             this.Controls.Add(this.pnlStaffHeader);
             this.Controls.Add(this.pnlCustOrder);
@@ -4307,7 +4485,6 @@
             this.Controls.Add(this.pnlReports);
             this.Controls.Add(this.pnlDelivery);
             this.Controls.Add(this.pnlReservation);
-            this.Controls.Add(this.pnlHeader);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AdminMainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -4324,12 +4501,12 @@
             this.groupBox10.PerformLayout();
             this.gbOrderPayment.ResumeLayout(false);
             this.gbOrderPayment.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvReservation)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAddToCart)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDelivery)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvReservation)).EndInit();
+            this.gbReservation.ResumeLayout(false);
             this.gbDelivery.ResumeLayout(false);
             this.gbWalkin.ResumeLayout(false);
-            this.gbReservation.ResumeLayout(false);
             this.pnlProReg.ResumeLayout(false);
             this.pnlProReg.PerformLayout();
             this.bgProductsBtn.ResumeLayout(false);
@@ -4366,11 +4543,13 @@
             this.groupBox6.PerformLayout();
             this.pnlDelivery.ResumeLayout(false);
             this.pnlDelivery.PerformLayout();
+            this.groupBox5.ResumeLayout(false);
             this.groupBox19.ResumeLayout(false);
             this.groupBox19.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCustDelivery)).EndInit();
             this.pnlReservation.ResumeLayout(false);
             this.pnlReservation.PerformLayout();
+            this.groupBox11.ResumeLayout(false);
             this.groupBox20.ResumeLayout(false);
             this.groupBox20.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCustReservation)).EndInit();
@@ -4450,19 +4629,17 @@
         private System.Windows.Forms.TextBox txtpro_price;
         private System.Windows.Forms.TextBox txtpro_name;
         private System.Windows.Forms.DataGridView dgvDelivery;
-        private System.Windows.Forms.DataGridView dgvReservation;
-        private System.Windows.Forms.GroupBox gbWalkin;
         private System.Windows.Forms.Button btnAddOrder;
         private System.Windows.Forms.Button btnCancelOrder;
         private System.Windows.Forms.Button btnPrintOrder;
         private System.Windows.Forms.GroupBox gbDelivery;
-        private System.Windows.Forms.Button btnDel;
+        private System.Windows.Forms.Button btnPrintDelivery;
         private System.Windows.Forms.Button btnCancelDel;
         private System.Windows.Forms.Button btnAddDelivery;
         private System.Windows.Forms.GroupBox gbReservation;
         private System.Windows.Forms.Button btnResPro;
         private System.Windows.Forms.Button CancelRes;
-        private System.Windows.Forms.Button btnRes;
+        private System.Windows.Forms.Button btnPrintReseservation;
         private System.Windows.Forms.Panel pnlProReg;
         private System.Windows.Forms.GroupBox bgProductsBtn;
         private System.Windows.Forms.Button btnAddProduct;
@@ -4618,7 +4795,6 @@
         private System.Windows.Forms.Label lblDate;
         private System.Windows.Forms.Label lblTotal;
         private System.Windows.Forms.GroupBox groupBox19;
-        private System.Windows.Forms.ComboBox cmbDelStatus;
         private System.Windows.Forms.Button btnUpdateDelivery;
         private System.Windows.Forms.TextBox txtCustomerName;
         private System.Windows.Forms.TextBox txtDeliveryDate;
@@ -4638,7 +4814,6 @@
         private System.Windows.Forms.Button btnResStatus;
         private System.Windows.Forms.Button btnDelStatus;
         private System.Windows.Forms.GroupBox groupBox20;
-        private System.Windows.Forms.ComboBox cmbReservationStatus;
         private System.Windows.Forms.Button btnUpdateResPro;
         private System.Windows.Forms.TextBox txtCName;
         private System.Windows.Forms.TextBox txtClaimDate;
@@ -4651,7 +4826,6 @@
         private System.Windows.Forms.Label label88;
         private System.Windows.Forms.Label label89;
         private System.Windows.Forms.Label label90;
-        private System.Windows.Forms.Label label91;
         private System.Windows.Forms.Label label92;
         private System.Windows.Forms.Label label93;
         private System.Windows.Forms.TextBox txtSearchReservation;
@@ -4721,5 +4895,24 @@
         private System.Windows.Forms.Label lblStockIn;
         private System.Windows.Forms.Label lblStockOut;
         private System.Windows.Forms.Label lblRemain;
+        public System.Windows.Forms.DataGridView dgvReservation;
+        public System.Windows.Forms.GroupBox gbWalkin;
+        public System.Windows.Forms.TextBox txtTin;
+        private System.Windows.Forms.Label label52;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.TextBox txtTotalPrice;
+        private System.Windows.Forms.TextBox txtProductCode;
+        private System.Windows.Forms.Label label61;
+        private System.Windows.Forms.Label label55;
+        private System.Windows.Forms.TextBox txtStatus;
+        private System.Windows.Forms.Button btnCancelDelivery;
+        private System.Windows.Forms.GroupBox groupBox11;
+        private System.Windows.Forms.Button btnClear;
+        private System.Windows.Forms.TextBox txtPStatus;
+        private System.Windows.Forms.TextBox txtPTotal;
+        private System.Windows.Forms.TextBox txtPCode;
+        private System.Windows.Forms.Label label101;
+        private System.Windows.Forms.Label label98;
+        private System.Windows.Forms.Label label75;
     }
 }

@@ -40,6 +40,7 @@
             this.lblEndDate = new System.Windows.Forms.Label();
             this.elementHost1 = new System.Windows.Forms.Integration.ElementHost();
             this.salesreportForm = new LactoBioticsSystem.Reports.SalesReportsForm();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picboxPUclose)).BeginInit();
             this.SuspendLayout();
             // 
@@ -161,12 +162,24 @@
             this.elementHost1.Text = "elementHost1";
             this.elementHost1.Child = this.salesreportForm;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.LightGray;
+            this.label1.Location = new System.Drawing.Point(851, 165);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(82, 17);
+            this.label1.TabIndex = 57;
+            this.label1.Text = "Report Type:";
+            // 
             // ViewSalesReportsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(44)))), ((int)(((byte)(46)))));
             this.ClientSize = new System.Drawing.Size(1040, 622);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.lblEndDate);
             this.Controls.Add(this.lblStartDate);
             this.Controls.Add(this.cmbbox_filter);
@@ -201,5 +214,6 @@
         private System.Windows.Forms.Label lblEndDate;
         private System.Windows.Forms.Integration.ElementHost elementHost1;
         private Reports.SalesReportsForm salesreportForm;
+        private System.Windows.Forms.Label label1;
     }
 }

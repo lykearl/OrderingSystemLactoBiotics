@@ -33,13 +33,14 @@
             this.picboxPUclose = new System.Windows.Forms.PictureBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.cmbbox_filter = new System.Windows.Forms.ComboBox();
             this.datepicker_enddate = new System.Windows.Forms.DateTimePicker();
             this.datepicker_startDate = new System.Windows.Forms.DateTimePicker();
             this.elementHost1 = new System.Windows.Forms.Integration.ElementHost();
             this.inventoryReportXAML1 = new LactoBioticsSystem.Reports.InventoryReportXAML();
             this.lblEndDate = new System.Windows.Forms.Label();
             this.lblStartDate = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cmbbox_filter = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.picboxPUclose)).BeginInit();
             this.SuspendLayout();
             // 
@@ -92,22 +93,6 @@
             this.label7.Text = "_________________________________________________________________________________" +
     "______________________________";
             // 
-            // cmbbox_filter
-            // 
-            this.cmbbox_filter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbbox_filter.FormattingEnabled = true;
-            this.cmbbox_filter.Items.AddRange(new object[] {
-            "Daily",
-            "Weekly",
-            "Monthly",
-            "Custom"});
-            this.cmbbox_filter.Location = new System.Drawing.Point(832, 197);
-            this.cmbbox_filter.Margin = new System.Windows.Forms.Padding(2);
-            this.cmbbox_filter.Name = "cmbbox_filter";
-            this.cmbbox_filter.Size = new System.Drawing.Size(92, 21);
-            this.cmbbox_filter.TabIndex = 56;
-            this.cmbbox_filter.SelectedIndexChanged += new System.EventHandler(this.Cmbbox_filter_SelectedIndexChanged);
-            // 
             // datepicker_enddate
             // 
             this.datepicker_enddate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
@@ -158,16 +143,44 @@
             this.lblStartDate.TabIndex = 58;
             this.lblStartDate.Text = "Start Date:";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.LightGray;
+            this.label1.Location = new System.Drawing.Point(835, 178);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(82, 17);
+            this.label1.TabIndex = 59;
+            this.label1.Text = "Report Type:";
+            // 
+            // cmbbox_filter
+            // 
+            this.cmbbox_filter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbbox_filter.FormattingEnabled = true;
+            this.cmbbox_filter.Items.AddRange(new object[] {
+            "Daily",
+            "Weekly",
+            "Monthly",
+            "Custom"});
+            this.cmbbox_filter.Location = new System.Drawing.Point(833, 197);
+            this.cmbbox_filter.Margin = new System.Windows.Forms.Padding(2);
+            this.cmbbox_filter.Name = "cmbbox_filter";
+            this.cmbbox_filter.Size = new System.Drawing.Size(92, 21);
+            this.cmbbox_filter.TabIndex = 60;
+            this.cmbbox_filter.SelectedIndexChanged += new System.EventHandler(this.Cmbbox_filter_SelectedIndexChanged);
+            // 
             // ViewInventoryReportsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(44)))), ((int)(((byte)(46)))));
             this.ClientSize = new System.Drawing.Size(1025, 621);
+            this.Controls.Add(this.cmbbox_filter);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.lblEndDate);
             this.Controls.Add(this.lblStartDate);
             this.Controls.Add(this.elementHost1);
-            this.Controls.Add(this.cmbbox_filter);
             this.Controls.Add(this.datepicker_enddate);
             this.Controls.Add(this.datepicker_startDate);
             this.Controls.Add(this.label8);
@@ -190,12 +203,13 @@
         private System.Windows.Forms.PictureBox picboxPUclose;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox cmbbox_filter;
         private System.Windows.Forms.DateTimePicker datepicker_enddate;
         private System.Windows.Forms.DateTimePicker datepicker_startDate;
         private System.Windows.Forms.Integration.ElementHost elementHost1;
         private Reports.InventoryReportXAML inventoryReportXAML1;
         private System.Windows.Forms.Label lblEndDate;
         private System.Windows.Forms.Label lblStartDate;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox cmbbox_filter;
     }
 }

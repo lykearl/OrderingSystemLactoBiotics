@@ -49,7 +49,7 @@ namespace LactoBioticsSystem.Products_Management
             for(int  i = 0; i < dgvStocks.Rows.Count; i ++)
             {
                 int val = Int32.Parse(dgvStocks.Rows[i].Cells[6].Value.ToString());
-                if (val <= 5)
+                if (val <= 20)
                 {
                     dgvStocks.Rows[i].DefaultCellStyle.BackColor = Color.Red;
                 }

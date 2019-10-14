@@ -58,7 +58,7 @@ namespace LactoBioticsSystem
         private void updateSalesReportTable()
         {
             filteredSalesReport = (from sales in db.SalesReports where sales.Date.Value.Date >= datepicker_startDate.Value.Date && sales.Date.Value.Date <= datepicker_enddate.Value.Date.Date select sales);
-            salesreportForm.DataContext = new SalesReportViewModel() { SalesReports = filteredSalesReport.ToList(), Total = (double)filteredSalesReport.Sum(f => f.TotalPrice) };
+            salesreportForm.DataContext = new SalesReportViewModel() { SalesReports = filteredSalesReport.ToList(), Total = (double)filteredSalesReport.Sum(f => f.TotalAmount) };
         }
 
         private void ComboBox1_SelectedValueChanged(object sender, EventArgs e)
@@ -71,7 +71,7 @@ namespace LactoBioticsSystem
                 case "Monthly": filteredSalesReport = (from sales in db.SalesReports where sales.Date.Value.Date >= DateTime.Now.AddMonths(-1).Date && sales.Date.Value.Date <= DateTime.Now.Date select sales); break;
                 case "Custom": toggleDatePickerVisibility(true); break;
             }
-            salesreportForm.DataContext = new SalesReportViewModel() { SalesReports = filteredSalesReport.ToList(), Total = (double)filteredSalesReport.Sum(f => f.TotalPrice) };
+            salesreportForm.DataContext = new SalesReportViewModel() { SalesReports = filteredSalesReport.ToList(), Total = (double)filteredSalesReport.Sum(f => f.TotalAmount) };
         }
         private void toggleDatePickerVisibility(bool boolean)
         {
