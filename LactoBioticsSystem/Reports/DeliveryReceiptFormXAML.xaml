@@ -1,13 +1,12 @@
-﻿<UserControl
-    x:Class="LactoBioticsSystem.Reports.SalesInvoiceFormXAML"
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:local="clr-namespace:LactoBioticsSystem.Reports"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    d:DesignHeight="1600"
-    d:DesignWidth="900"
-    mc:Ignorable="d">
+﻿<UserControl x:Class="LactoBioticsSystem.Reports.DeliveryReceiptFormXAML"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:LactoBioticsSystem.Reports"
+             mc:Ignorable="d" 
+             d:DesignHeight="1248"
+             d:DesignWidth="816">
     <Grid>
         <FlowDocumentScrollViewer HorizontalAlignment="Center">
             <FlowDocument
@@ -18,9 +17,9 @@
                 <BlockUIContainer>
                     <Grid>
                         <StackPanel HorizontalAlignment="Center">
-                            <Image Width="500" Source="C:\Users\Neil\Source\Repos\OrderingSystemLactoBiotics\LactoBioticsSystem\rsz_1lacto_biotics_logo_.png" />
+                            <Image Width="600" Source="C:\Users\Neil\Source\Repos\OrderingSystemLactoBiotics\LactoBioticsSystem\rsz_1lacto_biotics_logo_.png" />
                             <TextBlock HorizontalAlignment="Center">G.D. Uyfang Bldg., Sanciangko St., Pahina Central Cebu City | TIN 232-290-551-001 VAT Reg</TextBlock>
-                            <Label Content="SALES INVOICE" FontSize="25" />
+                            <Label Content="Delivery Receipt" FontSize="25" />
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock Width="350">
                                     <Run Text="Sold to: " />
@@ -32,7 +31,7 @@
                                 </TextBlock>
                                 <TextBlock>
                                     <Run Text="Date: " />
-                                    <Run Text="{Binding Items[0].Date, StringFormat=d}" />
+                                    <Run Text="{Binding Items[0].date, StringFormat=d}" />
                                 </TextBlock>
                             </StackPanel>
                             <StackPanel Margin="0,10,0,0" Orientation="Horizontal">
@@ -47,20 +46,6 @@
                                 <TextBlock>
                                     <Run Text="Terms: " />
                                     <Run />
-                                </TextBlock>
-                            </StackPanel>
-                            <StackPanel Margin="0,10,0,0" Orientation="Horizontal">
-                                <TextBlock Width="350">
-                                    <Run Text="OSCA/PWD ID No: " />
-                                    <Run />
-                                </TextBlock>
-                                <TextBlock Width="250">
-                                    <Run Text="OSCA/PWD ID No: " />
-                                    <Run Text="{Binding BusinessStyle}" />
-                                </TextBlock>
-                                <TextBlock>
-                                    <Run Text="Signature: " />
-                                    <Run Text="______________" />
                                 </TextBlock>
                             </StackPanel>
                             <DataGrid

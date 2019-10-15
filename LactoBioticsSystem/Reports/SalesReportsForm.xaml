@@ -5,42 +5,38 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:LactoBioticsSystem.Reports"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    d:DesignHeight="450"
-    d:DesignWidth="800"
+    d:DesignHeight="1248"
+    d:DesignWidth="816"
     mc:Ignorable="d">
     <StackPanel Background="White">
         <FlowDocumentReader ViewingMode="Page">
             <FlowDocument
                 x:Name="fd_document"
-                ColumnWidth="13in"
-                PageHeight="8.5in"
-                PageWidth="13in">
+                ColumnWidth="8.5in"
+                PageHeight="13in"
+                PageWidth="8.5in">
                 <BlockUIContainer>
                     <StackPanel>
-                        <Image Width="500" Source="/rsz_1lacto_biotics_logo_.png" />
+                        <Image Width="600" Source="C:\Users\Neil\Source\Repos\OrderingSystemLactoBiotics\LactoBioticsSystem\rsz_1lacto_biotics_logo_.png" />
                         <Grid>
                             <TextBlock HorizontalAlignment="Center">
-                                <Run Text="G.D. Uyfang Bldg., Sanciangko St., Pahina Central Cebu City " />
+                                <Run Text="G.D. Uyfang Bldg., Sanciangko St., Pahina Central Cebu City | TIN 232-290-551-001 VAT Reg" />
                                 <LineBreak />
                             </TextBlock>
                         </Grid>
+                       
+                        <TextBlock HorizontalAlignment="Center" FontSize="30">Sales Report</TextBlock>
                         <Grid>
-                            <TextBlock>
-                                <Run Text="Printed By: " />
-                                <Run Text="{Binding User.UserFname}" />
-                                <Run Text=" " />
-                                <Run Text="{Binding User.UserLname}" />
-                            </TextBlock>
                             <TextBlock HorizontalAlignment="Right">
                                 <Run Text="Date: " />
                                 <Run Text="{Binding Now.Date, Mode=OneTime, StringFormat=d}" />
                             </TextBlock>
                         </Grid>
-                        <TextBlock HorizontalAlignment="Center" FontSize="30">Sales Report</TextBlock>
+                        <TextBlock HorizontalAlignment="Center" FontSize="10"></TextBlock>
                         <DataGrid
                             AutoGenerateColumns="False"
                             ColumnWidth="1*"
-                            IsReadOnly="False"
+                            IsReadOnly="True"
                             ItemsSource="{Binding SalesReports}">
                             <DataGrid.Columns>
                                 <DataGridTextColumn Binding="{Binding ProductCode}" Header="Product Code" />
@@ -48,10 +44,9 @@
                                 <DataGridTextColumn Binding="{Binding Product.ProductCategory}" Header="Category" />
                                 <DataGridTextColumn Binding="{Binding Product.ProductPrice}" Header="Price" />
                                 <DataGridTextColumn Binding="{Binding OrderQuantity}" Header="Quantity" />
-                                <DataGridTextColumn Binding="{Binding TotalPrice}" Header="Total" />
-                                <DataGridTextColumn Binding="{Binding Product.ProductDescription}" Header="Description" />
-                                <DataGridTextColumn Binding="{Binding CustomerID}" Header="CustomerID" />
-                                <DataGridTextColumn Binding="{Binding UserID}" Header="UserID" />
+                                <DataGridTextColumn Binding="{Binding TotalAmount}" Header="Total" />
+                                <DataGridTextColumn Binding="{Binding Customer.CustomerName}" Header="Customer Name" />
+                                <DataGridTextColumn Binding="{Binding UserAccount.Username}" Header="Processed By" />
                                 <DataGridTextColumn Binding="{Binding Date}" Header="Date" />
                             </DataGrid.Columns>
                         </DataGrid>

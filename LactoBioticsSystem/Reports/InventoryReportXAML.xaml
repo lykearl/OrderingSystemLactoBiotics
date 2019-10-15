@@ -7,8 +7,8 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Width="{Binding Path=ActualWidth, RelativeSource={RelativeSource AncestorType={x:Type ContentPresenter}}}"
     Height="{Binding Path=ActualHeight, RelativeSource={RelativeSource AncestorType={x:Type ContentPresenter}}}"
-    d:DesignHeight="816"
-    d:DesignWidth="1248"
+    d:DesignHeight="1248"
+    d:DesignWidth="816"
     DataContext="{Binding RelativeSource={RelativeSource Self}}"
     mc:Ignorable="d">
     <Grid Background="White">
@@ -19,26 +19,21 @@
                 PageHeight="13in">
                 <BlockUIContainer>
                     <StackPanel Orientation="Vertical">
-                        <Image Width="500" Source="/rsz_1lacto_biotics_logo_.png" />
+                        <Image Width="600" Source="C:\Users\Neil\Source\Repos\OrderingSystemLactoBiotics\LactoBioticsSystem\rsz_1lacto_biotics_logo_.png" />
                         <Grid>
                             <TextBlock HorizontalAlignment="Center">
-                                <Run Text="G.D. Uyfang Bldg., Sanciangko St., Pahina Central Cebu City " />
+                                <Run Text="G.D. Uyfang Bldg., Sanciangko St., Pahina Central Cebu City | TIN 232-290-551-001 VAT Reg" />
                                 <LineBreak />
                             </TextBlock>
                         </Grid>
+                        <TextBlock HorizontalAlignment="Center" FontSize="30">Inventory Report</TextBlock>
                         <Grid>
-                            <TextBlock HorizontalAlignment="Left">
-                                <Run Text="Printed By: " />
-                                <Run Text="{Binding User.UserFname}" />
-                                <Run Text=" " />
-                                <Run Text="{Binding User.UserLname}" />
-                            </TextBlock>
                             <TextBlock HorizontalAlignment="Right">
                                 <Run Text="Date Printed: " />
                                 <Run Text="{Binding Now.Date, Mode=OneWay}" />
                             </TextBlock>
                         </Grid>
-                        <TextBlock HorizontalAlignment="Center" FontSize="30">Inventory Report</TextBlock>
+                        <TextBlock HorizontalAlignment="Center" FontSize="10"></TextBlock>
                         <GroupBox Margin="0,0,0,25" Header="Food Supplement">
                             <DataGrid
                                 AutoGenerateColumns="False"

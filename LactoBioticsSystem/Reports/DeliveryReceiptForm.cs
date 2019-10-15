@@ -11,27 +11,27 @@ using System.Windows.Forms;
 
 namespace LactoBioticsSystem.Reports
 {
-    public partial class SalesInvoiceForm : Form
+    public partial class DeliveryReceiptForm : Form
     {
         DatabaseDataContext db = new DatabaseDataContext();
-        public class SalesInvoice
+        public class Delivery
         {
             public UserAccount User { get; set; } = ClsLogin.User;
-            public List<AddToCart> Items { get; set; }
+            public List<DeliveryCart> Items { get; set; }
             public string BusinessStyle { get; set; }
         }
-        public SalesInvoiceForm()
+        public DeliveryReceiptForm()
         {
             InitializeComponent();
 
-            var x = new SalesInvoice() { Items = (from addToCarts in db.AddToCarts select addToCarts).ToList() };
+            var x = new Delivery() { Items = (from delivery in db.DeliveryCarts select delivery).ToList() };
             x.BusinessStyle = (from c in db.Customers where c.CustomerId == x.Items[0].CustomerID select c.BusinessStyle).FirstOrDefault();
-            salesInvoiceFormXAML1.DataContext = x;
+            deliveryReceiptFormXAML1.DataContext = x;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnPrint_Click(object sender, EventArgs e)
         {
-          
+            Print(deliveryReceiptFormXAML1.fd_documents);
         }
         private void Print(FlowDocument fd)
         {
@@ -51,9 +51,9 @@ namespace LactoBioticsSystem.Reports
             }
         }
 
-        private void btnPrint_Click(object sender, EventArgs e)
+        private void DeliveryReceiptForm_Load(object sender, EventArgs e)
         {
-            Print(salesInvoiceFormXAML1.fd_documents);
+
         }
     }
 }

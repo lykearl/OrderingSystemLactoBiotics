@@ -31,6 +31,7 @@ namespace LactoBioticsSystem
         public ViewInventoryReportsForm()
         {
             InitializeComponent();
+            cmbbox_filter.SelectedItem = cmbbox_filter.Items[0];
         }
         private void ViewInventoryForm_Load(object sender, EventArgs e)
         {
@@ -52,6 +53,27 @@ namespace LactoBioticsSystem
         {
             Print(inventoryReportXAML1.fd_InventoryReport);
         }
+        private void Datepicker_startDate_ValueChanged(object sender, EventArgs e)
+        {
+            updateInventoryReportTable();
+        }
+        private void Datepicker_enddate_ValueChanged(object sender, EventArgs e)
+        {
+            updateInventoryReportTable();
+        }
+        private void updateInventoryReportTable()
+        {
+            var prodInv = (from sales in db.ProductsInventories where sales.Date.Value.Date >= datepicker_startDate.Value.Date && sales.Date.Value.Date <= datepicker_enddate.Value.Date.Date select sales);
+            var foodsupplements = (from fs in prodInv where fs.Product.ProductCategory == "Food Suppliments" select fs).ToList();
+            var agriproducts = (from fs in prodInv where fs.Product.ProductCategory == "Agricultural Products" select fs).ToList();
+            var cosmetics = (from fs in prodInv where fs.Product.ProductCategory == "Cosmetics" select fs).ToList();
+            var cape = (from fs in prodInv where fs.Product.ProductCategory == "Cape" select fs).ToList();
+            if (filteredInventories.Count() > 0)
+                inventoryReportXAML1.DataContext = new InventoryReport { AgriProducts = agriproducts, FoodSupplement = foodsupplements, Cosmetics = cosmetics, CAPE = cape };
+            else
+                inventoryReportXAML1.DataContext = null;
+        }
+
         public void Print(FlowDocument fd)
         {
             var pd = new System.Windows.Controls.PrintDialog();

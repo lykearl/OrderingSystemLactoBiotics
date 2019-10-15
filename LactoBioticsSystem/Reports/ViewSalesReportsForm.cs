@@ -58,7 +58,11 @@ namespace LactoBioticsSystem
         private void updateSalesReportTable()
         {
             filteredSalesReport = (from sales in db.SalesReports where sales.Date.Value.Date >= datepicker_startDate.Value.Date && sales.Date.Value.Date <= datepicker_enddate.Value.Date.Date select sales);
-            salesreportForm.DataContext = new SalesReportViewModel() { SalesReports = filteredSalesReport.ToList(), Total = (double)filteredSalesReport.Sum(f => f.TotalAmount) };
+            if (filteredSalesReport.Count() > 0)
+                salesreportForm.DataContext = new SalesReportViewModel() { SalesReports = filteredSalesReport.ToList(), Total = (double)filteredSalesReport.Sum(f => f.TotalAmount) };
+            else
+                salesreportForm.DataContext = new SalesReportViewModel() { SalesReports = null, Total = 0 };
+
         }
 
         private void ComboBox1_SelectedValueChanged(object sender, EventArgs e)

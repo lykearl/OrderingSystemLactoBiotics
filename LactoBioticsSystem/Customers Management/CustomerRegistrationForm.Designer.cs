@@ -47,6 +47,10 @@
             this.picboxCRclose = new System.Windows.Forms.PictureBox();
             this.lblUserID = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.label6 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picboxCRclose)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
@@ -56,10 +60,14 @@
             // 
             this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(60)))), ((int)(((byte)(70)))));
             this.groupBox1.Controls.Add(this.txtName);
+            this.groupBox1.Controls.Add(this.textBox2);
+            this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Controls.Add(this.txtContact);
             this.groupBox1.Controls.Add(this.btnAdd);
             this.groupBox1.Controls.Add(this.txtTin);
+            this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.txtBstyle);
+            this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.txtAddress);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label9);
@@ -71,7 +79,7 @@
             this.groupBox1.ForeColor = System.Drawing.Color.White;
             this.groupBox1.Location = new System.Drawing.Point(61, 58);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(330, 423);
+            this.groupBox1.Size = new System.Drawing.Size(330, 510);
             this.groupBox1.TabIndex = 32;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Customer Details";
@@ -95,6 +103,7 @@
             this.txtContact.Name = "txtContact";
             this.txtContact.Size = new System.Drawing.Size(250, 25);
             this.txtContact.TabIndex = 3;
+            this.txtContact.TextChanged += new System.EventHandler(this.txtContact_TextChanged);
             this.txtContact.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtContact_KeyPress);
             // 
             // btnAdd
@@ -104,7 +113,7 @@
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnAdd.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd.ForeColor = System.Drawing.Color.White;
-            this.btnAdd.Location = new System.Drawing.Point(89, 355);
+            this.btnAdd.Location = new System.Drawing.Point(96, 453);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(132, 36);
             this.btnAdd.TabIndex = 5;
@@ -153,6 +162,7 @@
             this.label2.Size = new System.Drawing.Size(80, 17);
             this.label2.TabIndex = 16;
             this.label2.Text = "Contact No.";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label9
             // 
@@ -240,7 +250,7 @@
             // lblUserID
             // 
             this.lblUserID.AutoSize = true;
-            this.lblUserID.Location = new System.Drawing.Point(429, 339);
+            this.lblUserID.Location = new System.Drawing.Point(360, 339);
             this.lblUserID.Name = "lblUserID";
             this.lblUserID.Size = new System.Drawing.Size(10, 13);
             this.lblUserID.TabIndex = 33;
@@ -250,19 +260,68 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(44, 339);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(127, 17);
+            this.label6.TabIndex = 16;
+            this.label6.Text = "OSCA / PWD ID No.";
+            this.label6.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // textBox1
+            // 
+            this.textBox1.BackColor = System.Drawing.Color.White;
+            this.textBox1.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.ForeColor = System.Drawing.Color.Black;
+            this.textBox1.Location = new System.Drawing.Point(41, 360);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(250, 25);
+            this.textBox1.TabIndex = 3;
+            this.textBox1.TextChanged += new System.EventHandler(this.txtContact_TextChanged);
+            this.textBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtContact_KeyPress);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.White;
+            this.label7.Location = new System.Drawing.Point(44, 388);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(81, 17);
+            this.label7.TabIndex = 16;
+            this.label7.Text = "Card Holder";
+            this.label7.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // textBox2
+            // 
+            this.textBox2.BackColor = System.Drawing.Color.White;
+            this.textBox2.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.ForeColor = System.Drawing.Color.Black;
+            this.textBox2.Location = new System.Drawing.Point(41, 409);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(250, 25);
+            this.textBox2.TabIndex = 3;
+            this.textBox2.TextChanged += new System.EventHandler(this.txtContact_TextChanged);
+            this.textBox2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtContact_KeyPress);
+            // 
             // CustomerRegistrationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(44)))), ((int)(((byte)(46)))));
-            this.ClientSize = new System.Drawing.Size(452, 527);
-            this.Controls.Add(this.lblUserID);
+            this.ClientSize = new System.Drawing.Size(452, 616);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.picboxCRclose);
+            this.Controls.Add(this.lblUserID);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "CustomerRegistrationForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CustomerRegistrationForm";
+            this.Load += new System.EventHandler(this.CustomerRegistrationForm_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picboxCRclose)).EndInit();
@@ -291,5 +350,9 @@
         public System.Windows.Forms.TextBox txtBstyle;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        public System.Windows.Forms.TextBox textBox2;
+        public System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
     }
 }
